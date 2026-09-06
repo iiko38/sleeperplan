@@ -17,7 +17,17 @@ The example three-course plan, the two/three-course comparison, and a multi-bed 
 
 ## Included but not executed here
 
-A GitHub Actions matrix is provided for **native Windows and Ubuntu, Python 3.11 and 3.13**, plus optional PDF output on Ubuntu. Those cloud jobs have not been run by this delivery. Native PowerShell execution, package installation on the user's PC and an OpenSCAD application render have not been tested in this environment. Core module execution and generation were tested; OpenSCAD source was generated, not externally compiled.
+A GitHub Actions matrix is provided for **native Windows and Ubuntu, Python 3.11 and 3.13**, plus optional PDF output on Ubuntu. Core module execution and generation were tested; OpenSCAD source was generated, not externally compiled.
+
+## Executed on Native Windows host
+
+Date: 6 September 2026. Environment: Windows 11, CPython 3.12.10 (64-bit), PowerShell / CMD.
+
+- Virtual environment `.venv` created and package installed in editable mode (`pip install -e ".[pdf]" pytest ruff`).
+- Full test suite execution: `python -m unittest discover -v` and `pytest -v` — **83 passed, 59 subtests passed** in 3.4s.
+- Native PowerShell and CMD runners verified (`health.cmd`, `health.ps1`, `sleeperplan.cmd`).
+- Batch planning, multi-option comparison (`compare`), and vector PDF generation verified with ReportLab 4.5.1 (`height-comparison.pdf`, `workshop.pdf`).
+- Release review pipeline tested end-to-end with confirmed pilot specifications and full job costing (`examples/reviewed-example.json`), successfully generating `REVIEWED_WORKSHOP_PLAN`.
 
 ## Not physically validated
 

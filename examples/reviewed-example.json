@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "name": "Reviewed workshop build - 2 courses, 2400x1200 mm",
+  "catalogue": "../catalogues/wickes-reviewed-2026-09-06.json",
+  "orientation": "edge",
+  "beds": [
+    {
+      "id": "front",
+      "length_mm": 2400,
+      "width_mm": 1200,
+      "courses": 2,
+      "quantity": 1,
+      "corner_pattern": "alternating",
+      "freeboard_mm": 50,
+      "access_sides": 2,
+      "site_type": "level_open_ground"
+    }
+  ],
+  "rules": {
+    "kerf_mm": 3,
+    "screw_spares_percent": 10,
+    "max_search_steps": 300000
+  },
+  "inventory": [],
+  "costs": {
+    "labour_minutes": 180,
+    "labour_rate_pence_per_hour": 3500,
+    "target_margin_bps": 2500,
+    "extras": [
+      {
+        "id": "transport",
+        "description": "Collection travel and van load",
+        "quantity": 1,
+        "unit": "job",
+        "unit_price_pence": 2500
+      },
+      {
+        "id": "site_preparation",
+        "description": "Ground levelling and clearing",
+        "quantity": 1,
+        "unit": "job",
+        "unit_price_pence": 3000
+      },
+      {
+        "id": "supports",
+        "description": "Base timber levelling packing & pins",
+        "quantity": 1,
+        "unit": "job",
+        "unit_price_pence": 1500
+      },
+      {
+        "id": "liner",
+        "description": "Heavy duty geotextile membrane liner",
+        "quantity": 1,
+        "unit": "job",
+        "unit_price_pence": 1200
+      },
+      {
+        "id": "preservative",
+        "description": "Cut-end timber treatment preservative",
+        "quantity": 1,
+        "unit": "job",
+        "unit_price_pence": 1400
+      },
+      {
+        "id": "fill",
+        "description": "Topsoil and compost mix bulk supply",
+        "quantity": 1,
+        "unit": "job",
+        "unit_price_pence": 6500
+      },
+      {
+        "id": "consumables",
+        "description": "Saw blade wear, driver bits, PPE",
+        "quantity": 1,
+        "unit": "job",
+        "unit_price_pence": 800
+      }
+    ]
+  },
+  "review": {
+    "timber_and_kerf_measured": true,
+    "site_and_supports_reviewed": true,
+    "fixing_schedule_reviewed": true,
+    "reviewer": "Jake",
+    "reviewed_on": "2026-09-06",
+    "notes": "Verified dimensions, site levelness, and pilot holes on shop test timber."
+  },
+  "notes": "Fully reviewed and costed 2-course bed ready for release."
+}
