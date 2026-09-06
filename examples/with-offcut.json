@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "name": "Offcut example - explicitly measured existing timber",
+  "catalogue": "../catalogues/wickes-2026-09-06.json",
+  "orientation": "edge",
+  "beds": [
+    {
+      "id": "side",
+      "length_mm": 1800,
+      "width_mm": 900,
+      "courses": 3,
+      "quantity": 1,
+      "corner_pattern": "alternating",
+      "freeboard_mm": 50,
+      "access_sides": 2,
+      "site_type": "level_open_ground"
+    }
+  ],
+  "rules": {
+    "kerf_mm": 3,
+    "screw_spares_percent": 10,
+    "max_search_steps": 300000
+  },
+  "inventory": [
+    {
+      "id": "shed-offcut-01",
+      "length_mm": 1000,
+      "quantity": 1,
+      "price_pence": 0,
+      "trim_start_mm": 0,
+      "trim_end_mm": 0
+    }
+  ],
+  "costs": {
+    "labour_minutes": null,
+    "labour_rate_pence_per_hour": null,
+    "target_margin_bps": null,
+    "extras": []
+  },
+  "review": {
+    "timber_and_kerf_measured": false,
+    "site_and_supports_reviewed": false,
+    "fixing_schedule_reviewed": false,
+    "reviewer": "",
+    "reviewed_on": "",
+    "notes": ""
+  },
+  "notes": "EXAMPLE ONLY. Same timber section throughout. Uninterrupted sides, no mid-side splices. This is not the neighbour's confirmed design."
+}

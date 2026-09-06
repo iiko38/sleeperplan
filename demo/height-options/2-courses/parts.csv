@@ -1,0 +1,9 @@
+﻿id,stock_board,bed_id,course,side,axis,length_mm,thickness_mm,height_mm,x_mm,y_mm,z_mm,through_at_corners
+front-01-C1-S,B002,front-01,1,S,X,2400,100,200,0,0,0,True
+front-01-C1-N,B001,front-01,1,N,X,2400,100,200,0,1100,0,True
+front-01-C1-W,B006,front-01,1,W,Y,1000,100,200,0,100,0,False
+front-01-C1-E,B005,front-01,1,E,Y,1000,100,200,2300,100,0,False
+front-01-C2-S,B004,front-01,2,S,X,2200,100,200,100,0,200,False
+front-01-C2-N,B003,front-01,2,N,X,2200,100,200,100,1100,200,False
+front-01-C2-W,B006,front-01,2,W,Y,1200,100,200,0,0,200,True
+front-01-C2-E,B005,front-01,2,E,Y,1200,100,200,2300,0,200,True

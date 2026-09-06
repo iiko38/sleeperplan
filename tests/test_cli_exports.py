@@ -1,0 +1,89 @@
+import csv
+import importlib.util
+import json
+from pathlib import Path
+import subprocess
+import sys
+import tempfile
+import unittest
+import xml.etree.ElementTree as ET
+from sleeperplan.drawing import iso_scene,layer_scene,piece_scene,comparison_scene,scad_model
+from sleeperplan.export import export_plan,csv_rows
+from sleeperplan.model import PlanError
+from sleeperplan.planner import plan
+from .helpers import job,TODAY,ROOT
+
+class ExportTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):cls.p=plan(job(),TODAY)
+
+    def test_svg_is_valid_xml(self):
+        p=self.p;b=p['beds'][0]
+        scenes=[iso_scene(p,b),layer_scene(p,b,2),piece_scene(p,p['pieces'][4]),comparison_scene([p,p],'front')]
+        for s in scenes:self.assertEqual(ET.fromstring(s.svg()).tag,'{http://www.w3.org/2000/svg}svg')
+
+    def test_export_complete_and_reproducible(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            a,b=Path(tmp)/'a',Path(tmp)/'b';export_plan(self.p,a);export_plan(self.p,b)
+            for f in a.rglob('*'):
+                if f.is_file():self.assertEqual(f.read_bytes(),(b/f.relative_to(a)).read_bytes())
+            self.assertTrue((a/'plan.json').exists());self.assertTrue((a/'model.scad').exists())
+            self.assertEqual(len(list((a/'drawings').glob('*fixings.svg'))),12)
+            with (a/'parts.csv').open(encoding='utf-8-sig',newline='') as f:rows=list(csv.DictReader(f))
+            self.assertEqual(len(rows),12);self.assertTrue(all(r['stock_board'] for r in rows))
+
+    def test_existing_output_is_not_overwritten(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            with self.assertRaises(PlanError):export_plan(self.p,tmp)
+
+    def test_csv_formula_injection_protection(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            path=Path(tmp)/'data.csv';csv_rows(path,[{'label':'=2+2','number':-1}],['label','number'])
+            with path.open(encoding='utf-8-sig',newline='') as f:r=next(csv.DictReader(f))
+            self.assertEqual(r['label'],"'=2+2");self.assertEqual(r['number'],'-1')
+
+    def test_scad_uses_model_dimensions(self):
+        scad=scad_model(self.p)
+        self.assertIn('cube([2400, 100, 200])',scad)
+        self.assertIn('explode_mm = 0',scad)
+        self.assertIn('front-01-C3-S',scad)
+
+    @unittest.skipUnless(importlib.util.find_spec('reportlab'),'Optional PDF dependency absent')
+    def test_optional_pdf_generation(self):
+        from sleeperplan.pdf import write_workshop_pdf
+        with tempfile.TemporaryDirectory() as tmp:
+            a,b=Path(tmp)/'a.pdf',Path(tmp)/'b.pdf'
+            write_workshop_pdf(self.p,a);write_workshop_pdf(self.p,b)
+            self.assertTrue(a.read_bytes().startswith(b'%PDF'))
+            self.assertEqual(a.read_bytes(),b.read_bytes())
+
+class CLITests(unittest.TestCase):
+    def run_cli(self,*args):
+        return subprocess.run([sys.executable,'-m','sleeperplan',*map(str,args)],cwd=ROOT,capture_output=True,text=True,timeout=30)
+
+    def test_help(self):self.assertEqual(self.run_cli('--help').returncode,0)
+    def test_version(self):self.assertEqual(self.run_cli('--version').stdout.strip(),'0.1.0')
+    def test_check_draft_has_distinct_exit_code(self):self.assertEqual(self.run_cli('check','examples/neighbour.json','--as-of','2026-09-06').returncode,3)
+
+    def test_bad_job_returns_clean_error(self):
+        r=self.run_cli('check','does-not-exist.json')
+        self.assertEqual(r.returncode,2);self.assertNotIn('Traceback',r.stderr)
+
+    def test_release_fails_without_leaving_partial_output(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            out=Path(tmp)/'pack'
+            r=self.run_cli('plan','examples/neighbour.json','--out',out,'--release')
+            self.assertEqual(r.returncode,2);self.assertFalse(out.exists())
+
+    def test_compare_generates_independent_alternatives(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            out=Path(tmp)/'compare'
+            r=self.run_cli('compare','examples/neighbour.json','--courses',2,3,'--out',out,'--as-of','2026-09-06')
+            self.assertEqual(r.returncode,0,r.stderr)
+            comp=json.loads((out/'comparison.json').read_text())['options']
+            self.assertEqual([x['height_mm'] for x in comp],[400,600])
+            self.assertEqual([x['purchased_sleepers'] for x in comp],[6,9])
+            self.assertEqual([x['timber_and_screws_pence'] for x in comp],[18930,29460])
+            self.assertTrue((out/'front-height-comparison.svg').exists())
+
+if __name__=='__main__':unittest.main()

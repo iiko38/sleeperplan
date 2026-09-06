@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "profile": {
+    "key": "wickes-green-100x200",
+    "section_mm": [
+      100,
+      200
+    ],
+    "description": "Wickes UC4 incised light green treated softwood; nominal 100 x 200 mm"
+  },
+  "supplier_note": "Wickes, Clapham/West Sussex area as requested. Exact branch is unconfirmed. Official Worthing branch: 114 Dominion Road, BN14 8JP. No local stock claim.",
+  "stocks": [
+    {
+      "id": "wickes-276785",
+      "length_mm": 2400,
+      "price_pence": 2800,
+      "quantity": null,
+      "trim_start_mm": 0,
+      "trim_end_mm": 0,
+      "weight_grams": 38400,
+      "checked_on": "2026-09-06",
+      "source_url": "https://www.wickes.co.uk/Wickes-UC4-Incised-Light-Green-Garden-Sleeper---100-x-200-x-2400mm/p/276785"
+    },
+    {
+      "id": "wickes-256948",
+      "length_mm": 1800,
+      "price_pence": 2400,
+      "quantity": null,
+      "trim_start_mm": 0,
+      "trim_end_mm": 0,
+      "checked_on": "2026-09-06",
+      "source_url": "https://www.wickes.co.uk/Wickes-UC4-Incised-Light-Green-Garden-Sleeper---100-x-200-x-1800mm/p/256948"
+    }
+  ],
+  "screws": [
+    {
+      "id": "wickes-287686",
+      "length_mm": 150,
+      "diameter_mm": 7,
+      "pack_size": 25,
+      "pack_price_pence": 900,
+      "source_url": "https://www.wickes.co.uk/Wickes-Timber-Drive-Washer-Head-Screws---7-x-150mm---Pack-of-25/p/287686",
+      "checked_on": "2026-09-06",
+      "pilot_mode": "unconfirmed",
+      "pilot_diameter_mm": null,
+      "pilot_depth_mm": null,
+      "pilot_evidence": ""
+    },
+    {
+      "id": "wickes-287688",
+      "length_mm": 250,
+      "diameter_mm": 7,
+      "pack_size": 25,
+      "pack_price_pence": 1230,
+      "source_url": "https://www.wickes.co.uk/Wickes-Timber-Drive-Washer-Head-Screws---7-x-250mm---Pack-of-25/p/287688",
+      "checked_on": "2026-09-06",
+      "pilot_mode": "unconfirmed",
+      "pilot_diameter_mm": null,
+      "pilot_depth_mm": null,
+      "pilot_evidence": ""
+    }
+  ]
+}
