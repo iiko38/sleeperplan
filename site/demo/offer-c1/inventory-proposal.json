@@ -1,0 +1,28 @@
+{
+  "apply_only_after_job_completed": true,
+  "profile_key": "wickes-green-100x200",
+  "section_mm": [
+    100,
+    200
+  ],
+  "source_plan_sha256": "6b3c5e9c190be4c063f490aed14b7b831f84da63d70d9052848217ac6c036233",
+  "consumed": {},
+  "inventory": [
+    {
+      "id": "off-6b3c5e9c-B003",
+      "length_mm": 597,
+      "price_pence": 0,
+      "quantity": 1,
+      "trim_start_mm": 0,
+      "trim_end_mm": 0
+    },
+    {
+      "id": "off-6b3c5e9c-B004",
+      "length_mm": 597,
+      "price_pence": 0,
+      "quantity": 1,
+      "trim_start_mm": 0,
+      "trim_end_mm": 0
+    }
+  ]
+}

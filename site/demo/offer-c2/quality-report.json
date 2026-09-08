@@ -1,0 +1,52 @@
+{
+  "schema": "sleeperplan.quality_report.v1",
+  "plan_sha256": "1282bc342ae6177ba8414a2ba04794b21c7dfea133e875fed907f645f8d133e7",
+  "manual_sections": {
+    "Read this first": true,
+    "Prepare before assembly": true,
+    "Pack map (use in order)": true,
+    "Step flow": true,
+    "Drill and pilot rule": true,
+    "Draft workshop advisory (while unconfirmed)": true
+  },
+  "drawings_expected": {
+    "assembled": 1,
+    "course_plan": 2,
+    "piece_fixings": 8,
+    "cut_sheet": 2,
+    "parts_board": 1,
+    "process_overview": 1,
+    "stock_arrival": 1,
+    "fastener": 2
+  },
+  "drawings_actual": {
+    "assembled": 1,
+    "course_plan": 2,
+    "piece_fixings": 8,
+    "cut_sheet": 2,
+    "parts_board": 1,
+    "process_overview": 1,
+    "stock_arrival": 1,
+    "fastener": 2
+  },
+  "callout_summary": {
+    "pieces_with_callouts": 6,
+    "pieces_with_fixings": 6,
+    "total_pieces": 8,
+    "callouts_by_kind": {
+      "corner": 12,
+      "stack": 6,
+      "other": 0
+    }
+  },
+  "pilot_mode_summary": {
+    "pilot": 0,
+    "none": 0,
+    "unconfirmed": 32
+  },
+  "checks": {
+    "manual_sections_complete": true,
+    "drawings_match_expected": true,
+    "piece_callouts_cover_all_fixing_pieces": true
+  }
+}

@@ -22,6 +22,10 @@ https://www.wickes.co.uk/Wickes-Timber-Drive-Washer-Head-Screws---7-x-150mm---Pa
 
 https://www.wickes.co.uk/Wickes-Timber-Drive-Washer-Head-Screws---7-x-250mm---Pack-of-25/p/287688
 
+**Wickes search API cross-check (same product family):** `/search/suggestProductsSecure` returns the four 7 mm Timber Drive washer-head sizes as one range (`287685`, `287686`, `287687`, `287688`) with product-page links and image IDs `GPID_5000106026`..`GPID_5000106029`. Product pages expose manufacturer model numbers `NEW_45`..`NEW_48` for these four sizes.
+
+https://www.wickes.co.uk/search/suggestProductsSecure?term=timber%20drive%20washer%20head%20screws
+
 **Limitation:** these pages establish the listed products and prices, not the structural adequacy of this proposed bed connection, an exact pilot-hole specification or effective embedment. The catalogue leaves pilot mode unconfirmed. None of the numerical placement/clearance defaults is claimed to be a Wickes-approved engineering schedule.
 
 ## General construction context
@@ -34,9 +38,38 @@ https://www.wickes.co.uk/ideas-advice/raised-sleeper-bed
 
 https://www.wickes.co.uk/ideas-advice/sleeper-techniques
 
+Additional extracted points from the same Wickes guidance snapshot:
+
+- Softwood sleepers: piloting is described as "not always necessary" and dependent on tooling.
+- Hardwood sleepers: pilot each fixing hole and use stainless screws (to reduce tannin-corrosion risk).
+- Fixing length rule-of-thumb: screw length about one-third longer than timber depth.
+- One Wickes sentence says to use a pilot bit matching screw diameter and length; this is recorded as source text only, not accepted as a validated sleeper-joint specification for this repo.
+
 **Royal Horticultural Society — How to make a raised bed.** General raised-bed material, drainage and planting considerations. Hard-surface beds need different drainage detail; v1 keeps that outside its reviewed construction scope.
 
 https://www.rhs.org.uk/garden-features/how-to-make-a-raised-bed
+
+**Wickes — How to build a raised sleeper bed.** Reinforces overlap-and-screw approach and repeats hardwood-specific pilot-hole requirement in narrative guidance, but again provides no product-specific pilot diameter/depth values for Wickes screw SKUs.
+
+https://www.wickes.co.uk/ideas-advice/raised-sleeper-bed
+
+**FastenMaster TimberLOK product page (US).** States "No Pre-Drilling Required" for that structural screw line. This is useful as comparative context only; it is not a Wickes 287686/287688 instruction and should not be copied directly into UK sleeper plans.
+
+https://www.fastenmaster.com/products/timberlok
+
+**DIYdata wood screw pilot table (general carpentry reference).** Gives generic clearance/pilot tables by gauge and timber hardness (for example, larger pilot in hardwood than softwood). Useful for broad sanity checking only; not a manufacturer instruction for the selected Wickes timber-drive products.
+
+https://www.diydata.com/carpentry/screw-holes/wood-screw-holes.php
+
+## Manual structure references
+
+**IKEA UK assembly-guides support page.** Used as a structure cue for manual flow (clear "find docs", ordered steps, and visual-first guidance style), not as technical authority for sleeper construction.
+
+https://www.ikea.com/gb/en/customer-service/product-support/assembly-guides/
+
+**IKEA product page document layout example (PAX frame).** Used as a formatting cue for grouping "Assembly and documents", "Good to know", and "Safety and compliance" sections.
+
+https://www.ikea.com/gb/en/p/pax-wardrobe-frame-white-20214571/
 
 ## Branch clarification
 
@@ -48,6 +81,16 @@ https://www.wickes.co.uk/store/8221
 
 Source-backed values: dated product dimensions, identifiers and displayed prices; the noted product weight; general supplier/RHS guidance.
 
+Source-backed guidance now also includes: softwood-vs-hardwood pilot treatment from Wickes article guidance, and comparative manufacturer/reference context showing that predrill policy is product-family specific.
+
 Software-derived values: lengths, ring geometry, saw coordinates, board allocation, part IDs, fixing path intersections, volumes and arithmetic totals.
 
-Human/shop assumptions requiring review: actual measurements, kerf, end condition, fixing layout and suitability, pilot method, support/foundation design, drainage, stock availability, transport, labour and extra materials.
+Human/shop assumptions requiring review: actual measurements, kerf, end condition, fixing layout and suitability, exact pilot diameter/depth for Wickes 287686/287688 in this build, support/foundation design, drainage, stock availability, transport, labour and extra materials.
+
+## Pilot-hole status for this repo
+
+Current external research is still insufficient to claim a manufacturer-verified pilot diameter/depth for the specific Wickes screw SKUs used in this project (`287686`, `287688`) in 100 x 200 mm treated sleeper joints. Therefore, default catalogues remain `pilot_mode: "unconfirmed"` unless a documented physical trial or primary manufacturer instruction is recorded for the exact use case.
+
+Additional negative evidence checks were run against likely Wickes media-document patterns for the Timber Drive range (`GPID_5000106026`..`GPID_5000106029`, `NEW_45`..`NEW_48`, and variants such as `_TECH_0`, `_INST_0`), and returned not found responses in this snapshot. This strengthens the decision to keep pilot mode unconfirmed by default.
+
+Direct product API probes that might expose structured technical attachments (`/rest/v2/wickes/products/<sku>?fields=FULL`) returned access denied responses for these SKUs in this environment, so they did not provide usable pilot-hole data.

@@ -28,9 +28,21 @@ class ExportTests(unittest.TestCase):
             for f in a.rglob('*'):
                 if f.is_file():self.assertEqual(f.read_bytes(),(b/f.relative_to(a)).read_bytes())
             self.assertTrue((a/'plan.json').exists());self.assertTrue((a/'model.scad').exists())
+            self.assertTrue((a/'web-manifest.json').exists());self.assertTrue((a/'quality-report.json').exists())
             self.assertEqual(len(list((a/'drawings').glob('*fixings.svg'))),12)
             with (a/'parts.csv').open(encoding='utf-8-sig',newline='') as f:rows=list(csv.DictReader(f))
             self.assertEqual(len(rows),12);self.assertTrue(all(r['stock_board'] for r in rows))
+            manifest=json.loads((a/'web-manifest.json').read_text(encoding='utf-8'))
+            quality=json.loads((a/'quality-report.json').read_text(encoding='utf-8'))
+            self.assertEqual(manifest['schema'],'sleeperplan.web_manifest.v1')
+            self.assertEqual(quality['schema'],'sleeperplan.quality_report.v1')
+            self.assertIn('viewer',manifest)
+            self.assertIn('camera',manifest['viewer'])
+            self.assertEqual(len(manifest['viewer']['camera']['target_mm']),3)
+            self.assertEqual(len(manifest['viewer']['camera']['position_mm']),3)
+            self.assertTrue(quality['checks']['manual_sections_complete'])
+            self.assertTrue(quality['checks']['drawings_match_expected'])
+            self.assertTrue(quality['checks']['piece_callouts_cover_all_fixing_pieces'])
 
     def test_existing_output_is_not_overwritten(self):
         with tempfile.TemporaryDirectory() as tmp:
@@ -54,6 +66,20 @@ class ExportTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             a,b=Path(tmp)/'a.pdf',Path(tmp)/'b.pdf'
             write_workshop_pdf(self.p,a);write_workshop_pdf(self.p,b)
+            self.assertTrue(a.read_bytes().startswith(b'%PDF'))
+            self.assertEqual(a.read_bytes(),b.read_bytes())
+
+    @unittest.skipUnless(importlib.util.find_spec('reportlab'),'Optional PDF dependency absent')
+    def test_options_pdf_covers_each_height(self):
+        from dataclasses import replace
+        from sleeperplan.pdf import write_options_pdf
+        base=job()
+        heights=[1,3]
+        variants=[plan(replace(base,beds=tuple(replace(b,courses=n) for b in base.beds)),TODAY) for n in heights]
+        with tempfile.TemporaryDirectory() as tmp:
+            a,b=Path(tmp)/'a.pdf',Path(tmp)/'b.pdf'
+            write_options_pdf(variants,heights,a,job_name=base.name)
+            write_options_pdf(variants,heights,b,job_name=base.name)
             self.assertTrue(a.read_bytes().startswith(b'%PDF'))
             self.assertEqual(a.read_bytes(),b.read_bytes())
 

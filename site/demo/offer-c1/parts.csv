@@ -1,0 +1,5 @@
+﻿id,stock_board,bed_id,course,side,axis,length_mm,thickness_mm,height_mm,x_mm,y_mm,z_mm,through_at_corners
+offer-bed-01-C1-S,B002,offer-bed-01,1,S,X,2400,100,200,0,0,0,True
+offer-bed-01-C1-N,B001,offer-bed-01,1,N,X,2400,100,200,0,1300,0,True
+offer-bed-01-C1-W,B004,offer-bed-01,1,W,Y,1200,100,200,0,100,0,False
+offer-bed-01-C1-E,B003,offer-bed-01,1,E,Y,1200,100,200,2300,100,0,False

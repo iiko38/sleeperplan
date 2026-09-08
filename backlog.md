@@ -12,10 +12,18 @@ A deterministic, offline workshop tool for repeatable timber sleeper flower beds
 - [x] Release review gating (`--release`) blocking unreviewed drafts or unconfirmed pilot specs.
 - [x] 83-test comprehensive test suite with property and oracle checks.
 - [x] Windows native execution verified (`health.cmd`, `health.ps1`, `sleeperplan.cmd`).
+- [x] OpenSCAD workstation integration verified (`view-cad.cmd`, OpenSCAD 2021.01, health smoke compile).
+- [x] Deterministic static web manifest + quality report export (`web-manifest.json`, `quality-report.json`).
+- [x] Customer-facing static offer visualiser (`site/`) for 1/2/3 course options with interactive 3D and process walkthrough.
+- [x] Vercel static deployment pipeline verified for `site/`.
 
 ---
 
 ## Next Milestone: Physical Shop & Field Validation
+
+- [x] **Session Harness Refresh (2026-09-07):**
+  - Verified repo core harness files against `P:\homelab\patterns\repo-harness` (`AGENTS.md`, `state.yaml`, `backlog.md`, `implementationstatus.md`).
+  - Added a dated active checklist under `checklists/` for the current field-validation wave.
 
 - [ ] **Stock Dimension & Kerf Calibration:**
   - Measure 3-5 real 100 x 200 x 2400 mm sleepers from Wickes Worthing / regional store.
@@ -53,3 +61,11 @@ A deterministic, offline workshop tool for repeatable timber sleeper flower beds
 - [ ] **Mark-Out & Jig Templates:**
   - 1:1 printable drill hole drilling templates for corner and stack fixings.
   - Cut stop / stop-block setup sheet for batch cutting.
+
+### Client Experience (Static Site)
+- [ ] **Sales Narrative Pass:**
+  - Add clearer option positioning text (best-fit use cases) without overstating engineering claims.
+  - Add optional branded hero imagery/background assets while keeping page load fast.
+- [ ] **Visual Comparison Enhancements:**
+  - Add side-by-side mini thumbnails for 1/2/3 course profiles.
+  - Add optional animated transition between course options.

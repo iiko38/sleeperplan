@@ -1,0 +1,32 @@
+{
+  "schema": "sleeperplan.web_manifest.v1",
+  "name": "Demo bed",
+  "status": "DRAFT_MARK_OUT_ONLY",
+  "as_of": "2026-09-07",
+  "plan_sha256": "demo",
+  "generator_version": "demo",
+  "artifacts": {
+    "plan": "demo/plan.json"
+  },
+  "drawings": [],
+  "viewer": {
+    "units": "mm",
+    "bounds_mm": {
+      "min": [0, 0, 0],
+      "max": [2000, 1100, 200],
+      "size": [2000, 1100, 200]
+    },
+    "camera": {
+      "target_mm": [1000, 550, 100],
+      "position_mm": [4300, 3190, 2245],
+      "fov_degrees": 45,
+      "min_distance_mm": 300,
+      "max_distance_mm": 12000
+    },
+    "controls": {
+      "orbit": true,
+      "zoom": true,
+      "pan": true
+    }
+  }
+}

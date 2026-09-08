@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="720" viewBox="0 0 1100 720">
+<rect width="100%" height="100%" fill="white"/>
+<rect x="0" y="0" width="1100" height="6" fill="#147c80" stroke="#147c80" stroke-width="1"/>
+<text x="30" y="43" font-family="Arial,Helvetica,sans-serif" font-size="25" font-weight="700" fill="#183339" text-anchor="start">offer-bed-01 / 1 courses / assembled view</text>
+<text x="30" y="69" font-family="Arial,Helvetica,sans-serif" font-size="14" font-weight="400" fill="#52666a" text-anchor="start">DRAFT_MARK_OUT_ONLY  |  Same timber section throughout  |  Schematic colour, not a finish sample</text>
+<polygon points="442.212,219.286 219.519,347.857 219.519,305 442.212,176.429" fill="#ae7f50" stroke="#183339" stroke-width="1.25"/>
+<polygon points="423.654,165.714 442.212,176.429 219.519,305 200.962,294.286" fill="#e0bd8e" stroke="#183339" stroke-width="1.25"/>
+<polygon points="442.212,219.286 850.481,455 850.481,412.143 442.212,176.429" fill="#c79a67" stroke="#183339" stroke-width="1.25"/>
+<polygon points="442.212,155 887.596,412.143 869.038,422.857 423.654,165.714" fill="#e0bd8e" stroke="#183339" stroke-width="1.25"/>
+<polygon points="887.596,455 869.038,465.714 869.038,422.857 887.596,412.143" fill="#ae7f50" stroke="#183339" stroke-width="1.25"/>
+<polygon points="182.404,347.857 627.788,605 627.788,562.143 182.404,305" fill="#c79a67" stroke="#183339" stroke-width="1.25"/>
+<polygon points="200.962,294.286 646.346,551.429 627.788,562.143 182.404,305" fill="#e0bd8e" stroke="#183339" stroke-width="1.25"/>
+<polygon points="869.038,465.714 646.346,594.286 646.346,551.429 869.038,422.857" fill="#ae7f50" stroke="#183339" stroke-width="1.25"/>
+<polygon points="850.481,412.143 869.038,422.857 646.346,551.429 627.788,540.714" fill="#e0bd8e" stroke="#183339" stroke-width="1.25"/>
+<polygon points="646.346,594.286 627.788,605 627.788,562.143 646.346,551.429" fill="#ae7f50" stroke="#183339" stroke-width="1.25"/>
+<line x1="921.5960572550928" y1="455.0" x2="921.5960572550928" y2="412.14285714285717" stroke="#52666a" stroke-width="1"/>
+<line x1="916.5960572550928" y1="455.0" x2="926.5960572550928" y2="455.0" stroke="#52666a" stroke-width="1"/>
+<line x1="916.5960572550928" y1="412.14285714285717" x2="926.5960572550928" y2="412.14285714285717" stroke="#52666a" stroke-width="1"/>
+<text x="909.5960572550928" y="433.57142857142856" font-family="Arial,Helvetica,sans-serif" font-size="15" font-weight="400" fill="#52666a" text-anchor="middle" transform="rotate(-90 909.5960572550928 433.57142857142856)">200 mm</text>
+<text x="30" y="652" font-family="Arial,Helvetica,sans-serif" font-size="17" font-weight="700" fill="#183339" text-anchor="start">Outside: 2400 x 1400 x 200 mm   |   Clear opening: 2200 x 1200 mm</text>
+<text x="30" y="680" font-family="Arial,Helvetica,sans-serif" font-size="15" font-weight="400" fill="#52666a" text-anchor="start">Geometric fill: 396 litres at 50 mm below the top. No settlement allowance.</text>
+</svg>

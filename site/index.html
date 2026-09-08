@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f6f5f2">
+  <meta name="description" content="Interactive 3D sleeper bed visualiser: compare 1, 2 and 3 course builds and walk through the full assembly process.">
+  <title>Sleeper Bed Studio</title>
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="bgAura bgAuraA"></div>
+  <div class="bgAura bgAuraB"></div>
+
+  <header class="topbar">
+    <div class="shell topbarInner">
+      <div class="brand">
+        <div class="brandMark" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <rect x="2" y="3" width="16" height="4" rx="1.2" fill="#fff" opacity="0.95"/>
+            <rect x="2" y="8.5" width="16" height="4" rx="1.2" fill="#fff" opacity="0.75"/>
+            <rect x="2" y="14" width="16" height="3" rx="1.2" fill="#fff" opacity="0.55"/>
+          </svg>
+        </div>
+        <div class="brandText">
+          <span class="eyebrow">Outdoor Build Visualiser</span>
+          <h1>Sleeper Bed Studio</h1>
+        </div>
+      </div>
+      <div class="segWrap">
+        <p class="panelLabel" id="offerLabel">Choose build height</p>
+        <div id="offerTabs" class="offerTabs" role="tablist" aria-labelledby="offerLabel"></div>
+      </div>
+    </div>
+  </header>
+  <p class="brandTagline shell">Pick a height, rotate the model, and walk through the full assembly journey.</p>
+
+  <main class="shell pageGrid">
+    <section class="viewerPanel">
+      <div class="viewerHead">
+        <div>
+          <p class="panelLabel">Live 3D model</p>
+          <h2 id="offerHeadline">Loading option...</h2>
+          <p id="offerBlurb" class="subtle">Preparing details...</p>
+        </div>
+        <div class="viewerControls">
+          <button id="resetView" type="button" class="ghostBtn">Reset view</button>
+          <label class="switch"><input id="toggleFixings" type="checkbox" checked><span>Show fixings</span></label>
+        </div>
+      </div>
+      <section class="viewerWrap">
+        <canvas id="viewer" aria-label="Interactive 3D model of the selected sleeper bed"></canvas>
+        <div id="status" class="status" role="status">Loading...</div>
+      </section>
+      <div class="tipRow">
+        <span>1 finger / drag: orbit</span>
+        <span>Pinch / scroll: zoom</span>
+        <span>2 fingers / right-drag: pan</span>
+      </div>
+    </section>
+
+    <section class="insightPanel">
+      <h3>At a glance</h3>
+      <div class="statsGrid">
+        <article class="statCard"><p class="k">Build height</p><p id="statHeight" class="v">-</p></article>
+        <article class="statCard"><p class="k">Outside size</p><p id="statSize" class="v">-</p></article>
+        <article class="statCard"><p class="k">Material + screws</p><p id="statPrice" class="v">-</p></article>
+        <article class="statCard"><p class="k">Fill volume</p><p id="statFill" class="v">-</p></article>
+      </div>
+
+      <h3>Build process</h3>
+      <ol class="processList">
+        <li><div><strong>Survey and set out</strong><span>Confirm footprint, level and drainage path on site.</span></div></li>
+        <li><div><strong>Cut and label</strong><span>Trim and cut boards in sequence, then keep A/TOP/OUTER orientation.</span></div></li>
+        <li><div><strong>Stack by course</strong><span>Assemble each course square, then add fixings as shown in model sheets.</span></div></li>
+        <li><div><strong>Finish and plant</strong><span>Install reviewed drainage/support details, then fill and complete.</span></div></li>
+      </ol>
+
+      <h3>Client pack</h3>
+      <div class="linkGrid">
+        <a id="linkAssembled" target="_blank" rel="noopener">Assembled drawing</a>
+        <a id="linkProcess" target="_blank" rel="noopener">Process overview</a>
+        <a id="linkManual" target="_blank" rel="noopener">Workshop manual</a>
+        <a id="linkPdf" target="_blank" rel="noopener">Printable PDF pack</a>
+      </div>
+      <p class="footnote">Draft visual quote view. Final installation remains subject to site review and confirmed pilot evidence.</p>
+    </section>
+  </main>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>

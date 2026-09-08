@@ -192,9 +192,6 @@ def draw_iso(s: Scene, plan: dict, bed: dict, centre_x: float, base_y: float, sc
         px,py=project(*v)
         return centre_x+(px-mid)*scale,base_y+(py-(L+W)/2)*scale
     faces=visible_faces(ps)
-    soil=[(t,t,H-bed['freeboard_mm']),(L-t,t,H-bed['freeboard_mm']),
-          (L-t,W-t,H-bed['freeboard_mm']),(t,W-t,H-bed['freeboard_mm'])]
-    faces.append((sum(sum(v) for v in soil)/4,soil,"#6f7660"))
     for _,vertices,fill in sorted(faces,key=lambda f:f[0]):
         s.polygon([convert(v) for v in vertices],fill,INK,1.25)
     a,b=convert((L,0,0)),convert((L,0,H))
@@ -222,7 +219,7 @@ def comparison_scene(plans: list[dict], design_id: str) -> Scene:
     for i,(p,b) in enumerate(bed_pairs):
         centre=350+i*700
         draw_iso(s,p,b,centre,565,scale)
-        s.text(centre,620,f"{b['courses']} courses / {b['height_mm']} mm high",24,INK,"middle",True)
+        s.text(centre,620,f"{b['courses']} course{'s' if b['courses']!=1 else ''} / {b['height_mm']} mm high",24,INK,"middle",True)
         s.text(centre,653,f"{b['length_mm']} x {b['width_mm']} mm outside / {b['fill_litres']:g} litres fill",16,MUTED,"middle")
         if i:
             s.line(i*700,110,i*700,680,"#dbe4e2",1)
@@ -273,6 +270,7 @@ def piece_scene(plan: dict, raw: dict) -> Scene:
     s.text(30,211,f"OUTER FACE / U from A; W measured UP from bottom / side {p.side}",14,bold=True)
     s.rect(x0,outer_y,950,outer_h,TIMBER,INK)
     s.text(48,outer_y+outer_h/2+5,"A",16,ACCENT,"middle",True)
+    plotted=[]
     for f in fix:
         u,v,w=f['local_mm']
         x=x0+u*scale
@@ -282,6 +280,22 @@ def piece_scene(plan: dict, raw: dict) -> Scene:
             y=outer_y+outer_h*(1-w/p.height_mm)
         s.circle(x,y,4)
         s.text(x+8,y-5,f['id'].rsplit('-',1)[-1],12,ACCENT,bold=True)
+        plotted.append((x,y,f))
+    if plotted:
+        # IKEA-style zoom bubbles for the first critical fixing points.
+        priority={"corner":0,"stack":1}
+        focus=sorted(plotted,key=lambda item:(priority.get(item[2]['kind'],9), item[2]['entry_face'], item[0]))[:3]
+        bubbles=[(1000,110),(1000,180),(1000,250)]
+        for i,(px,py,f) in enumerate(focus):
+            bx,by=bubbles[i]
+            s.line(px,py,bx-32,by,ACCENT,1.6)
+            s.circle(bx,by,32,"#f6fbfa",ACCENT,2)
+            s.circle(bx,by,5,"white",ACCENT,2)
+            s.text(bx,by-42,f"{f['kind']} x1",11,ACCENT,"middle",bold=True)
+            s.text(bx,by+46,f"{f['entry_face']}",10,MUTED,"middle")
+            dx,dy,_=f['direction']
+            s.line(bx-dx*18,by+dy*18,bx+dx*18,by-dy*18,ACCENT,1.8)
+            s.circle(bx+dx*18,by-dy*18,2,ACCENT,ACCENT,1)
     s.text(30,337,"Views intentionally stretch section depth for legibility. Use the coordinates below, not a ruler on this sheet.",13,MUTED)
     columns=[30,115,215,330,440,540,695]
     for x,label in zip(columns,["FIXING","FACE","U FROM A","V","W UP","SCREW","PILOT"]):
@@ -297,6 +311,155 @@ def piece_scene(plan: dict, raw: dict) -> Scene:
             s.text(x,394+i*24,value,13, WARN if "UNCONFIRMED" in value else INK)
     if not fix:
         s.text(30,397,"No screw entry points on this piece; it receives screws from adjoining members.",14,MUTED)
+    return s
+
+
+def process_scene(plan: dict) -> Scene:
+    s=Scene(1100,780)
+    header(s,"Workshop process / script-driven sequence",
+           f"{plan['status']}  |  Follow these steps with BUILD.md, cuts.csv and fixings.csv")
+    steps=[
+        "1. Receive and inspect timber stock; reject twisted/split members.",
+        "2. Label each stock board Bxx and mark datum A before any cut.",
+        "3. Execute cuts.csv in sequence; kerf_start..kerf_end is waste band.",
+        "4. Re-label produced parts and preserve A / TOP / OUTER orientation.",
+        "5. Drill and drive by piece fixing sheets (exact U, V, W coordinates).",
+        "6. Assemble course-by-course using per-course plan sheets.",
+    ]
+    y=112
+    for text in steps:
+        s.rect(38,y-24,1024,64,PALE,"#d3e0dc",1)
+        s.text(54,y+10,text,17)
+        y+=84
+    s.rect(38,622,496,96,"#ecf6ef","#b8d6c0",1)
+    s.text(56,652,"CORRECT",14,"#1f5e2f",bold=True)
+    s.line(56,665,68,677,"#1f5e2f",3)
+    s.line(68,677,90,647,"#1f5e2f",3)
+    s.text(98,677,"Check entry face, direction arrow and quantity before each action.",13,MUTED)
+    s.rect(566,622,496,96,"#fff0e7","#ebc5ad",1)
+    s.text(584,652,"INCORRECT",14,WARN,bold=True)
+    s.line(584,646,612,678,WARN,3)
+    s.line(612,646,584,678,WARN,3)
+    s.text(622,677,"Never drill or drive when pilot_mode is UNCONFIRMED.",13,MUTED)
+    s.text(42,752,"All positions, lengths and hardware IDs are generated from plan geometry; do not freehand from screenshots.",13,MUTED)
+    return s
+
+
+def parts_scene(plan: dict) -> Scene:
+    screw_ids=sorted({f['screw_id'] for f in plan['fixings']})
+    top_rows=1 if len(screw_ids)<=3 else 2
+    pieces=sorted(plan['pieces'],key=lambda p:(p['bed_id'],p['course'],p['side'],p['id']))
+    height=max(760, 360 + top_rows*150 + len(pieces)*30 + 90)
+    s=Scene(1100,height)
+    header(s,"Parts and fixings board / visual checklist",
+           f"{plan['status']}  |  Verify quantity and ID before each step")
+    s.text(44,108,"TOOLS / HANDLING",14,bold=True)
+    s.rect(38,120,1024,68,"#f7fbfa","#d3e0dc",1)
+    tags=["[2x] two people for long/heavy members","[CHECK] confirm A/TOP/OUTER labels","[STOP] resolve blockers before drilling","Hammer + driver/bit set + square/level"]
+    for i,tag in enumerate(tags):
+        s.text(56,144+i*18,tag,13,MUTED)
+
+    s.text(44,228,"FASTENERS",14,bold=True)
+    card_w=320
+    for i,screw_id in enumerate(screw_ids):
+        x=38+(i%3)*(card_w+20)
+        y=240+(i//3)*150
+        fs=[f for f in plan['fixings'] if f['screw_id']==screw_id]
+        sample=fs[0]
+        s.rect(x,y,card_w,130,"#f9fcfb","#d3e0dc",1)
+        s.text(x+14,y+24,screw_id,14,bold=True)
+        s.line(x+18,y+70,x+128,y+70,ACCENT,2)
+        s.circle(x+128,y+70,3,ACCENT,ACCENT,1)
+        s.text(x+14,y+96,f"{sample['diameter_mm']} x {sample['screw_length_mm']} mm",13)
+        s.text(x+14,y+114,f"Need {len(fs)} entries",13,MUTED)
+        mode=sample['pilot_mode']
+        if mode=="pilot":
+            pilot=f"Pilot {sample['pilot_diameter_mm']:g} x {sample['pilot_depth_mm']} mm"
+            colour="#1f5e2f"
+        elif mode=="none":
+            pilot="Pilot none (recorded evidence)"
+            colour="#1f5e2f"
+        else:
+            pilot="Pilot UNCONFIRMED"
+            colour=WARN
+        s.text(x+150,y+70,pilot,12,colour,bold=True)
+
+    top_h=240+top_rows*150
+    s.text(44,top_h+24,"TIMBER PARTS",14,bold=True)
+    s.rect(38,top_h+36,1024,36,PALE,"#d3e0dc",1)
+    columns=[56,170,292,426,566,698,838,972]
+    for x,label in zip(columns,["PIECE ID","BED","COURSE","SIDE","LENGTH","SECTION","BOARD","A DATUM"]):
+        s.text(x,top_h+59,label,12,MUTED,bold=True)
+    y=top_h+96
+    for i,p in enumerate(pieces):
+        if i and i%2==0:
+            s.rect(40,y-16,1020,30,"#fbfdfc","none",1)
+        s.text(columns[0],y,p['id'],12)
+        s.text(columns[1],y,p['bed_id'],12)
+        s.text(columns[2],y,str(p['course']),12)
+        s.text(columns[3],y,p['side'],12)
+        s.text(columns[4],y,str(p['length_mm']),12)
+        s.text(columns[5],y,f"{p['thickness_mm']}x{p['height_mm']}",12)
+        board=next((b['id'] for b in plan['cut_plan']['boards'] for part in b['parts'] if part['piece_id']==p['id']),"?")
+        s.text(columns[6],y,board,12)
+        s.text(columns[7],y,"Lower X/Y end",12,MUTED)
+        y+=30
+    s.text(42,s.height-18,"Use this board as the pre-flight checklist. Exact cut order and coordinates remain in cuts.csv and fixings.csv.",13,MUTED)
+    return s
+
+
+def stock_scene(plan: dict) -> Scene:
+    boards=plan['cut_plan']['boards']
+    s=Scene(1100,170+74*len(boards))
+    header(s,"Stock arrival, board IDs and datum A","Label before cutting; keep original A datum for every stock item")
+    max_len=max((b['gross_length_mm'] for b in boards),default=1)
+    scale=840/max_len
+    for i,b in enumerate(boards):
+        y=122+i*74
+        s.text(40,y-12,f"{b['id']} | {b['stock_id']} | gross {b['gross_length_mm']} mm",14,bold=True)
+        s.rect(120,y,840,30,PALE,INK)
+        s.text(106,y+21,"A",15,ACCENT,"middle",True)
+        s.line(120, y+33, 120+b['gross_length_mm']*scale, y+33, MUTED, 1)
+        s.text(123+b['gross_length_mm']*scale, y+50, f"{b['gross_length_mm']} mm", 12, MUTED, "end")
+    s.text(40,s.height-14,"Use these B IDs in parts.csv and cuts.csv. Datum A in cut coordinates always refers to original stock, not the finished part.",13,MUTED)
+    return s
+
+
+def fastener_scene(plan: dict, screw_id: str) -> Scene:
+    fix=[f for f in plan['fixings'] if f['screw_id']==screw_id]
+    sample=fix[0]
+    through=sample['through_mm']
+    penetration=sample['penetration_mm']
+    length=sample['screw_length_mm']
+    diameter=sample['diameter_mm']
+    s=Scene(1100,660)
+    header(s,f"Fastener card / {screw_id}","Use with piece fixing sheets for exact side and coordinates")
+    sx,sy=120,210
+    scale=560/max(1,length)
+    through_w=through*scale
+    pen_w=penetration*scale
+    s.text(48,168,"Cross-section view (not to scale in thickness)",14,bold=True)
+    s.rect(sx,sy,through_w,160,"#e3c79f",INK,1.4)
+    s.rect(sx+through_w,sy,pen_w,160,"#d7b58d",INK,1.4)
+    s.text(sx+through_w/2,sy+184,f"through member {through} mm",13,INK,"middle")
+    s.text(sx+through_w+pen_w/2,sy+184,f"receiver penetration {penetration} mm",13,INK,"middle")
+    s.line(sx+30,sy+80,sx+(through+penetration)*scale-8,sy+80,ACCENT,3)
+    s.circle(sx+(through+penetration)*scale-8,sy+80,4,ACCENT,ACCENT,1)
+    s.text(sx+230,sy+65,f"screw {diameter} x {length} mm",14,ACCENT,bold=True)
+    dimensions(s,sx,sy+224,sx+through_w+pen_w,sy+224,f"{length} mm nominal")
+    faces=sorted({f['entry_face'] for f in fix})
+    kinds=sorted({f['kind'] for f in fix})
+    s.text(48,432,f"Used in fixing kinds: {', '.join(kinds)}",14)
+    s.text(48,456,f"Entry faces in this plan: {', '.join(faces)}",14)
+    s.text(48,480,f"Entries scheduled: {len(fix)}",14)
+    mode=sample['pilot_mode']
+    if mode=='pilot':
+        s.text(48,524,f"Pilot: {sample['pilot_diameter_mm']:g} mm drill bit, {sample['pilot_depth_mm']} mm depth from entry face.",15,"#1f5e2f",bold=True)
+    elif mode=='none':
+        s.text(48,524,"Pilot: none (manufacturer/trial evidence recorded).",15,"#1f5e2f",bold=True)
+    else:
+        s.text(48,524,"Pilot: UNCONFIRMED - stop and confirm drill bit diameter/depth before drilling.",15,WARN,bold=True)
+    s.text(48,560,"Exact side, point and direction are in piece fixing sheets and fixings.csv (U from A, V, W, and direction XYZ).",13,MUTED)
     return s
 
 

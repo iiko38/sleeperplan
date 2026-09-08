@@ -4,7 +4,9 @@
 
 A job file goes in. Labelled parts, exact stock allocations, saw bands, fixing coordinates, purchases, costs and technical drawings come out. The same positioned timber model drives the cut list, the fixing schedule, the SVG drawings, the optional PDF and the OpenSCAD model.
 
-No LLM calls. No website. No account, database, cloud service or API key. Core runtime: Python 3.11+ and its standard library. Optional PDF dependency: ReportLab.
+No LLM calls. Core planner runtime: Python 3.11+ and its standard library. Optional PDF dependency: ReportLab.
+
+The planning engine remains deterministic and local/offline. A static client visualiser is now included under `site/` for showing 1/2/3 course options in-browser. It uses generated JSON artifacts and does not require a database.
 
 ## Start here on Windows
 
@@ -14,7 +16,13 @@ Extract the ZIP and open PowerShell **inside the `sleeperplan` folder**, alongsi
 py -m sleeperplan plan examples\neighbour.json --out build\neighbour
 ```
 
-Open `build\neighbour\BUILD.md` and the files in `build\neighbour\drawings`. SVGs open locally in a browser or suitable image/vector viewer; there is no web application or server.
+Open `build\neighbour\BUILD.md` and the files in `build\neighbour\drawings`. SVGs open locally in a browser or suitable image/vector viewer.
+
+If OpenSCAD is installed, open the generated 3D model directly:
+
+```cmd
+view-cad.cmd build\neighbour\model.scad
+```
 
 Compare two and three courses:
 
@@ -29,7 +37,7 @@ py -m pip install -e ".[pdf]"
 py -m sleeperplan compare examples\neighbour.json --courses 2 3 --out build\heights-pdf --pdf
 ```
 
-`height-comparison.pdf` is the same-scale comparison. Each height's directory also contains a full `workshop.pdf` with the parts and drilling/mark-out sheets.
+`height-comparison.pdf` is the same-scale comparison. `options-and-build.pdf` is a single combined document covering every requested height: an options table, the same-scale comparison drawing, then a per-option build section (build sequence, assembled view, one plan page per course, cutting diagrams, process and parts boards). Each height's directory also contains a full `workshop.pdf` with the parts and drilling/mark-out sheets.
 
 For Linux, replace `py` with `python3` and use `/` in paths. Installing the package is unnecessary for the core commands when run from this folder. An optional `pip install -e .` also installs the `sleeperplan` command.
 
@@ -71,6 +79,8 @@ The supplier description says Wickes in the Clapham / West Sussex area, as reque
 | `cuts.csv` | Sequential saw operations; exact kerf start, end and blade centre from the original stock datum A. |
 | `fixings.csv` | Each screw's entry face, local/global coordinates, direction, receiving piece, nominal penetration and pilot status. |
 | `shopping.csv` | Sleeper quantities, whole screw packs, spares and explicit extras/labour. All monetary columns are pence. |
+| `web-manifest.json` | Static-web manifest for viewer/links/camera defaults. |
+| `quality-report.json` | Deterministic export checks (sections, drawing inventory, callout coverage). |
 | `BUILD.md` | Job-specific dimensions, review gates, workflow and assembly instructions. |
 | `inventory-proposal.json` | Unused existing inventory and useful new offcuts; merge only after the physical job is completed. |
 | `drawings/` | Assembled views, each course, cutting diagrams and an individual fixing sheet for every part. |
@@ -165,4 +175,42 @@ sleeperplan/
   cli.py         plan / check / compare
 ```
 
-`AGENTS.md` gives coding agents the invariants to preserve. Start improvements by reproducing a physical or mathematical failure in a test, not by adding a web interface.
+`AGENTS.md` gives coding agents the invariants to preserve. Start improvements by reproducing a physical or mathematical failure in a test. Scope now also includes the static customer visualiser in `site/`.
+
+## Customer visualiser
+
+`site/` is a static client-facing page for presenting offer options:
+
+- 1, 2 and 3 course variants loaded from generated `web-manifest.json` bundles.
+- Interactive 3D rotate/pan/zoom with Z-up orientation and visible course edges.
+- Client-friendly metrics and process flow with links to assembled/process/manual/PDF artifacts.
+
+Run locally:
+
+```powershell
+py -m http.server 4173
+```
+
+Then open:
+
+```text
+http://localhost:4173/site/
+```
+
+Optional direct offer links:
+
+```text
+http://localhost:4173/site/?offer=c1
+http://localhost:4173/site/?offer=c2
+http://localhost:4173/site/?offer=c3
+```
+
+## Repo harness
+
+This repository follows the NAS repo-harness pattern with current-state files at repo root:
+
+- `AGENTS.md`
+- `state.yaml`
+- `backlog.md`
+- `implementationstatus.md`
+- `checklists/2026-09-07-field-trial-wave.md`

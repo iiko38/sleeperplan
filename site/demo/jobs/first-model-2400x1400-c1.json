@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "name": "Offer option - 1 course",
+  "catalogue": "../../../catalogues/wickes-2026-09-06.json",
+  "orientation": "edge",
+  "beds": [
+    {
+      "id": "offer-bed",
+      "length_mm": 2400,
+      "width_mm": 1400,
+      "courses": 1,
+      "quantity": 1,
+      "corner_pattern": "long_through",
+      "freeboard_mm": 50,
+      "access_sides": 2,
+      "site_type": "level_open_ground"
+    }
+  ],
+  "rules": {
+    "kerf_mm": 3,
+    "screw_spares_percent": 10,
+    "max_search_steps": 300000
+  },
+  "inventory": [],
+  "costs": {
+    "labour_minutes": null,
+    "labour_rate_pence_per_hour": null,
+    "target_margin_bps": null,
+    "extras": []
+  },
+  "review": {
+    "timber_and_kerf_measured": false,
+    "site_and_supports_reviewed": false,
+    "fixing_schedule_reviewed": false,
+    "reviewer": "",
+    "reviewed_on": "",
+    "notes": ""
+  },
+  "notes": "Customer showcase option: one course."
+}

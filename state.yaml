@@ -1,12 +1,14 @@
 version: 1
 project: sleeperplan
-active_focus: Ready for physical shop measurement and fastener field trial
-current_status: ready_for_field_trial
+active_focus: Client visualiser live for 1/2/3 course offers; proceed with physical shop measurement and fastener field trial for reviewed release
+current_status: web_visualiser_live_draft_plans
 blockers: []
 next_actions:
+  - Run a client-copy refinement pass on `site/` (offer positioning language and visuals) without changing engineering claims.
   - Measure actual stock sleeper length/thickness and saw kerf on test cut.
   - Drill test pieces with Wickes 7x150 mm and 7x250 mm screws to confirm pilot specification.
   - Perform controlled trial assembly of 2-course prototype bed.
+  - Capture trial evidence in docs/SOURCES.md and update reviewed release example.
 key_paths:
   readme: README.md
   agents: AGENTS.md
@@ -15,8 +17,12 @@ key_paths:
   sources: docs/SOURCES.md
   backlog: backlog.md
   status: implementationstatus.md
+  active_checklist: checklists/2026-09-07-field-trial-wave.md
   health_script: health.cmd
   cli_runner: sleeperplan.cmd
+  cad_viewer_cmd: view-cad.cmd
+  customer_site: site/
+  live_site: https://site-rho-six-fdck1jw7c6.vercel.app
   default_example: examples/neighbour.json
   catalogue: catalogues/wickes-2026-09-06.json
-last_updated: 2026-09-06
+last_updated: 2026-09-07

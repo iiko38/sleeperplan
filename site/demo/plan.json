@@ -1,0 +1,17 @@
+{
+  "name": "Demo bed",
+  "status": "DRAFT_MARK_OUT_ONLY",
+  "as_of": "2026-09-07",
+  "pieces": [
+    {"id": "demo-C1-S", "axis": "X", "x_mm": 0, "y_mm": 0, "z_mm": 0, "length_mm": 2000, "thickness_mm": 100, "height_mm": 200},
+    {"id": "demo-C1-N", "axis": "X", "x_mm": 0, "y_mm": 1000, "z_mm": 0, "length_mm": 2000, "thickness_mm": 100, "height_mm": 200},
+    {"id": "demo-C1-W", "axis": "Y", "x_mm": 0, "y_mm": 100, "z_mm": 0, "length_mm": 900, "thickness_mm": 100, "height_mm": 200},
+    {"id": "demo-C1-E", "axis": "Y", "x_mm": 1900, "y_mm": 100, "z_mm": 0, "length_mm": 900, "thickness_mm": 100, "height_mm": 200}
+  ],
+  "fixings": [
+    {"id": "demo-f-01", "direction": [1, 0, 0], "entry_mm": [0, 50, 100], "diameter_mm": 7, "screw_length_mm": 250},
+    {"id": "demo-f-02", "direction": [-1, 0, 0], "entry_mm": [2000, 1050, 100], "diameter_mm": 7, "screw_length_mm": 250},
+    {"id": "demo-f-03", "direction": [0, 0, -1], "entry_mm": [400, 50, 200], "diameter_mm": 7, "screw_length_mm": 150},
+    {"id": "demo-f-04", "direction": [0, 0, -1], "entry_mm": [1600, 1050, 200], "diameter_mm": 7, "screw_length_mm": 150}
+  ]
+}

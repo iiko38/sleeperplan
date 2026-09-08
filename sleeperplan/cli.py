@@ -78,8 +78,9 @@ def compare(args,job):
             scene=comparison_scene(variants,b.id);scenes.append(scene)
             (tmp/f'{b.id}-height-comparison.svg').write_text(scene.svg(),encoding='utf-8')
         if args.pdf:
-            from .pdf import write_scene_pdf
+            from .pdf import write_scene_pdf, write_options_pdf
             write_scene_pdf(scenes,tmp/'height-comparison.pdf')
+            write_options_pdf(variants,heights,tmp/'options-and-build.pdf',job_name=job.name)
         if args.out.exists():raise PlanError('Output appeared during generation')
         tmp.rename(args.out)
     except Exception:
