@@ -1,0 +1,60 @@
+{
+  "apply_only_after_job_completed": true,
+  "profile_key": "wickes-green-100x200",
+  "section_mm": [
+    100,
+    200
+  ],
+  "source_plan_sha256": "a911cb37693f6982180e81436b2c85b55a106864677a861af9ff7ed36c14c0b1",
+  "consumed": {},
+  "inventory": [
+    {
+      "id": "off-a911cb37-B007",
+      "length_mm": 397,
+      "price_pence": 0,
+      "quantity": 1,
+      "trim_start_mm": 0,
+      "trim_end_mm": 0
+    },
+    {
+      "id": "off-a911cb37-B008",
+      "length_mm": 397,
+      "price_pence": 0,
+      "quantity": 1,
+      "trim_start_mm": 0,
+      "trim_end_mm": 0
+    },
+    {
+      "id": "off-a911cb37-B009",
+      "length_mm": 597,
+      "price_pence": 0,
+      "quantity": 1,
+      "trim_start_mm": 0,
+      "trim_end_mm": 0
+    },
+    {
+      "id": "off-a911cb37-B010",
+      "length_mm": 597,
+      "price_pence": 0,
+      "quantity": 1,
+      "trim_start_mm": 0,
+      "trim_end_mm": 0
+    },
+    {
+      "id": "off-a911cb37-B011",
+      "length_mm": 597,
+      "price_pence": 0,
+      "quantity": 1,
+      "trim_start_mm": 0,
+      "trim_end_mm": 0
+    },
+    {
+      "id": "off-a911cb37-B012",
+      "length_mm": 597,
+      "price_pence": 0,
+      "quantity": 1,
+      "trim_start_mm": 0,
+      "trim_end_mm": 0
+    }
+  ]
+}

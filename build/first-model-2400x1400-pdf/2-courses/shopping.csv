@@ -1,0 +1,13 @@
+﻿id,category,description,needed,buy_quantity,unit,spares,unit_price_pence,line_pence,source_url,price_checked_on,note
+wickes-256948,timber,1800 mm sleeper / matching section,4,4,sleeper,0,2400,9600,https://www.wickes.co.uk/Wickes-UC4-Incised-Light-Green-Garden-Sleeper---100-x-200-x-1800mm/p/256948,2026-09-06,
+wickes-276785,timber,2400 mm sleeper / matching section,4,4,sleeper,0,2800,11200,https://www.wickes.co.uk/Wickes-UC4-Incised-Light-Green-Garden-Sleeper---100-x-200-x-2400mm/p/276785,2026-09-06,
+wickes-287686,screws,7 x 150 mm screws; 25/pack,16,1,pack,9,900,900,https://www.wickes.co.uk/Wickes-Timber-Drive-Washer-Head-Screws---7-x-150mm---Pack-of-25/p/287686,2026-09-06,
+wickes-287688,screws,7 x 250 mm screws; 25/pack,14,1,pack,11,1230,1230,https://www.wickes.co.uk/Wickes-Timber-Drive-Washer-Head-Screws---7-x-250mm---Pack-of-25/p/287688,2026-09-06,
+consumables,extra,"Drill bits, blades, PPE and other consumables",1,1,job,0,,,,,
+fill,extra,Soil / compost / mulch supply,1,1,job,0,,,,,
+liner,extra,Liner / protection and attachment (or explicitly not required),1,1,job,0,,,,,
+preservative,extra,Compatible cut-end preservative,1,1,job,0,,,,,
+site_preparation,extra,Ground preparation / bedding / disposal,1,1,job,0,,,,,
+supports,extra,"Site-specific stakes, bracing, brackets and their fixings",1,1,job,0,,,,,
+transport,extra,Collection / delivery / travel,1,1,job,0,,,,,
+labour,labour,"Labour (nearest penny, half-up)",,,minute,0,,,,,

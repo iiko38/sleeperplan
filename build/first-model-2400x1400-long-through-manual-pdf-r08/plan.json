@@ -1,0 +1,2780 @@
+{
+  "schema_version": 1,
+  "generator_version": "0.1.0",
+  "input_sha256": "50c064c82d0d06387b49013ee177332ee455f2679ac6b4c581b456ecfcb4cf3e",
+  "as_of": "2026-09-06",
+  "name": "First rectangular bed draft - 2400 x 1400",
+  "status": "DRAFT_MARK_OUT_ONLY",
+  "review_gate_clear": false,
+  "issues": [
+    {
+      "code": "timber_and_kerf_measured",
+      "blocking": true,
+      "message": "Measure actual stock length/section, usable ends and saw kerf; update inputs before cutting."
+    },
+    {
+      "code": "site_and_supports_reviewed",
+      "blocking": true,
+      "message": "Review foundations, drainage, soil loads, support/bracing and any buried services on site."
+    },
+    {
+      "code": "fixing_schedule_reviewed",
+      "blocking": true,
+      "message": "Review screw suitability, end-grain connections, penetration and spacing with a competent builder / supplier."
+    },
+    {
+      "code": "review_record",
+      "blocking": true,
+      "message": "Record reviewer, reviewed_on and review notes before releasing a workshop pack."
+    },
+    {
+      "code": "pilot_unconfirmed",
+      "blocking": true,
+      "message": "wickes-287686: fixing centres are mark-out only. Confirm pilot diameter/depth or a manufacturer-supported no-pilot instruction; none is inferred."
+    },
+    {
+      "code": "pilot_unconfirmed",
+      "blocking": true,
+      "message": "wickes-287688: fixing centres are mark-out only. Confirm pilot diameter/depth or a manufacturer-supported no-pilot instruction; none is inferred."
+    },
+    {
+      "code": "aligned_corners",
+      "blocking": false,
+      "message": "first-bed-01: same corner arrangement on every course. Deliberately not interlocked; review the connection."
+    },
+    {
+      "code": "reach",
+      "blocking": false,
+      "message": "first-bed-01: centre reach is approximately 700 mm from 2 accessible side(s); confirm with the user. 650 mm is a planning prompt, not an accessibility standard."
+    },
+    {
+      "code": "factory_ends",
+      "blocking": false,
+      "message": "Zero end trim assumes square, sound, usable factory/cut ends. Nominal 2400 mm is not a measurement."
+    },
+    {
+      "code": "incomplete_cost",
+      "blocking": false,
+      "message": "Known subtotal only; unpriced: consumables, fill, liner, preservative, site_preparation, supports, transport, labour"
+    },
+    {
+      "code": "supply",
+      "blocking": false,
+      "message": "Catalogue prices are dated snapshots. The configured store and collection stock are NOT confirmed."
+    },
+    {
+      "code": "not_structural",
+      "blocking": false,
+      "message": "Geometry and straight screw-path clearance are checked; timber strength, screw capacity, long-term movement and soil pressure are NOT calculated. Supports/bracing, liner detailing and foundations are site-specific and not drawn by v1."
+    }
+  ],
+  "input": {
+    "job": {
+      "name": "First rectangular bed draft - 2400 x 1400",
+      "profile": {
+        "key": "wickes-green-100x200",
+        "thickness_mm": 100,
+        "height_mm": 200,
+        "description": "Wickes UC4 incised light green treated softwood; nominal 100 x 200 mm"
+      },
+      "beds": [
+        {
+          "id": "first-bed",
+          "length_mm": 2400,
+          "width_mm": 1400,
+          "courses": 3,
+          "quantity": 1,
+          "corner_pattern": "long_through",
+          "freeboard_mm": 50,
+          "access_sides": 2,
+          "site_type": "level_open_ground"
+        }
+      ],
+      "stocks": [
+        {
+          "id": "wickes-276785",
+          "length_mm": 2400,
+          "price_pence": 2800,
+          "quantity": null,
+          "inventory": false,
+          "trim_start_mm": 0,
+          "trim_end_mm": 0,
+          "source_url": "https://www.wickes.co.uk/Wickes-UC4-Incised-Light-Green-Garden-Sleeper---100-x-200-x-2400mm/p/276785",
+          "checked_on": "2026-09-06",
+          "weight_grams": 38400
+        },
+        {
+          "id": "wickes-256948",
+          "length_mm": 1800,
+          "price_pence": 2400,
+          "quantity": null,
+          "inventory": false,
+          "trim_start_mm": 0,
+          "trim_end_mm": 0,
+          "source_url": "https://www.wickes.co.uk/Wickes-UC4-Incised-Light-Green-Garden-Sleeper---100-x-200-x-1800mm/p/256948",
+          "checked_on": "2026-09-06",
+          "weight_grams": null
+        }
+      ],
+      "screws": [
+        {
+          "id": "wickes-287686",
+          "length_mm": 150,
+          "diameter_mm": 7,
+          "pack_size": 25,
+          "pack_price_pence": 900,
+          "source_url": "https://www.wickes.co.uk/Wickes-Timber-Drive-Washer-Head-Screws---7-x-150mm---Pack-of-25/p/287686",
+          "checked_on": "2026-09-06",
+          "pilot_mode": "unconfirmed",
+          "pilot_diameter_mm": null,
+          "pilot_depth_mm": null,
+          "pilot_evidence": ""
+        },
+        {
+          "id": "wickes-287688",
+          "length_mm": 250,
+          "diameter_mm": 7,
+          "pack_size": 25,
+          "pack_price_pence": 1230,
+          "source_url": "https://www.wickes.co.uk/Wickes-Timber-Drive-Washer-Head-Screws---7-x-250mm---Pack-of-25/p/287688",
+          "checked_on": "2026-09-06",
+          "pilot_mode": "unconfirmed",
+          "pilot_diameter_mm": null,
+          "pilot_depth_mm": null,
+          "pilot_evidence": ""
+        }
+      ],
+      "rules": {
+        "kerf_mm": 3,
+        "reusable_offcut_min_mm": 300,
+        "minimum_penetration_mm": 50,
+        "far_face_clearance_mm": 20,
+        "end_clearance_mm": 80,
+        "side_clearance_mm": 20,
+        "stack_end_inset_mm": 200,
+        "stack_max_spacing_mm": 600,
+        "metal_clearance_mm": 12,
+        "screw_spares_percent": 10,
+        "max_search_steps": 300000,
+        "price_max_age_days": 30
+      },
+      "costs": {
+        "labour_minutes": null,
+        "labour_rate_pence_per_hour": null,
+        "target_margin_bps": null,
+        "extras": []
+      },
+      "review": {
+        "timber_and_kerf_measured": false,
+        "site_and_supports_reviewed": false,
+        "fixing_schedule_reviewed": false,
+        "reviewer": "",
+        "reviewed_on": "",
+        "notes": ""
+      },
+      "provenance": {
+        "supplier_note": "Wickes, Clapham/West Sussex area as requested. Exact branch is unconfirmed. Official Worthing branch: 114 Dominion Road, BN14 8JP. No local stock claim.",
+        "orientation": "edge",
+        "notes": "Draft model for first rectangular bed. Dimensions to confirm on site before release."
+      }
+    },
+    "as_of": "2026-09-06",
+    "generator_version": "0.1.0"
+  },
+  "profile": {
+    "key": "wickes-green-100x200",
+    "thickness_mm": 100,
+    "height_mm": 200,
+    "description": "Wickes UC4 incised light green treated softwood; nominal 100 x 200 mm"
+  },
+  "beds": [
+    {
+      "id": "first-bed-01",
+      "design_id": "first-bed",
+      "length_mm": 2400,
+      "width_mm": 1400,
+      "courses": 3,
+      "height_mm": 600,
+      "inside_length_mm": 2200,
+      "inside_width_mm": 1200,
+      "freeboard_mm": 50,
+      "fill_litres": 1452.0,
+      "inside_wall_area_m2": 4.08,
+      "diagonal_mm": 2778.5,
+      "corner_pattern": "long_through",
+      "site_type": "level_open_ground",
+      "access_sides": 2
+    }
+  ],
+  "pieces": [
+    {
+      "id": "first-bed-01-C1-S",
+      "bed_id": "first-bed-01",
+      "course": 1,
+      "side": "S",
+      "axis": "X",
+      "x_mm": 0,
+      "y_mm": 0,
+      "z_mm": 0,
+      "length_mm": 2400,
+      "thickness_mm": 100,
+      "height_mm": 200,
+      "through_at_corners": true
+    },
+    {
+      "id": "first-bed-01-C1-N",
+      "bed_id": "first-bed-01",
+      "course": 1,
+      "side": "N",
+      "axis": "X",
+      "x_mm": 0,
+      "y_mm": 1300,
+      "z_mm": 0,
+      "length_mm": 2400,
+      "thickness_mm": 100,
+      "height_mm": 200,
+      "through_at_corners": true
+    },
+    {
+      "id": "first-bed-01-C1-W",
+      "bed_id": "first-bed-01",
+      "course": 1,
+      "side": "W",
+      "axis": "Y",
+      "x_mm": 0,
+      "y_mm": 100,
+      "z_mm": 0,
+      "length_mm": 1200,
+      "thickness_mm": 100,
+      "height_mm": 200,
+      "through_at_corners": false
+    },
+    {
+      "id": "first-bed-01-C1-E",
+      "bed_id": "first-bed-01",
+      "course": 1,
+      "side": "E",
+      "axis": "Y",
+      "x_mm": 2300,
+      "y_mm": 100,
+      "z_mm": 0,
+      "length_mm": 1200,
+      "thickness_mm": 100,
+      "height_mm": 200,
+      "through_at_corners": false
+    },
+    {
+      "id": "first-bed-01-C2-S",
+      "bed_id": "first-bed-01",
+      "course": 2,
+      "side": "S",
+      "axis": "X",
+      "x_mm": 0,
+      "y_mm": 0,
+      "z_mm": 200,
+      "length_mm": 2400,
+      "thickness_mm": 100,
+      "height_mm": 200,
+      "through_at_corners": true
+    },
+    {
+      "id": "first-bed-01-C2-N",
+      "bed_id": "first-bed-01",
+      "course": 2,
+      "side": "N",
+      "axis": "X",
+      "x_mm": 0,
+      "y_mm": 1300,
+      "z_mm": 200,
+      "length_mm": 2400,
+      "thickness_mm": 100,
+      "height_mm": 200,
+      "through_at_corners": true
+    },
+    {
+      "id": "first-bed-01-C2-W",
+      "bed_id": "first-bed-01",
+      "course": 2,
+      "side": "W",
+      "axis": "Y",
+      "x_mm": 0,
+      "y_mm": 100,
+      "z_mm": 200,
+      "length_mm": 1200,
+      "thickness_mm": 100,
+      "height_mm": 200,
+      "through_at_corners": false
+    },
+    {
+      "id": "first-bed-01-C2-E",
+      "bed_id": "first-bed-01",
+      "course": 2,
+      "side": "E",
+      "axis": "Y",
+      "x_mm": 2300,
+      "y_mm": 100,
+      "z_mm": 200,
+      "length_mm": 1200,
+      "thickness_mm": 100,
+      "height_mm": 200,
+      "through_at_corners": false
+    },
+    {
+      "id": "first-bed-01-C3-S",
+      "bed_id": "first-bed-01",
+      "course": 3,
+      "side": "S",
+      "axis": "X",
+      "x_mm": 0,
+      "y_mm": 0,
+      "z_mm": 400,
+      "length_mm": 2400,
+      "thickness_mm": 100,
+      "height_mm": 200,
+      "through_at_corners": true
+    },
+    {
+      "id": "first-bed-01-C3-N",
+      "bed_id": "first-bed-01",
+      "course": 3,
+      "side": "N",
+      "axis": "X",
+      "x_mm": 0,
+      "y_mm": 1300,
+      "z_mm": 400,
+      "length_mm": 2400,
+      "thickness_mm": 100,
+      "height_mm": 200,
+      "through_at_corners": true
+    },
+    {
+      "id": "first-bed-01-C3-W",
+      "bed_id": "first-bed-01",
+      "course": 3,
+      "side": "W",
+      "axis": "Y",
+      "x_mm": 0,
+      "y_mm": 100,
+      "z_mm": 400,
+      "length_mm": 1200,
+      "thickness_mm": 100,
+      "height_mm": 200,
+      "through_at_corners": false
+    },
+    {
+      "id": "first-bed-01-C3-E",
+      "bed_id": "first-bed-01",
+      "course": 3,
+      "side": "E",
+      "axis": "Y",
+      "x_mm": 2300,
+      "y_mm": 100,
+      "z_mm": 400,
+      "length_mm": 1200,
+      "thickness_mm": 100,
+      "height_mm": 200,
+      "through_at_corners": false
+    }
+  ],
+  "fixings": [
+    {
+      "id": "first-bed-01-C1-N-F01",
+      "bed_id": "first-bed-01",
+      "course": 1,
+      "piece_id": "first-bed-01-C1-N",
+      "receiver_id": "first-bed-01-C1-W",
+      "kind": "corner",
+      "entry_face": "outer",
+      "entry_mm": [
+        50.0,
+        1400,
+        50.0
+      ],
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "local_mm": [
+        50.0,
+        100,
+        50.0
+      ],
+      "screw_id": "wickes-287686",
+      "screw_length_mm": 150,
+      "diameter_mm": 7,
+      "through_mm": 100,
+      "penetration_mm": 50,
+      "pilot_mode": "unconfirmed",
+      "pilot_diameter_mm": null,
+      "pilot_depth_mm": null
+    },
+    {
+      "id": "first-bed-01-C1-N-F02",
+      "bed_id": "first-bed-01",
+      "course": 1,
+      "piece_id": "first-bed-01-C1-N",
+      "receiver_id": "first-bed-01-C1-W",
+      "kind": "corner",
+      "entry_face": "outer",
+      "entry_mm": [
+        50.0,
+        1400,
+        150.0
+      ],
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "local_mm": [
+        50.0,
+        100,
+        150.0
+      ],
+      "screw_id": "wickes-287686",
+      "screw_length_mm": 150,
+      "diameter_mm": 7,
+      "through_mm": 100,
+      "penetration_mm": 50,
+      "pilot_mode": "unconfirmed",
+      "pilot_diameter_mm": null,
+      "pilot_depth_mm": null
+    },
+    {
+      "id": "first-bed-01-C1-N-F03",
+      "bed_id": "first-bed-01",
+      "course": 1,
+      "piece_id": "first-bed-01-C1-N",
+      "receiver_id": "first-bed-01-C1-E",
+      "kind": "corner",
+      "entry_face": "outer",
+      "entry_mm": [
+        2350.0,
+        1400,
+        50.0
+      ],
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "local_mm": [
+        2350.0,
+        100,
+        50.0
+      ],
+      "screw_id": "wickes-287686",
+      "screw_length_mm": 150,
+      "diameter_mm": 7,
+      "through_mm": 100,
+      "penetration_mm": 50,
+      "pilot_mode": "unconfirmed",
+      "pilot_diameter_mm": null,
+      "pilot_depth_mm": null
+    },
+    {
+      "id": "first-bed-01-C1-N-F04",
+      "bed_id": "first-bed-01",
+      "course": 1,
+      "piece_id": "first-bed-01-C1-N",
+      "receiver_id": "first-bed-01-C1-E",
+      "kind": "corner",
+      "entry_face": "outer",
+      "entry_mm": [
+        2350.0,
+        1400,
+        150.0
+      ],
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "local_mm": [
+        2350.0,
+        100,
+        150.0
+      ],
+      "screw_id": "wickes-287686",
+      "screw_length_mm": 150,
+      "diameter_mm": 7,
+      "through_mm": 100,
+      "penetration_mm": 50,
+      "pilot_mode": "unconfirmed",
+      "pilot_diameter_mm": null,
+      "pilot_depth_mm": null
+    },
+    {
+      "id": "first-bed-01-C1-S-F01",
+      "bed_id": "first-bed-01",
+      "course": 1,
+      "piece_id": "first-bed-01-C1-S",
+      "receiver_id": "first-bed-01-C1-W",
+      "kind": "corner",
+      "entry_face": "outer",
+      "entry_mm": [
+        50.0,
+        0,
+        50.0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "local_mm": [
+        50.0,
+        0,
+        50.0
+      ],
+      "screw_id": "wickes-287686",
+      "screw_length_mm": 150,
+      "diameter_mm": 7,
+      "through_mm": 100,
+      "penetration_mm": 50,
+      "pilot_mode": "unconfirmed",
+      "pilot_diameter_mm": null,
+      "pilot_depth_mm": null
+    },
+    {
+      "id": "first-bed-01-C1-S-F02",
+      "bed_id": "first-bed-01",
+      "course": 1,
+      "piece_id": "first-bed-01-C1-S",
+      "receiver_id": "first-bed-01-C1-W",
+      "kind": "corner",
+      "entry_face": "outer",
+      "entry_mm": [
+        50.0,
+        0,
+        150.0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "local_mm": [
+        50.0,
+        0,
+        150.0
+      ],
+      "screw_id": "wickes-287686",
+      "screw_length_mm": 150,
+      "diameter_mm": 7,
+      "through_mm": 100,
+      "penetration_mm": 50,
+      "pilot_mode": "unconfirmed",
+      "pilot_diameter_mm": null,
+      "pilot_depth_mm": null
+    },
+    {
+      "id": "first-bed-01-C1-S-F03",
+      "bed_id": "first-bed-01",
+      "course": 1,
+      "piece_id": "first-bed-01-C1-S",
+      "receiver_id": "first-bed-01-C1-E",
+      "kind": "corner",
+      "entry_face": "outer",
+      "entry_mm": [
+        2350.0,
+        0,
+        50.0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "local_mm": [
+        2350.0,
+        0,
+        50.0
+      ],
+      "screw_id": "wickes-287686",
+      "screw_length_mm": 150,
+      "diameter_mm": 7,
+      "through_mm": 100,
+      "penetration_mm": 50,
+      "pilot_mode": "unconfirmed",
+      "pilot_diameter_mm": null,
+      "pilot_depth_mm": null
+    },
+    {
+      "id": "first-bed-01-C1-S-F04",
+      "bed_id": "first-bed-01",
+      "course": 1,
+      "piece_id": "first-bed-01-C1-S",
+      "receiver_id": "first-bed-01-C1-E",
+      "kind": "corner",
+      "entry_face": "outer",
+      "entry_mm": [
+        2350.0,
+        0,
+        150.0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "local_mm": [
+        2350.0,
+        0,
+        150.0
+      ],
+      "screw_id": "wickes-287686",
+      "screw_length_mm": 150,
+      "diameter_mm": 7,
+      "through_mm": 100,
+      "penetration_mm": 50,
+      "pilot_mode": "unconfirmed",
+      "pilot_diameter_mm": null,
+      "pilot_depth_mm": null
+    },
+    {
+      "id": "first-bed-01-C2-E-F01",
+      "bed_id": "first-bed-01",
+      "course": 2,
+      "piece_id": "first-bed-01-C2-E",
+      "receiver_id": "first-bed-01-C1-E",
+      "kind": "stack",
+      "entry_face": "top",
+      "entry_mm": [
+        2350.0,
+        300.0,
+        400
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "local_mm": [
+        200.0,
+        50.0,
+        200
+      ],
+      "screw_id": "wickes-287688",
+      "screw_length_mm": 250,
+      "diameter_mm": 7,
+      "through_mm": 200,
+      "penetration_mm": 50,
+      "pilot_mode": "unconfirmed",
+      "pilot_diameter_mm": null,
+      "pilot_depth_mm": null
+    },
+    {
+      "id": "first-bed-01-C2-E-F02",
+      "bed_id": "first-bed-01",
+      "course": 2,
+      "piece_id": "first-bed-01-C2-E",
+      "receiver_id": "first-bed-01-C1-E",
+      "kind": "stack",
+      "entry_face": "top",
+      "entry_mm": [
+        2350.0,
+        700.0,
+        400
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "local_mm": [
+        600.0,
+        50.0,
+        200
+      ],
+      "screw_id": "wickes-287688",
+      "screw_length_mm": 250,
+      "diameter_mm": 7,
+      "through_mm": 200,
+      "penetration_mm": 50,
+      "pilot_mode": "unconfirmed",
+      "pilot_diameter_mm": null,
+      "pilot_depth_mm": null
+    },
+    {
+      "id": "first-bed-01-C2-E-F03",
+      "bed_id": "first-bed-01",
+      "course": 2,
+      "piece_id": "first-bed-01-C2-E",
+      "receiver_id": "first-bed-01-C1-E",
+      "kind": "stack",
+      "entry_face": "top",
+      "entry_mm": [
+        2350.0,
+        1100.0,
+        400
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "local_mm": [
+        1000.0,
+        50.0,
+        200
+      ],
+      "screw_id": "wickes-287688",
+      "screw_length_mm": 250,
+      "diameter_mm": 7,
+      "through_mm": 200,
+      "penetration_mm": 50,
+      "pilot_mode": "unconfirmed",
+      "pilot_diameter_mm": null,
+      "pilot_depth_mm": null
+    },
+    {
+      "id": "first-bed-01-C2-N-F01",
+      "bed_id": "first-bed-01",
+      "course": 2,
+      "piece_id": "first-bed-01-C2-N",
+      "receiver_id": "first-bed-01-C2-W",
+      "kind": "corner",
+      "entry_face": "outer",
+      "entry_mm": [
+        50.0,
+        1400,
+        250.0
+      ],
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "local_mm": [
+        50.0,
+        100,
+        50.0
+      ],
+      "screw_id": "wickes-287686",
+      "screw_length_mm": 150,
+      "diameter_mm": 7,
+      "through_mm": 100,
+      "penetration_mm": 50,
+      "pilot_mode": "unconfirmed",
+      "pilot_diameter_mm": null,
+      "pilot_depth_mm": null
+    },
+    {
+      "id": "first-bed-01-C2-N-F02",
+      "bed_id": "first-bed-01",
+      "course": 2,
+      "piece_id": "first-bed-01-C2-N",
+      "receiver_id": "first-bed-01-C2-W",
+      "kind": "corner",
+      "entry_face": "outer",
+      "entry_mm": [
+        50.0,
+        1400,
+        350.0
+      ],
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "local_mm": [
+        50.0,
+        100,
+        150.0
+      ],
+      "screw_id": "wickes-287686",
+      "screw_length_mm": 150,
+      "diameter_mm": 7,
+      "through_mm": 100,
+      "penetration_mm": 50,
+      "pilot_mode": "unconfirmed",
+      "pilot_diameter_mm": null,
+      "pilot_depth_mm": null
+    },
+    {
+      "id": "first-bed-01-C2-N-F03",
+      "bed_id": "first-bed-01",
+      "course": 2,
+      "piece_id": "first-bed-01-C2-N",
+      "receiver_id": "first-bed-01-C2-E",
+      "kind": "corner",
+      "entry_face": "outer",
+      "entry_mm": [
+        2350.0,
+        1400,
+        250.0
+      ],
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "local_mm": [
+        2350.0,
+        100,
+        50.0
+      ],
+      "screw_id": "wickes-287686",
+      "screw_length_mm": 150,
+      "diameter_mm": 7,
+      "through_mm": 100,
+      "penetration_mm": 50,
+      "pilot_mode": "unconfirmed",
+      "pilot_diameter_mm": null,
+      "pilot_depth_mm": null
+    },
+    {
+      "id": "first-bed-01-C2-N-F04",
+      "bed_id": "first-bed-01",
+      "course": 2,
+      "piece_id": "first-bed-01-C2-N",
+      "receiver_id": "first-bed-01-C2-E",
+      "kind": "corner",
+      "entry_face": "outer",
+      "entry_mm": [
+        2350.0,
+        1400,
+        350.0
+      ],
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "local_mm": [
+        2350.0,
+        100,
+        150.0
+      ],
+      "screw_id": "wickes-287686",
+      "screw_length_mm": 150,
+      "diameter_mm": 7,
+      "through_mm": 100,
+      "penetration_mm": 50,
+      "pilot_mode": "unconfirmed",
+      "pilot_diameter_mm": null,
+      "pilot_depth_mm": null
+    },
+    {
+      "id": "first-bed-01-C2-N-F05",
+      "bed_id": "first-bed-01",
+      "course": 2,
+      "piece_id": "first-bed-01-C2-N",
+      "receiver_id": "first-bed-01-C1-N",
+      "kind": "stack",
+      "entry_face": "top",
+      "entry_mm": [
+        200.0,
+        1350.0,
+        400
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "local_mm": [
+        200.0,
+        50.0,
+        200
+      ],
+      "screw_id": "wickes-287688",
+      "screw_length_mm": 250,
+      "diameter_mm": 7,
+      "through_mm": 200,
+      "penetration_mm": 50,
+      "pilot_mode": "unconfirmed",
+      "pilot_diameter_mm": null,
+      "pilot_depth_mm": null
+    },
+    {
+      "id": "first-bed-01-C2-N-F06",
+      "bed_id": "first-bed-01",
+      "course": 2,
+      "piece_id": "first-bed-01-C2-N",
+      "receiver_id": "first-bed-01-C1-N",
+      "kind": "stack",
+      "entry_face": "top",
+      "entry_mm": [
+        700.0,
+        1350.0,
+        400
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "local_mm": [
+        700.0,
+        50.0,
+        200
+      ],
+      "screw_id": "wickes-287688",
+      "screw_length_mm": 250,
+      "diameter_mm": 7,
+      "through_mm": 200,
+      "penetration_mm": 50,
+      "pilot_mode": "unconfirmed",
+      "pilot_diameter_mm": null,
+      "pilot_depth_mm": null
+    },
+    {
+      "id": "first-bed-01-C2-N-F07",
+      "bed_id": "first-bed-01",
+      "course": 2,
+      "piece_id": "first-bed-01-C2-N",
+      "receiver_id": "first-bed-01-C1-N",
+      "kind": "stack",
+      "entry_face": "top",
+      "entry_mm": [
+        1200.0,
+        1350.0,
+        400
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "local_mm": [
+        1200.0,
+        50.0,
+        200
+      ],
+      "screw_id": "wickes-287688",
+      "screw_length_mm": 250,
+      "diameter_mm": 7,
+      "through_mm": 200,
+      "penetration_mm": 50,
+      "pilot_mode": "unconfirmed",
+      "pilot_diameter_mm": null,
+      "pilot_depth_mm": null
+    },
+    {
+      "id": "first-bed-01-C2-N-F08",
+      "bed_id": "first-bed-01",
+      "course": 2,
+      "piece_id": "first-bed-01-C2-N",
+      "receiver_id": "first-bed-01-C1-N",
+      "kind": "stack",
+      "entry_face": "top",
+      "entry_mm": [
+        1700.0,
+        1350.0,
+        400
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "local_mm": [
+        1700.0,
+        50.0,
+        200
+      ],
+      "screw_id": "wickes-287688",
+      "screw_length_mm": 250,
+      "diameter_mm": 7,
+      "through_mm": 200,
+      "penetration_mm": 50,
+      "pilot_mode": "unconfirmed",
+      "pilot_diameter_mm": null,
+      "pilot_depth_mm": null
+    },
+    {
+      "id": "first-bed-01-C2-N-F09",
+      "bed_id": "first-bed-01",
+      "course": 2,
+      "piece_id": "first-bed-01-C2-N",
+      "receiver_id": "first-bed-01-C1-N",
+      "kind": "stack",
+      "entry_face": "top",
+      "entry_mm": [
+        2200.0,
+        1350.0,
+        400
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "local_mm": [
+        2200.0,
+        50.0,
+        200
+      ],
+      "screw_id": "wickes-287688",
+      "screw_length_mm": 250,
+      "diameter_mm": 7,
+      "through_mm": 200,
+      "penetration_mm": 50,
+      "pilot_mode": "unconfirmed",
+      "pilot_diameter_mm": null,
+      "pilot_depth_mm": null
+    },
+    {
+      "id": "first-bed-01-C2-S-F01",
+      "bed_id": "first-bed-01",
+      "course": 2,
+      "piece_id": "first-bed-01-C2-S",
+      "receiver_id": "first-bed-01-C2-W",
+      "kind": "corner",
+      "entry_face": "outer",
+      "entry_mm": [
+        50.0,
+        0,
+        250.0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "local_mm": [
+        50.0,
+        0,
+        50.0
+      ],
+      "screw_id": "wickes-287686",
+      "screw_length_mm": 150,
+      "diameter_mm": 7,
+      "through_mm": 100,
+      "penetration_mm": 50,
+      "pilot_mode": "unconfirmed",
+      "pilot_diameter_mm": null,
+      "pilot_depth_mm": null
+    },
+    {
+      "id": "first-bed-01-C2-S-F02",
+      "bed_id": "first-bed-01",
+      "course": 2,
+      "piece_id": "first-bed-01-C2-S",
+      "receiver_id": "first-bed-01-C2-W",
+      "kind": "corner",
+      "entry_face": "outer",
+      "entry_mm": [
+        50.0,
+        0,
+        350.0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "local_mm": [
+        50.0,
+        0,
+        150.0
+      ],
+      "screw_id": "wickes-287686",
+      "screw_length_mm": 150,
+      "diameter_mm": 7,
+      "through_mm": 100,
+      "penetration_mm": 50,
+      "pilot_mode": "unconfirmed",
+      "pilot_diameter_mm": null,
+      "pilot_depth_mm": null
+    },
+    {
+      "id": "first-bed-01-C2-S-F03",
+      "bed_id": "first-bed-01",
+      "course": 2,
+      "piece_id": "first-bed-01-C2-S",
+      "receiver_id": "first-bed-01-C2-E",
+      "kind": "corner",
+      "entry_face": "outer",
+      "entry_mm": [
+        2350.0,
+        0,
+        250.0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "local_mm": [
+        2350.0,
+        0,
+        50.0
+      ],
+      "screw_id": "wickes-287686",
+      "screw_length_mm": 150,
+      "diameter_mm": 7,
+      "through_mm": 100,
+      "penetration_mm": 50,
+      "pilot_mode": "unconfirmed",
+      "pilot_diameter_mm": null,
+      "pilot_depth_mm": null
+    },
+    {
+      "id": "first-bed-01-C2-S-F04",
+      "bed_id": "first-bed-01",
+      "course": 2,
+      "piece_id": "first-bed-01-C2-S",
+      "receiver_id": "first-bed-01-C2-E",
+      "kind": "corner",
+      "entry_face": "outer",
+      "entry_mm": [
+        2350.0,
+        0,
+        350.0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "local_mm": [
+        2350.0,
+        0,
+        150.0
+      ],
+      "screw_id": "wickes-287686",
+      "screw_length_mm": 150,
+      "diameter_mm": 7,
+      "through_mm": 100,
+      "penetration_mm": 50,
+      "pilot_mode": "unconfirmed",
+      "pilot_diameter_mm": null,
+      "pilot_depth_mm": null
+    },
+    {
+      "id": "first-bed-01-C2-S-F05",
+      "bed_id": "first-bed-01",
+      "course": 2,
+      "piece_id": "first-bed-01-C2-S",
+      "receiver_id": "first-bed-01-C1-S",
+      "kind": "stack",
+      "entry_face": "top",
+      "entry_mm": [
+        200.0,
+        50.0,
+        400
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "local_mm": [
+        200.0,
+        50.0,
+        200
+      ],
+      "screw_id": "wickes-287688",
+      "screw_length_mm": 250,
+      "diameter_mm": 7,
+      "through_mm": 200,
+      "penetration_mm": 50,
+      "pilot_mode": "unconfirmed",
+      "pilot_diameter_mm": null,
+      "pilot_depth_mm": null
+    },
+    {
+      "id": "first-bed-01-C2-S-F06",
+      "bed_id": "first-bed-01",
+      "course": 2,
+      "piece_id": "first-bed-01-C2-S",
+      "receiver_id": "first-bed-01-C1-S",
+      "kind": "stack",
+      "entry_face": "top",
+      "entry_mm": [
+        700.0,
+        50.0,
+        400
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "local_mm": [
+        700.0,
+        50.0,
+        200
+      ],
+      "screw_id": "wickes-287688",
+      "screw_length_mm": 250,
+      "diameter_mm": 7,
+      "through_mm": 200,
+      "penetration_mm": 50,
+      "pilot_mode": "unconfirmed",
+      "pilot_diameter_mm": null,
+      "pilot_depth_mm": null
+    },
+    {
+      "id": "first-bed-01-C2-S-F07",
+      "bed_id": "first-bed-01",
+      "course": 2,
+      "piece_id": "first-bed-01-C2-S",
+      "receiver_id": "first-bed-01-C1-S",
+      "kind": "stack",
+      "entry_face": "top",
+      "entry_mm": [
+        1200.0,
+        50.0,
+        400
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "local_mm": [
+        1200.0,
+        50.0,
+        200
+      ],
+      "screw_id": "wickes-287688",
+      "screw_length_mm": 250,
+      "diameter_mm": 7,
+      "through_mm": 200,
+      "penetration_mm": 50,
+      "pilot_mode": "unconfirmed",
+      "pilot_diameter_mm": null,
+      "pilot_depth_mm": null
+    },
+    {
+      "id": "first-bed-01-C2-S-F08",
+      "bed_id": "first-bed-01",
+      "course": 2,
+      "piece_id": "first-bed-01-C2-S",
+      "receiver_id": "first-bed-01-C1-S",
+      "kind": "stack",
+      "entry_face": "top",
+      "entry_mm": [
+        1700.0,
+        50.0,
+        400
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "local_mm": [
+        1700.0,
+        50.0,
+        200
+      ],
+      "screw_id": "wickes-287688",
+      "screw_length_mm": 250,
+      "diameter_mm": 7,
+      "through_mm": 200,
+      "penetration_mm": 50,
+      "pilot_mode": "unconfirmed",
+      "pilot_diameter_mm": null,
+      "pilot_depth_mm": null
+    },
+    {
+      "id": "first-bed-01-C2-S-F09",
+      "bed_id": "first-bed-01",
+      "course": 2,
+      "piece_id": "first-bed-01-C2-S",
+      "receiver_id": "first-bed-01-C1-S",
+      "kind": "stack",
+      "entry_face": "top",
+      "entry_mm": [
+        2200.0,
+        50.0,
+        400
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "local_mm": [
+        2200.0,
+        50.0,
+        200
+      ],
+      "screw_id": "wickes-287688",
+      "screw_length_mm": 250,
+      "diameter_mm": 7,
+      "through_mm": 200,
+      "penetration_mm": 50,
+      "pilot_mode": "unconfirmed",
+      "pilot_diameter_mm": null,
+      "pilot_depth_mm": null
+    },
+    {
+      "id": "first-bed-01-C2-W-F01",
+      "bed_id": "first-bed-01",
+      "course": 2,
+      "piece_id": "first-bed-01-C2-W",
+      "receiver_id": "first-bed-01-C1-W",
+      "kind": "stack",
+      "entry_face": "top",
+      "entry_mm": [
+        50.0,
+        300.0,
+        400
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "local_mm": [
+        200.0,
+        50.0,
+        200
+      ],
+      "screw_id": "wickes-287688",
+      "screw_length_mm": 250,
+      "diameter_mm": 7,
+      "through_mm": 200,
+      "penetration_mm": 50,
+      "pilot_mode": "unconfirmed",
+      "pilot_diameter_mm": null,
+      "pilot_depth_mm": null
+    },
+    {
+      "id": "first-bed-01-C2-W-F02",
+      "bed_id": "first-bed-01",
+      "course": 2,
+      "piece_id": "first-bed-01-C2-W",
+      "receiver_id": "first-bed-01-C1-W",
+      "kind": "stack",
+      "entry_face": "top",
+      "entry_mm": [
+        50.0,
+        700.0,
+        400
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "local_mm": [
+        600.0,
+        50.0,
+        200
+      ],
+      "screw_id": "wickes-287688",
+      "screw_length_mm": 250,
+      "diameter_mm": 7,
+      "through_mm": 200,
+      "penetration_mm": 50,
+      "pilot_mode": "unconfirmed",
+      "pilot_diameter_mm": null,
+      "pilot_depth_mm": null
+    },
+    {
+      "id": "first-bed-01-C2-W-F03",
+      "bed_id": "first-bed-01",
+      "course": 2,
+      "piece_id": "first-bed-01-C2-W",
+      "receiver_id": "first-bed-01-C1-W",
+      "kind": "stack",
+      "entry_face": "top",
+      "entry_mm": [
+        50.0,
+        1100.0,
+        400
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "local_mm": [
+        1000.0,
+        50.0,
+        200
+      ],
+      "screw_id": "wickes-287688",
+      "screw_length_mm": 250,
+      "diameter_mm": 7,
+      "through_mm": 200,
+      "penetration_mm": 50,
+      "pilot_mode": "unconfirmed",
+      "pilot_diameter_mm": null,
+      "pilot_depth_mm": null
+    },
+    {
+      "id": "first-bed-01-C3-E-F01",
+      "bed_id": "first-bed-01",
+      "course": 3,
+      "piece_id": "first-bed-01-C3-E",
+      "receiver_id": "first-bed-01-C2-E",
+      "kind": "stack",
+      "entry_face": "top",
+      "entry_mm": [
+        2350.0,
+        340.0,
+        600
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "local_mm": [
+        240.0,
+        50.0,
+        200
+      ],
+      "screw_id": "wickes-287688",
+      "screw_length_mm": 250,
+      "diameter_mm": 7,
+      "through_mm": 200,
+      "penetration_mm": 50,
+      "pilot_mode": "unconfirmed",
+      "pilot_diameter_mm": null,
+      "pilot_depth_mm": null
+    },
+    {
+      "id": "first-bed-01-C3-E-F02",
+      "bed_id": "first-bed-01",
+      "course": 3,
+      "piece_id": "first-bed-01-C3-E",
+      "receiver_id": "first-bed-01-C2-E",
+      "kind": "stack",
+      "entry_face": "top",
+      "entry_mm": [
+        2350.0,
+        740.0,
+        600
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "local_mm": [
+        640.0,
+        50.0,
+        200
+      ],
+      "screw_id": "wickes-287688",
+      "screw_length_mm": 250,
+      "diameter_mm": 7,
+      "through_mm": 200,
+      "penetration_mm": 50,
+      "pilot_mode": "unconfirmed",
+      "pilot_diameter_mm": null,
+      "pilot_depth_mm": null
+    },
+    {
+      "id": "first-bed-01-C3-E-F03",
+      "bed_id": "first-bed-01",
+      "course": 3,
+      "piece_id": "first-bed-01-C3-E",
+      "receiver_id": "first-bed-01-C2-E",
+      "kind": "stack",
+      "entry_face": "top",
+      "entry_mm": [
+        2350.0,
+        1140.0,
+        600
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "local_mm": [
+        1040.0,
+        50.0,
+        200
+      ],
+      "screw_id": "wickes-287688",
+      "screw_length_mm": 250,
+      "diameter_mm": 7,
+      "through_mm": 200,
+      "penetration_mm": 50,
+      "pilot_mode": "unconfirmed",
+      "pilot_diameter_mm": null,
+      "pilot_depth_mm": null
+    },
+    {
+      "id": "first-bed-01-C3-N-F01",
+      "bed_id": "first-bed-01",
+      "course": 3,
+      "piece_id": "first-bed-01-C3-N",
+      "receiver_id": "first-bed-01-C3-W",
+      "kind": "corner",
+      "entry_face": "outer",
+      "entry_mm": [
+        50.0,
+        1400,
+        450.0
+      ],
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "local_mm": [
+        50.0,
+        100,
+        50.0
+      ],
+      "screw_id": "wickes-287686",
+      "screw_length_mm": 150,
+      "diameter_mm": 7,
+      "through_mm": 100,
+      "penetration_mm": 50,
+      "pilot_mode": "unconfirmed",
+      "pilot_diameter_mm": null,
+      "pilot_depth_mm": null
+    },
+    {
+      "id": "first-bed-01-C3-N-F02",
+      "bed_id": "first-bed-01",
+      "course": 3,
+      "piece_id": "first-bed-01-C3-N",
+      "receiver_id": "first-bed-01-C3-W",
+      "kind": "corner",
+      "entry_face": "outer",
+      "entry_mm": [
+        50.0,
+        1400,
+        550.0
+      ],
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "local_mm": [
+        50.0,
+        100,
+        150.0
+      ],
+      "screw_id": "wickes-287686",
+      "screw_length_mm": 150,
+      "diameter_mm": 7,
+      "through_mm": 100,
+      "penetration_mm": 50,
+      "pilot_mode": "unconfirmed",
+      "pilot_diameter_mm": null,
+      "pilot_depth_mm": null
+    },
+    {
+      "id": "first-bed-01-C3-N-F03",
+      "bed_id": "first-bed-01",
+      "course": 3,
+      "piece_id": "first-bed-01-C3-N",
+      "receiver_id": "first-bed-01-C3-E",
+      "kind": "corner",
+      "entry_face": "outer",
+      "entry_mm": [
+        2350.0,
+        1400,
+        450.0
+      ],
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "local_mm": [
+        2350.0,
+        100,
+        50.0
+      ],
+      "screw_id": "wickes-287686",
+      "screw_length_mm": 150,
+      "diameter_mm": 7,
+      "through_mm": 100,
+      "penetration_mm": 50,
+      "pilot_mode": "unconfirmed",
+      "pilot_diameter_mm": null,
+      "pilot_depth_mm": null
+    },
+    {
+      "id": "first-bed-01-C3-N-F04",
+      "bed_id": "first-bed-01",
+      "course": 3,
+      "piece_id": "first-bed-01-C3-N",
+      "receiver_id": "first-bed-01-C3-E",
+      "kind": "corner",
+      "entry_face": "outer",
+      "entry_mm": [
+        2350.0,
+        1400,
+        550.0
+      ],
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "local_mm": [
+        2350.0,
+        100,
+        150.0
+      ],
+      "screw_id": "wickes-287686",
+      "screw_length_mm": 150,
+      "diameter_mm": 7,
+      "through_mm": 100,
+      "penetration_mm": 50,
+      "pilot_mode": "unconfirmed",
+      "pilot_diameter_mm": null,
+      "pilot_depth_mm": null
+    },
+    {
+      "id": "first-bed-01-C3-N-F05",
+      "bed_id": "first-bed-01",
+      "course": 3,
+      "piece_id": "first-bed-01-C3-N",
+      "receiver_id": "first-bed-01-C2-N",
+      "kind": "stack",
+      "entry_face": "top",
+      "entry_mm": [
+        240.0,
+        1350.0,
+        600
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "local_mm": [
+        240.0,
+        50.0,
+        200
+      ],
+      "screw_id": "wickes-287688",
+      "screw_length_mm": 250,
+      "diameter_mm": 7,
+      "through_mm": 200,
+      "penetration_mm": 50,
+      "pilot_mode": "unconfirmed",
+      "pilot_diameter_mm": null,
+      "pilot_depth_mm": null
+    },
+    {
+      "id": "first-bed-01-C3-N-F06",
+      "bed_id": "first-bed-01",
+      "course": 3,
+      "piece_id": "first-bed-01-C3-N",
+      "receiver_id": "first-bed-01-C2-N",
+      "kind": "stack",
+      "entry_face": "top",
+      "entry_mm": [
+        740.0,
+        1350.0,
+        600
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "local_mm": [
+        740.0,
+        50.0,
+        200
+      ],
+      "screw_id": "wickes-287688",
+      "screw_length_mm": 250,
+      "diameter_mm": 7,
+      "through_mm": 200,
+      "penetration_mm": 50,
+      "pilot_mode": "unconfirmed",
+      "pilot_diameter_mm": null,
+      "pilot_depth_mm": null
+    },
+    {
+      "id": "first-bed-01-C3-N-F07",
+      "bed_id": "first-bed-01",
+      "course": 3,
+      "piece_id": "first-bed-01-C3-N",
+      "receiver_id": "first-bed-01-C2-N",
+      "kind": "stack",
+      "entry_face": "top",
+      "entry_mm": [
+        1240.0,
+        1350.0,
+        600
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "local_mm": [
+        1240.0,
+        50.0,
+        200
+      ],
+      "screw_id": "wickes-287688",
+      "screw_length_mm": 250,
+      "diameter_mm": 7,
+      "through_mm": 200,
+      "penetration_mm": 50,
+      "pilot_mode": "unconfirmed",
+      "pilot_diameter_mm": null,
+      "pilot_depth_mm": null
+    },
+    {
+      "id": "first-bed-01-C3-N-F08",
+      "bed_id": "first-bed-01",
+      "course": 3,
+      "piece_id": "first-bed-01-C3-N",
+      "receiver_id": "first-bed-01-C2-N",
+      "kind": "stack",
+      "entry_face": "top",
+      "entry_mm": [
+        1740.0,
+        1350.0,
+        600
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "local_mm": [
+        1740.0,
+        50.0,
+        200
+      ],
+      "screw_id": "wickes-287688",
+      "screw_length_mm": 250,
+      "diameter_mm": 7,
+      "through_mm": 200,
+      "penetration_mm": 50,
+      "pilot_mode": "unconfirmed",
+      "pilot_diameter_mm": null,
+      "pilot_depth_mm": null
+    },
+    {
+      "id": "first-bed-01-C3-N-F09",
+      "bed_id": "first-bed-01",
+      "course": 3,
+      "piece_id": "first-bed-01-C3-N",
+      "receiver_id": "first-bed-01-C2-N",
+      "kind": "stack",
+      "entry_face": "top",
+      "entry_mm": [
+        2240.0,
+        1350.0,
+        600
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "local_mm": [
+        2240.0,
+        50.0,
+        200
+      ],
+      "screw_id": "wickes-287688",
+      "screw_length_mm": 250,
+      "diameter_mm": 7,
+      "through_mm": 200,
+      "penetration_mm": 50,
+      "pilot_mode": "unconfirmed",
+      "pilot_diameter_mm": null,
+      "pilot_depth_mm": null
+    },
+    {
+      "id": "first-bed-01-C3-S-F01",
+      "bed_id": "first-bed-01",
+      "course": 3,
+      "piece_id": "first-bed-01-C3-S",
+      "receiver_id": "first-bed-01-C3-W",
+      "kind": "corner",
+      "entry_face": "outer",
+      "entry_mm": [
+        50.0,
+        0,
+        450.0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "local_mm": [
+        50.0,
+        0,
+        50.0
+      ],
+      "screw_id": "wickes-287686",
+      "screw_length_mm": 150,
+      "diameter_mm": 7,
+      "through_mm": 100,
+      "penetration_mm": 50,
+      "pilot_mode": "unconfirmed",
+      "pilot_diameter_mm": null,
+      "pilot_depth_mm": null
+    },
+    {
+      "id": "first-bed-01-C3-S-F02",
+      "bed_id": "first-bed-01",
+      "course": 3,
+      "piece_id": "first-bed-01-C3-S",
+      "receiver_id": "first-bed-01-C3-W",
+      "kind": "corner",
+      "entry_face": "outer",
+      "entry_mm": [
+        50.0,
+        0,
+        550.0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "local_mm": [
+        50.0,
+        0,
+        150.0
+      ],
+      "screw_id": "wickes-287686",
+      "screw_length_mm": 150,
+      "diameter_mm": 7,
+      "through_mm": 100,
+      "penetration_mm": 50,
+      "pilot_mode": "unconfirmed",
+      "pilot_diameter_mm": null,
+      "pilot_depth_mm": null
+    },
+    {
+      "id": "first-bed-01-C3-S-F03",
+      "bed_id": "first-bed-01",
+      "course": 3,
+      "piece_id": "first-bed-01-C3-S",
+      "receiver_id": "first-bed-01-C3-E",
+      "kind": "corner",
+      "entry_face": "outer",
+      "entry_mm": [
+        2350.0,
+        0,
+        450.0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "local_mm": [
+        2350.0,
+        0,
+        50.0
+      ],
+      "screw_id": "wickes-287686",
+      "screw_length_mm": 150,
+      "diameter_mm": 7,
+      "through_mm": 100,
+      "penetration_mm": 50,
+      "pilot_mode": "unconfirmed",
+      "pilot_diameter_mm": null,
+      "pilot_depth_mm": null
+    },
+    {
+      "id": "first-bed-01-C3-S-F04",
+      "bed_id": "first-bed-01",
+      "course": 3,
+      "piece_id": "first-bed-01-C3-S",
+      "receiver_id": "first-bed-01-C3-E",
+      "kind": "corner",
+      "entry_face": "outer",
+      "entry_mm": [
+        2350.0,
+        0,
+        550.0
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "local_mm": [
+        2350.0,
+        0,
+        150.0
+      ],
+      "screw_id": "wickes-287686",
+      "screw_length_mm": 150,
+      "diameter_mm": 7,
+      "through_mm": 100,
+      "penetration_mm": 50,
+      "pilot_mode": "unconfirmed",
+      "pilot_diameter_mm": null,
+      "pilot_depth_mm": null
+    },
+    {
+      "id": "first-bed-01-C3-S-F05",
+      "bed_id": "first-bed-01",
+      "course": 3,
+      "piece_id": "first-bed-01-C3-S",
+      "receiver_id": "first-bed-01-C2-S",
+      "kind": "stack",
+      "entry_face": "top",
+      "entry_mm": [
+        240.0,
+        50.0,
+        600
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "local_mm": [
+        240.0,
+        50.0,
+        200
+      ],
+      "screw_id": "wickes-287688",
+      "screw_length_mm": 250,
+      "diameter_mm": 7,
+      "through_mm": 200,
+      "penetration_mm": 50,
+      "pilot_mode": "unconfirmed",
+      "pilot_diameter_mm": null,
+      "pilot_depth_mm": null
+    },
+    {
+      "id": "first-bed-01-C3-S-F06",
+      "bed_id": "first-bed-01",
+      "course": 3,
+      "piece_id": "first-bed-01-C3-S",
+      "receiver_id": "first-bed-01-C2-S",
+      "kind": "stack",
+      "entry_face": "top",
+      "entry_mm": [
+        740.0,
+        50.0,
+        600
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "local_mm": [
+        740.0,
+        50.0,
+        200
+      ],
+      "screw_id": "wickes-287688",
+      "screw_length_mm": 250,
+      "diameter_mm": 7,
+      "through_mm": 200,
+      "penetration_mm": 50,
+      "pilot_mode": "unconfirmed",
+      "pilot_diameter_mm": null,
+      "pilot_depth_mm": null
+    },
+    {
+      "id": "first-bed-01-C3-S-F07",
+      "bed_id": "first-bed-01",
+      "course": 3,
+      "piece_id": "first-bed-01-C3-S",
+      "receiver_id": "first-bed-01-C2-S",
+      "kind": "stack",
+      "entry_face": "top",
+      "entry_mm": [
+        1240.0,
+        50.0,
+        600
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "local_mm": [
+        1240.0,
+        50.0,
+        200
+      ],
+      "screw_id": "wickes-287688",
+      "screw_length_mm": 250,
+      "diameter_mm": 7,
+      "through_mm": 200,
+      "penetration_mm": 50,
+      "pilot_mode": "unconfirmed",
+      "pilot_diameter_mm": null,
+      "pilot_depth_mm": null
+    },
+    {
+      "id": "first-bed-01-C3-S-F08",
+      "bed_id": "first-bed-01",
+      "course": 3,
+      "piece_id": "first-bed-01-C3-S",
+      "receiver_id": "first-bed-01-C2-S",
+      "kind": "stack",
+      "entry_face": "top",
+      "entry_mm": [
+        1740.0,
+        50.0,
+        600
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "local_mm": [
+        1740.0,
+        50.0,
+        200
+      ],
+      "screw_id": "wickes-287688",
+      "screw_length_mm": 250,
+      "diameter_mm": 7,
+      "through_mm": 200,
+      "penetration_mm": 50,
+      "pilot_mode": "unconfirmed",
+      "pilot_diameter_mm": null,
+      "pilot_depth_mm": null
+    },
+    {
+      "id": "first-bed-01-C3-S-F09",
+      "bed_id": "first-bed-01",
+      "course": 3,
+      "piece_id": "first-bed-01-C3-S",
+      "receiver_id": "first-bed-01-C2-S",
+      "kind": "stack",
+      "entry_face": "top",
+      "entry_mm": [
+        2240.0,
+        50.0,
+        600
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "local_mm": [
+        2240.0,
+        50.0,
+        200
+      ],
+      "screw_id": "wickes-287688",
+      "screw_length_mm": 250,
+      "diameter_mm": 7,
+      "through_mm": 200,
+      "penetration_mm": 50,
+      "pilot_mode": "unconfirmed",
+      "pilot_diameter_mm": null,
+      "pilot_depth_mm": null
+    },
+    {
+      "id": "first-bed-01-C3-W-F01",
+      "bed_id": "first-bed-01",
+      "course": 3,
+      "piece_id": "first-bed-01-C3-W",
+      "receiver_id": "first-bed-01-C2-W",
+      "kind": "stack",
+      "entry_face": "top",
+      "entry_mm": [
+        50.0,
+        340.0,
+        600
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "local_mm": [
+        240.0,
+        50.0,
+        200
+      ],
+      "screw_id": "wickes-287688",
+      "screw_length_mm": 250,
+      "diameter_mm": 7,
+      "through_mm": 200,
+      "penetration_mm": 50,
+      "pilot_mode": "unconfirmed",
+      "pilot_diameter_mm": null,
+      "pilot_depth_mm": null
+    },
+    {
+      "id": "first-bed-01-C3-W-F02",
+      "bed_id": "first-bed-01",
+      "course": 3,
+      "piece_id": "first-bed-01-C3-W",
+      "receiver_id": "first-bed-01-C2-W",
+      "kind": "stack",
+      "entry_face": "top",
+      "entry_mm": [
+        50.0,
+        740.0,
+        600
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "local_mm": [
+        640.0,
+        50.0,
+        200
+      ],
+      "screw_id": "wickes-287688",
+      "screw_length_mm": 250,
+      "diameter_mm": 7,
+      "through_mm": 200,
+      "penetration_mm": 50,
+      "pilot_mode": "unconfirmed",
+      "pilot_diameter_mm": null,
+      "pilot_depth_mm": null
+    },
+    {
+      "id": "first-bed-01-C3-W-F03",
+      "bed_id": "first-bed-01",
+      "course": 3,
+      "piece_id": "first-bed-01-C3-W",
+      "receiver_id": "first-bed-01-C2-W",
+      "kind": "stack",
+      "entry_face": "top",
+      "entry_mm": [
+        50.0,
+        1140.0,
+        600
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "local_mm": [
+        1040.0,
+        50.0,
+        200
+      ],
+      "screw_id": "wickes-287688",
+      "screw_length_mm": 250,
+      "diameter_mm": 7,
+      "through_mm": 200,
+      "penetration_mm": 50,
+      "pilot_mode": "unconfirmed",
+      "pilot_diameter_mm": null,
+      "pilot_depth_mm": null
+    }
+  ],
+  "cut_plan": {
+    "algorithm": "exact",
+    "optimality_proven": true,
+    "reason": "All explored cutting patterns and inventory states solved.",
+    "search_steps": 59,
+    "objective": "purchase pence, then purchased sleeper count, then total input length",
+    "boards": [
+      {
+        "id": "B001",
+        "stock_id": "wickes-276785",
+        "inventory": false,
+        "gross_length_mm": 2400,
+        "trim_start_mm": 0,
+        "trim_end_mm": 0,
+        "price_pence": 2800,
+        "source_url": "https://www.wickes.co.uk/Wickes-UC4-Incised-Light-Green-Garden-Sleeper---100-x-200-x-2400mm/p/276785",
+        "parts": [
+          {
+            "piece_id": "first-bed-01-C1-N",
+            "length_mm": 2400,
+            "start_mm": 0,
+            "end_mm": 2400,
+            "cut_required": false
+          }
+        ],
+        "cuts": [],
+        "offcut_start_mm": 2400,
+        "offcut_mm": 0,
+        "keep_offcut": false,
+        "kerf_and_trim_loss_mm": 0
+      },
+      {
+        "id": "B002",
+        "stock_id": "wickes-276785",
+        "inventory": false,
+        "gross_length_mm": 2400,
+        "trim_start_mm": 0,
+        "trim_end_mm": 0,
+        "price_pence": 2800,
+        "source_url": "https://www.wickes.co.uk/Wickes-UC4-Incised-Light-Green-Garden-Sleeper---100-x-200-x-2400mm/p/276785",
+        "parts": [
+          {
+            "piece_id": "first-bed-01-C1-S",
+            "length_mm": 2400,
+            "start_mm": 0,
+            "end_mm": 2400,
+            "cut_required": false
+          }
+        ],
+        "cuts": [],
+        "offcut_start_mm": 2400,
+        "offcut_mm": 0,
+        "keep_offcut": false,
+        "kerf_and_trim_loss_mm": 0
+      },
+      {
+        "id": "B003",
+        "stock_id": "wickes-276785",
+        "inventory": false,
+        "gross_length_mm": 2400,
+        "trim_start_mm": 0,
+        "trim_end_mm": 0,
+        "price_pence": 2800,
+        "source_url": "https://www.wickes.co.uk/Wickes-UC4-Incised-Light-Green-Garden-Sleeper---100-x-200-x-2400mm/p/276785",
+        "parts": [
+          {
+            "piece_id": "first-bed-01-C2-N",
+            "length_mm": 2400,
+            "start_mm": 0,
+            "end_mm": 2400,
+            "cut_required": false
+          }
+        ],
+        "cuts": [],
+        "offcut_start_mm": 2400,
+        "offcut_mm": 0,
+        "keep_offcut": false,
+        "kerf_and_trim_loss_mm": 0
+      },
+      {
+        "id": "B004",
+        "stock_id": "wickes-276785",
+        "inventory": false,
+        "gross_length_mm": 2400,
+        "trim_start_mm": 0,
+        "trim_end_mm": 0,
+        "price_pence": 2800,
+        "source_url": "https://www.wickes.co.uk/Wickes-UC4-Incised-Light-Green-Garden-Sleeper---100-x-200-x-2400mm/p/276785",
+        "parts": [
+          {
+            "piece_id": "first-bed-01-C2-S",
+            "length_mm": 2400,
+            "start_mm": 0,
+            "end_mm": 2400,
+            "cut_required": false
+          }
+        ],
+        "cuts": [],
+        "offcut_start_mm": 2400,
+        "offcut_mm": 0,
+        "keep_offcut": false,
+        "kerf_and_trim_loss_mm": 0
+      },
+      {
+        "id": "B005",
+        "stock_id": "wickes-276785",
+        "inventory": false,
+        "gross_length_mm": 2400,
+        "trim_start_mm": 0,
+        "trim_end_mm": 0,
+        "price_pence": 2800,
+        "source_url": "https://www.wickes.co.uk/Wickes-UC4-Incised-Light-Green-Garden-Sleeper---100-x-200-x-2400mm/p/276785",
+        "parts": [
+          {
+            "piece_id": "first-bed-01-C3-N",
+            "length_mm": 2400,
+            "start_mm": 0,
+            "end_mm": 2400,
+            "cut_required": false
+          }
+        ],
+        "cuts": [],
+        "offcut_start_mm": 2400,
+        "offcut_mm": 0,
+        "keep_offcut": false,
+        "kerf_and_trim_loss_mm": 0
+      },
+      {
+        "id": "B006",
+        "stock_id": "wickes-276785",
+        "inventory": false,
+        "gross_length_mm": 2400,
+        "trim_start_mm": 0,
+        "trim_end_mm": 0,
+        "price_pence": 2800,
+        "source_url": "https://www.wickes.co.uk/Wickes-UC4-Incised-Light-Green-Garden-Sleeper---100-x-200-x-2400mm/p/276785",
+        "parts": [
+          {
+            "piece_id": "first-bed-01-C3-S",
+            "length_mm": 2400,
+            "start_mm": 0,
+            "end_mm": 2400,
+            "cut_required": false
+          }
+        ],
+        "cuts": [],
+        "offcut_start_mm": 2400,
+        "offcut_mm": 0,
+        "keep_offcut": false,
+        "kerf_and_trim_loss_mm": 0
+      },
+      {
+        "id": "B007",
+        "stock_id": "wickes-256948",
+        "inventory": false,
+        "gross_length_mm": 1800,
+        "trim_start_mm": 0,
+        "trim_end_mm": 0,
+        "price_pence": 2400,
+        "source_url": "https://www.wickes.co.uk/Wickes-UC4-Incised-Light-Green-Garden-Sleeper---100-x-200-x-1800mm/p/256948",
+        "parts": [
+          {
+            "piece_id": "first-bed-01-C1-E",
+            "length_mm": 1200,
+            "start_mm": 0,
+            "end_mm": 1200,
+            "cut_required": true
+          }
+        ],
+        "cuts": [
+          {
+            "sequence": 1,
+            "operation": "crosscut; keep piece on datum side",
+            "piece_id": "first-bed-01-C1-E",
+            "kerf_start_mm": 1200,
+            "kerf_end_mm": 1203,
+            "blade_centre_mm": 1201.5
+          }
+        ],
+        "offcut_start_mm": 1203,
+        "offcut_mm": 597,
+        "keep_offcut": true,
+        "kerf_and_trim_loss_mm": 3
+      },
+      {
+        "id": "B008",
+        "stock_id": "wickes-256948",
+        "inventory": false,
+        "gross_length_mm": 1800,
+        "trim_start_mm": 0,
+        "trim_end_mm": 0,
+        "price_pence": 2400,
+        "source_url": "https://www.wickes.co.uk/Wickes-UC4-Incised-Light-Green-Garden-Sleeper---100-x-200-x-1800mm/p/256948",
+        "parts": [
+          {
+            "piece_id": "first-bed-01-C1-W",
+            "length_mm": 1200,
+            "start_mm": 0,
+            "end_mm": 1200,
+            "cut_required": true
+          }
+        ],
+        "cuts": [
+          {
+            "sequence": 1,
+            "operation": "crosscut; keep piece on datum side",
+            "piece_id": "first-bed-01-C1-W",
+            "kerf_start_mm": 1200,
+            "kerf_end_mm": 1203,
+            "blade_centre_mm": 1201.5
+          }
+        ],
+        "offcut_start_mm": 1203,
+        "offcut_mm": 597,
+        "keep_offcut": true,
+        "kerf_and_trim_loss_mm": 3
+      },
+      {
+        "id": "B009",
+        "stock_id": "wickes-256948",
+        "inventory": false,
+        "gross_length_mm": 1800,
+        "trim_start_mm": 0,
+        "trim_end_mm": 0,
+        "price_pence": 2400,
+        "source_url": "https://www.wickes.co.uk/Wickes-UC4-Incised-Light-Green-Garden-Sleeper---100-x-200-x-1800mm/p/256948",
+        "parts": [
+          {
+            "piece_id": "first-bed-01-C2-E",
+            "length_mm": 1200,
+            "start_mm": 0,
+            "end_mm": 1200,
+            "cut_required": true
+          }
+        ],
+        "cuts": [
+          {
+            "sequence": 1,
+            "operation": "crosscut; keep piece on datum side",
+            "piece_id": "first-bed-01-C2-E",
+            "kerf_start_mm": 1200,
+            "kerf_end_mm": 1203,
+            "blade_centre_mm": 1201.5
+          }
+        ],
+        "offcut_start_mm": 1203,
+        "offcut_mm": 597,
+        "keep_offcut": true,
+        "kerf_and_trim_loss_mm": 3
+      },
+      {
+        "id": "B010",
+        "stock_id": "wickes-256948",
+        "inventory": false,
+        "gross_length_mm": 1800,
+        "trim_start_mm": 0,
+        "trim_end_mm": 0,
+        "price_pence": 2400,
+        "source_url": "https://www.wickes.co.uk/Wickes-UC4-Incised-Light-Green-Garden-Sleeper---100-x-200-x-1800mm/p/256948",
+        "parts": [
+          {
+            "piece_id": "first-bed-01-C2-W",
+            "length_mm": 1200,
+            "start_mm": 0,
+            "end_mm": 1200,
+            "cut_required": true
+          }
+        ],
+        "cuts": [
+          {
+            "sequence": 1,
+            "operation": "crosscut; keep piece on datum side",
+            "piece_id": "first-bed-01-C2-W",
+            "kerf_start_mm": 1200,
+            "kerf_end_mm": 1203,
+            "blade_centre_mm": 1201.5
+          }
+        ],
+        "offcut_start_mm": 1203,
+        "offcut_mm": 597,
+        "keep_offcut": true,
+        "kerf_and_trim_loss_mm": 3
+      },
+      {
+        "id": "B011",
+        "stock_id": "wickes-256948",
+        "inventory": false,
+        "gross_length_mm": 1800,
+        "trim_start_mm": 0,
+        "trim_end_mm": 0,
+        "price_pence": 2400,
+        "source_url": "https://www.wickes.co.uk/Wickes-UC4-Incised-Light-Green-Garden-Sleeper---100-x-200-x-1800mm/p/256948",
+        "parts": [
+          {
+            "piece_id": "first-bed-01-C3-E",
+            "length_mm": 1200,
+            "start_mm": 0,
+            "end_mm": 1200,
+            "cut_required": true
+          }
+        ],
+        "cuts": [
+          {
+            "sequence": 1,
+            "operation": "crosscut; keep piece on datum side",
+            "piece_id": "first-bed-01-C3-E",
+            "kerf_start_mm": 1200,
+            "kerf_end_mm": 1203,
+            "blade_centre_mm": 1201.5
+          }
+        ],
+        "offcut_start_mm": 1203,
+        "offcut_mm": 597,
+        "keep_offcut": true,
+        "kerf_and_trim_loss_mm": 3
+      },
+      {
+        "id": "B012",
+        "stock_id": "wickes-256948",
+        "inventory": false,
+        "gross_length_mm": 1800,
+        "trim_start_mm": 0,
+        "trim_end_mm": 0,
+        "price_pence": 2400,
+        "source_url": "https://www.wickes.co.uk/Wickes-UC4-Incised-Light-Green-Garden-Sleeper---100-x-200-x-1800mm/p/256948",
+        "parts": [
+          {
+            "piece_id": "first-bed-01-C3-W",
+            "length_mm": 1200,
+            "start_mm": 0,
+            "end_mm": 1200,
+            "cut_required": true
+          }
+        ],
+        "cuts": [
+          {
+            "sequence": 1,
+            "operation": "crosscut; keep piece on datum side",
+            "piece_id": "first-bed-01-C3-W",
+            "kerf_start_mm": 1200,
+            "kerf_end_mm": 1203,
+            "blade_centre_mm": 1201.5
+          }
+        ],
+        "offcut_start_mm": 1203,
+        "offcut_mm": 597,
+        "keep_offcut": true,
+        "kerf_and_trim_loss_mm": 3
+      }
+    ],
+    "timber_purchase_pence": 31200,
+    "purchased_sleepers": 12,
+    "inventory_pieces_used": 0,
+    "saw_cuts": 6,
+    "finished_length_mm": 21600,
+    "input_length_mm": 25200,
+    "offcut_length_mm": 3582,
+    "kerf_and_trim_loss_mm": 18
+  },
+  "costs": {
+    "currency": "GBP",
+    "basis": "Catalogue retail purchase prices as displayed; VAT is not recalculated. Explicit extras and labour are added on the same user-supplied basis. Not a tax invoice.",
+    "rows": [
+      {
+        "id": "wickes-256948",
+        "category": "timber",
+        "description": "1800 mm sleeper / matching section",
+        "needed": 6,
+        "buy_quantity": 6,
+        "unit": "sleeper",
+        "spares": 0,
+        "unit_price_pence": 2400,
+        "line_pence": 14400,
+        "source_url": "https://www.wickes.co.uk/Wickes-UC4-Incised-Light-Green-Garden-Sleeper---100-x-200-x-1800mm/p/256948",
+        "price_checked_on": "2026-09-06"
+      },
+      {
+        "id": "wickes-276785",
+        "category": "timber",
+        "description": "2400 mm sleeper / matching section",
+        "needed": 6,
+        "buy_quantity": 6,
+        "unit": "sleeper",
+        "spares": 0,
+        "unit_price_pence": 2800,
+        "line_pence": 16800,
+        "source_url": "https://www.wickes.co.uk/Wickes-UC4-Incised-Light-Green-Garden-Sleeper---100-x-200-x-2400mm/p/276785",
+        "price_checked_on": "2026-09-06"
+      },
+      {
+        "id": "wickes-287686",
+        "category": "screws",
+        "description": "7 x 150 mm screws; 25/pack",
+        "needed": 24,
+        "buy_quantity": 2,
+        "unit": "pack",
+        "spares": 26,
+        "unit_price_pence": 900,
+        "line_pence": 1800,
+        "source_url": "https://www.wickes.co.uk/Wickes-Timber-Drive-Washer-Head-Screws---7-x-150mm---Pack-of-25/p/287686",
+        "price_checked_on": "2026-09-06"
+      },
+      {
+        "id": "wickes-287688",
+        "category": "screws",
+        "description": "7 x 250 mm screws; 25/pack",
+        "needed": 32,
+        "buy_quantity": 2,
+        "unit": "pack",
+        "spares": 18,
+        "unit_price_pence": 1230,
+        "line_pence": 2460,
+        "source_url": "https://www.wickes.co.uk/Wickes-Timber-Drive-Washer-Head-Screws---7-x-250mm---Pack-of-25/p/287688",
+        "price_checked_on": "2026-09-06"
+      },
+      {
+        "id": "consumables",
+        "category": "extra",
+        "description": "Drill bits, blades, PPE and other consumables",
+        "needed": 1,
+        "buy_quantity": 1,
+        "unit": "job",
+        "spares": 0,
+        "unit_price_pence": null,
+        "line_pence": null,
+        "source_url": "",
+        "price_checked_on": "",
+        "note": ""
+      },
+      {
+        "id": "fill",
+        "category": "extra",
+        "description": "Soil / compost / mulch supply",
+        "needed": 1,
+        "buy_quantity": 1,
+        "unit": "job",
+        "spares": 0,
+        "unit_price_pence": null,
+        "line_pence": null,
+        "source_url": "",
+        "price_checked_on": "",
+        "note": ""
+      },
+      {
+        "id": "liner",
+        "category": "extra",
+        "description": "Liner / protection and attachment (or explicitly not required)",
+        "needed": 1,
+        "buy_quantity": 1,
+        "unit": "job",
+        "spares": 0,
+        "unit_price_pence": null,
+        "line_pence": null,
+        "source_url": "",
+        "price_checked_on": "",
+        "note": ""
+      },
+      {
+        "id": "preservative",
+        "category": "extra",
+        "description": "Compatible cut-end preservative",
+        "needed": 1,
+        "buy_quantity": 1,
+        "unit": "job",
+        "spares": 0,
+        "unit_price_pence": null,
+        "line_pence": null,
+        "source_url": "",
+        "price_checked_on": "",
+        "note": ""
+      },
+      {
+        "id": "site_preparation",
+        "category": "extra",
+        "description": "Ground preparation / bedding / disposal",
+        "needed": 1,
+        "buy_quantity": 1,
+        "unit": "job",
+        "spares": 0,
+        "unit_price_pence": null,
+        "line_pence": null,
+        "source_url": "",
+        "price_checked_on": "",
+        "note": ""
+      },
+      {
+        "id": "supports",
+        "category": "extra",
+        "description": "Site-specific stakes, bracing, brackets and their fixings",
+        "needed": 1,
+        "buy_quantity": 1,
+        "unit": "job",
+        "spares": 0,
+        "unit_price_pence": null,
+        "line_pence": null,
+        "source_url": "",
+        "price_checked_on": "",
+        "note": ""
+      },
+      {
+        "id": "transport",
+        "category": "extra",
+        "description": "Collection / delivery / travel",
+        "needed": 1,
+        "buy_quantity": 1,
+        "unit": "job",
+        "spares": 0,
+        "unit_price_pence": null,
+        "line_pence": null,
+        "source_url": "",
+        "price_checked_on": "",
+        "note": ""
+      },
+      {
+        "id": "labour",
+        "category": "labour",
+        "description": "Labour (nearest penny, half-up)",
+        "needed": null,
+        "buy_quantity": null,
+        "unit": "minute",
+        "spares": 0,
+        "unit_price_pence": null,
+        "line_pence": null,
+        "source_url": "",
+        "price_checked_on": ""
+      }
+    ],
+    "timber_and_screw_purchase_pence": 35460,
+    "known_subtotal_pence": 35460,
+    "complete_cost_pence": null,
+    "unpriced_items": [
+      "consumables",
+      "fill",
+      "liner",
+      "preservative",
+      "site_preparation",
+      "supports",
+      "transport",
+      "labour"
+    ],
+    "is_complete": false,
+    "target_margin_bps": null,
+    "internal_target_price_pence": null,
+    "pricing_note": "Margin target is suppressed until all required costs are supplied. Zero is an explicit decision that an item is not needed/already allowed, not a missing price."
+  },
+  "total_fill_litres": 1452.0,
+  "catalogue_timber_collection_weight_kg": null,
+  "inventory_proposal": {
+    "apply_only_after_job_completed": true,
+    "profile_key": "wickes-green-100x200",
+    "section_mm": [
+      100,
+      200
+    ],
+    "source_plan_sha256": "50c064c82d0d06387b49013ee177332ee455f2679ac6b4c581b456ecfcb4cf3e",
+    "consumed": {},
+    "inventory": [
+      {
+        "id": "off-50c064c8-B007",
+        "length_mm": 597,
+        "price_pence": 0,
+        "quantity": 1,
+        "trim_start_mm": 0,
+        "trim_end_mm": 0
+      },
+      {
+        "id": "off-50c064c8-B008",
+        "length_mm": 597,
+        "price_pence": 0,
+        "quantity": 1,
+        "trim_start_mm": 0,
+        "trim_end_mm": 0
+      },
+      {
+        "id": "off-50c064c8-B009",
+        "length_mm": 597,
+        "price_pence": 0,
+        "quantity": 1,
+        "trim_start_mm": 0,
+        "trim_end_mm": 0
+      },
+      {
+        "id": "off-50c064c8-B010",
+        "length_mm": 597,
+        "price_pence": 0,
+        "quantity": 1,
+        "trim_start_mm": 0,
+        "trim_end_mm": 0
+      },
+      {
+        "id": "off-50c064c8-B011",
+        "length_mm": 597,
+        "price_pence": 0,
+        "quantity": 1,
+        "trim_start_mm": 0,
+        "trim_end_mm": 0
+      },
+      {
+        "id": "off-50c064c8-B012",
+        "length_mm": 597,
+        "price_pence": 0,
+        "quantity": 1,
+        "trim_start_mm": 0,
+        "trim_end_mm": 0
+      }
+    ]
+  }
+}

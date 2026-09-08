@@ -1,0 +1,12 @@
+﻿id,category,description,needed,buy_quantity,unit,spares,unit_price_pence,line_pence,source_url,price_checked_on,note
+wickes-276785,timber,2400 mm sleeper / matching section,6,6,sleeper,0,2800,16800,https://www.wickes.co.uk/Wickes-UC4-Incised-Light-Green-Garden-Sleeper---100-x-200-x-2400mm/p/276785,2026-09-06,
+wickes-287686,screws,7 x 150 mm screws; 25/pack,16,1,pack,9,900,900,https://www.wickes.co.uk/Wickes-Timber-Drive-Washer-Head-Screws---7-x-150mm---Pack-of-25/p/287686,2026-09-06,
+wickes-287688,screws,7 x 250 mm screws; 25/pack,14,1,pack,11,1230,1230,https://www.wickes.co.uk/Wickes-Timber-Drive-Washer-Head-Screws---7-x-250mm---Pack-of-25/p/287688,2026-09-06,
+consumables,extra,"Saw blade wear, driver bits, PPE",1,1,job,0,800,800,,,
+fill,extra,Topsoil and compost mix bulk supply,1,1,job,0,6500,6500,,,
+liner,extra,Heavy duty geotextile membrane liner,1,1,job,0,1200,1200,,,
+preservative,extra,Cut-end timber treatment preservative,1,1,job,0,1400,1400,,,
+site_preparation,extra,Ground levelling and clearing,1,1,job,0,3000,3000,,,
+supports,extra,Base timber levelling packing & pins,1,1,job,0,1500,1500,,,
+transport,extra,Collection travel and van load,1,1,job,0,2500,2500,,,
+labour,labour,"Labour (nearest penny, half-up)",180,180,minute,0,,10500,,,

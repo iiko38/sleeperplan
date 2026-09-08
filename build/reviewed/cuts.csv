@@ -1,0 +1,7 @@
+﻿board_id,stock_id,sequence,operation,piece_id,kerf_start_mm,kerf_end_mm,blade_centre_mm
+B003,wickes-276785,1,crosscut; keep piece on datum side,front-01-C2-N,2200,2203,2201.5
+B004,wickes-276785,1,crosscut; keep piece on datum side,front-01-C2-S,2200,2203,2201.5
+B005,wickes-276785,1,crosscut; keep piece on datum side,front-01-C2-E,1200,1203,1201.5
+B005,wickes-276785,2,crosscut; keep piece on datum side,front-01-C1-E,2203,2206,2204.5
+B006,wickes-276785,1,crosscut; keep piece on datum side,front-01-C2-W,1200,1203,1201.5
+B006,wickes-276785,2,crosscut; keep piece on datum side,front-01-C1-W,2203,2206,2204.5

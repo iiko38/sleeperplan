@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="611" viewBox="0 0 1100 611">
+<rect width="100%" height="100%" fill="white"/>
+<rect x="0" y="0" width="1100" height="6" fill="#147c80" stroke="#147c80" stroke-width="1"/>
+<text x="30" y="43" font-family="Arial,Helvetica,sans-serif" font-size="25" font-weight="700" fill="#183339" text-anchor="start">first-bed-01-C2-N / 2400 x 100 x 200 mm</text>
+<text x="30" y="69" font-family="Arial,Helvetica,sans-serif" font-size="14" font-weight="400" fill="#52666a" text-anchor="start">DRAFT_MARK_OUT_ONLY  |  Datum A = lower global X end  |  Coordinates in mm, rounded to 0.1 for display</text>
+<text x="30" y="100" font-family="Arial,Helvetica,sans-serif" font-size="14" font-weight="700" fill="#183339" text-anchor="start">TOP FACE / U along length; V across width from its lower-coordinate edge</text>
+<rect x="80" y="112" width="950" height="55" fill="#edf3f1" stroke="#183339" stroke-width="1"/>
+<text x="48" y="144.5" font-family="Arial,Helvetica,sans-serif" font-size="16" font-weight="700" fill="#147c80" text-anchor="middle">A</text>
+<text x="80" y="186" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="400" fill="#52666a" text-anchor="start">V=0 edge</text>
+<text x="30" y="211" font-family="Arial,Helvetica,sans-serif" font-size="14" font-weight="700" fill="#183339" text-anchor="start">OUTER FACE / U from A; W measured UP from bottom / side N</text>
+<rect x="80" y="224" width="950" height="80" fill="#c69b6b" stroke="#183339" stroke-width="1"/>
+<text x="48" y="269.0" font-family="Arial,Helvetica,sans-serif" font-size="16" font-weight="700" fill="#147c80" text-anchor="middle">A</text>
+<circle cx="99.79166666666666" cy="284.0" r="4" fill="white" stroke="#147c80" stroke-width="2"/>
+<text x="107.79166666666666" y="279.0" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="#147c80" text-anchor="start">F01</text>
+<circle cx="99.79166666666666" cy="244.0" r="4" fill="white" stroke="#147c80" stroke-width="2"/>
+<text x="107.79166666666666" y="239.0" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="#147c80" text-anchor="start">F02</text>
+<circle cx="1010.2083333333333" cy="284.0" r="4" fill="white" stroke="#147c80" stroke-width="2"/>
+<text x="1018.2083333333333" y="279.0" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="#147c80" text-anchor="start">F03</text>
+<circle cx="1010.2083333333333" cy="244.0" r="4" fill="white" stroke="#147c80" stroke-width="2"/>
+<text x="1018.2083333333333" y="239.0" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="#147c80" text-anchor="start">F04</text>
+<circle cx="159.16666666666666" cy="139.5" r="4" fill="white" stroke="#147c80" stroke-width="2"/>
+<text x="167.16666666666666" y="134.5" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="#147c80" text-anchor="start">F05</text>
+<circle cx="357.0833333333333" cy="139.5" r="4" fill="white" stroke="#147c80" stroke-width="2"/>
+<text x="365.0833333333333" y="134.5" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="#147c80" text-anchor="start">F06</text>
+<circle cx="555.0" cy="139.5" r="4" fill="white" stroke="#147c80" stroke-width="2"/>
+<text x="563.0" y="134.5" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="#147c80" text-anchor="start">F07</text>
+<circle cx="752.9166666666666" cy="139.5" r="4" fill="white" stroke="#147c80" stroke-width="2"/>
+<text x="760.9166666666666" y="134.5" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="#147c80" text-anchor="start">F08</text>
+<circle cx="950.8333333333333" cy="139.5" r="4" fill="white" stroke="#147c80" stroke-width="2"/>
+<text x="958.8333333333333" y="134.5" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="#147c80" text-anchor="start">F09</text>
+<text x="30" y="337" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="400" fill="#52666a" text-anchor="start">Views intentionally stretch section depth for legibility. Use the coordinates below, not a ruler on this sheet.</text>
+<text x="30" y="366" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="#52666a" text-anchor="start">FIXING</text>
+<text x="115" y="366" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="#52666a" text-anchor="start">FACE</text>
+<text x="215" y="366" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="#52666a" text-anchor="start">U FROM A</text>
+<text x="330" y="366" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="#52666a" text-anchor="start">V</text>
+<text x="440" y="366" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="#52666a" text-anchor="start">W UP</text>
+<text x="540" y="366" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="#52666a" text-anchor="start">SCREW</text>
+<text x="695" y="366" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="#52666a" text-anchor="start">PILOT</text>
+<line x1="30" y1="374" x2="1070" y2="374" stroke="#bdceca" stroke-width="1"/>
+<text x="30" y="394" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="400" fill="#183339" text-anchor="start">F01</text>
+<text x="115" y="394" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="400" fill="#183339" text-anchor="start">outer</text>
+<text x="215" y="394" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="400" fill="#183339" text-anchor="start">50</text>
+<text x="330" y="394" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="400" fill="#183339" text-anchor="start">100</text>
+<text x="440" y="394" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="400" fill="#183339" text-anchor="start">50</text>
+<text x="540" y="394" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="400" fill="#183339" text-anchor="start">7 x 150</text>
+<text x="695" y="394" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="400" fill="#9d4e19" text-anchor="start">UNCONFIRMED - mark out only</text>
+<text x="30" y="418" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="400" fill="#183339" text-anchor="start">F02</text>
+<text x="115" y="418" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="400" fill="#183339" text-anchor="start">outer</text>
+<text x="215" y="418" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="400" fill="#183339" text-anchor="start">50</text>
+<text x="330" y="418" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="400" fill="#183339" text-anchor="start">100</text>
+<text x="440" y="418" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="400" fill="#183339" text-anchor="start">150</text>
+<text x="540" y="418" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="400" fill="#183339" text-anchor="start">7 x 150</text>
+<text x="695" y="418" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="400" fill="#9d4e19" text-anchor="start">UNCONFIRMED - mark out only</text>
+<text x="30" y="442" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="400" fill="#183339" text-anchor="start">F03</text>
+<text x="115" y="442" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="400" fill="#183339" text-anchor="start">outer</text>
+<text x="215" y="442" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="400" fill="#183339" text-anchor="start">2350</text>
+<text x="330" y="442" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="400" fill="#183339" text-anchor="start">100</text>
+<text x="440" y="442" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="400" fill="#183339" text-anchor="start">50</text>
+<text x="540" y="442" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="400" fill="#183339" text-anchor="start">7 x 150</text>
+<text x="695" y="442" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="400" fill="#9d4e19" text-anchor="start">UNCONFIRMED - mark out only</text>
+<text x="30" y="466" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="400" fill="#183339" text-anchor="start">F04</text>
+<text x="115" y="466" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="400" fill="#183339" text-anchor="start">outer</text>
+<text x="215" y="466" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="400" fill="#183339" text-anchor="start">2350</text>
+<text x="330" y="466" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="400" fill="#183339" text-anchor="start">100</text>
+<text x="440" y="466" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="400" fill="#183339" text-anchor="start">150</text>
+<text x="540" y="466" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="400" fill="#183339" text-anchor="start">7 x 150</text>
+<text x="695" y="466" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="400" fill="#9d4e19" text-anchor="start">UNCONFIRMED - mark out only</text>
+<text x="30" y="490" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="400" fill="#183339" text-anchor="start">F05</text>
+<text x="115" y="490" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="400" fill="#183339" text-anchor="start">top</text>
+<text x="215" y="490" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="400" fill="#183339" text-anchor="start">200</text>
+<text x="330" y="490" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="400" fill="#183339" text-anchor="start">50</text>
+<text x="440" y="490" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="400" fill="#183339" text-anchor="start">200</text>
+<text x="540" y="490" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="400" fill="#183339" text-anchor="start">7 x 250</text>
+<text x="695" y="490" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="400" fill="#9d4e19" text-anchor="start">UNCONFIRMED - mark out only</text>
+<text x="30" y="514" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="400" fill="#183339" text-anchor="start">F06</text>
+<text x="115" y="514" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="400" fill="#183339" text-anchor="start">top</text>
+<text x="215" y="514" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="400" fill="#183339" text-anchor="start">700</text>
+<text x="330" y="514" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="400" fill="#183339" text-anchor="start">50</text>
+<text x="440" y="514" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="400" fill="#183339" text-anchor="start">200</text>
+<text x="540" y="514" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="400" fill="#183339" text-anchor="start">7 x 250</text>
+<text x="695" y="514" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="400" fill="#9d4e19" text-anchor="start">UNCONFIRMED - mark out only</text>
+<text x="30" y="538" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="400" fill="#183339" text-anchor="start">F07</text>
+<text x="115" y="538" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="400" fill="#183339" text-anchor="start">top</text>
+<text x="215" y="538" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="400" fill="#183339" text-anchor="start">1200</text>
+<text x="330" y="538" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="400" fill="#183339" text-anchor="start">50</text>
+<text x="440" y="538" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="400" fill="#183339" text-anchor="start">200</text>
+<text x="540" y="538" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="400" fill="#183339" text-anchor="start">7 x 250</text>
+<text x="695" y="538" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="400" fill="#9d4e19" text-anchor="start">UNCONFIRMED - mark out only</text>
+<text x="30" y="562" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="400" fill="#183339" text-anchor="start">F08</text>
+<text x="115" y="562" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="400" fill="#183339" text-anchor="start">top</text>
+<text x="215" y="562" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="400" fill="#183339" text-anchor="start">1700</text>
+<text x="330" y="562" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="400" fill="#183339" text-anchor="start">50</text>
+<text x="440" y="562" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="400" fill="#183339" text-anchor="start">200</text>
+<text x="540" y="562" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="400" fill="#183339" text-anchor="start">7 x 250</text>
+<text x="695" y="562" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="400" fill="#9d4e19" text-anchor="start">UNCONFIRMED - mark out only</text>
+<text x="30" y="586" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="400" fill="#183339" text-anchor="start">F09</text>
+<text x="115" y="586" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="400" fill="#183339" text-anchor="start">top</text>
+<text x="215" y="586" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="400" fill="#183339" text-anchor="start">2200</text>
+<text x="330" y="586" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="400" fill="#183339" text-anchor="start">50</text>
+<text x="440" y="586" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="400" fill="#183339" text-anchor="start">200</text>
+<text x="540" y="586" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="400" fill="#183339" text-anchor="start">7 x 250</text>
+<text x="695" y="586" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="400" fill="#9d4e19" text-anchor="start">UNCONFIRMED - mark out only</text>
+</svg>

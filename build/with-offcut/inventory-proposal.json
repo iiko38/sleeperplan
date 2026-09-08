@@ -1,0 +1,13 @@
+{
+  "apply_only_after_job_completed": true,
+  "profile_key": "wickes-green-100x200",
+  "section_mm": [
+    100,
+    200
+  ],
+  "source_plan_sha256": "e05c3224296abb1faf4b1ff786f9ab18c9e8204db6e489eeb1ceccc55d98298b",
+  "consumed": {
+    "shed-offcut-01": 1
+  },
+  "inventory": []
+}

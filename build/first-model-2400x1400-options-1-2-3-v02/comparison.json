@@ -1,0 +1,44 @@
+{
+  "note": "Independent alternative job totals, not cumulative purchases. Each reuses the same starting inventory without consuming it.",
+  "options": [
+    {
+      "courses": 1,
+      "height_mm": 200,
+      "beds": 1,
+      "purchased_sleepers": 4,
+      "saw_cuts": 2,
+      "fixing_entries": 8,
+      "timber_and_screws_pence": 11300,
+      "known_subtotal_pence": 11300,
+      "complete_cost_pence": null,
+      "fill_litres": 396.0,
+      "cutting_algorithm": "exact"
+    },
+    {
+      "courses": 2,
+      "height_mm": 400,
+      "beds": 1,
+      "purchased_sleepers": 8,
+      "saw_cuts": 4,
+      "fixing_entries": 32,
+      "timber_and_screws_pence": 22930,
+      "known_subtotal_pence": 22930,
+      "complete_cost_pence": null,
+      "fill_litres": 924.0,
+      "cutting_algorithm": "exact"
+    },
+    {
+      "courses": 3,
+      "height_mm": 600,
+      "beds": 1,
+      "purchased_sleepers": 12,
+      "saw_cuts": 6,
+      "fixing_entries": 56,
+      "timber_and_screws_pence": 35460,
+      "known_subtotal_pence": 35460,
+      "complete_cost_pence": null,
+      "fill_litres": 1452.0,
+      "cutting_algorithm": "exact"
+    }
+  ]
+}

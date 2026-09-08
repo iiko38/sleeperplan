@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="720" viewBox="0 0 1100 720">
+<rect width="100%" height="100%" fill="white"/>
+<rect x="0" y="0" width="1100" height="6" fill="#147c80" stroke="#147c80" stroke-width="1"/>
+<text x="30" y="43" font-family="Arial,Helvetica,sans-serif" font-size="25" font-weight="700" fill="#183339" text-anchor="start">front-01 / 2 courses / assembled view</text>
+<text x="30" y="69" font-family="Arial,Helvetica,sans-serif" font-size="14" font-weight="400" fill="#52666a" text-anchor="start">REVIEWED_WORKSHOP_PLAN  |  Same timber section throughout  |  Schematic colour, not a finish sample</text>
+<polygon points="428.715,257.273 251.574,359.545 251.574,318.636 428.715,216.364" fill="#ae7f50" stroke="#183339" stroke-width="1.25"/>
+<polygon points="428.715,216.364 251.574,318.636 251.574,277.727 428.715,175.455" fill="#ae7f50" stroke="#183339" stroke-width="1.25"/>
+<polygon points="428.715,155 446.429,165.227 233.859,287.955 216.145,277.727" fill="#e0bd8e" stroke="#183339" stroke-width="1.25"/>
+<polygon points="428.715,257.273 818.426,482.273 818.426,441.364 428.715,216.364" fill="#c79a67" stroke="#183339" stroke-width="1.25"/>
+<polygon points="216.145,318.636 233.859,328.864 233.859,287.955 216.145,277.727" fill="#c79a67" stroke="#183339" stroke-width="1.25"/>
+<polygon points="428.715,216.364 818.426,441.364 818.426,400.455 428.715,175.455" fill="#c79a67" stroke="#183339" stroke-width="1.25"/>
+<polygon points="446.429,165.227 836.141,390.227 818.426,400.455 428.715,175.455" fill="#e0bd8e" stroke="#183339" stroke-width="1.25"/>
+<polygon points="428.715,185.682 818.426,410.682 641.285,512.955 251.574,287.955" fill="#6f7660" stroke="#183339" stroke-width="1.25"/>
+<polygon points="216.145,359.545 641.285,605 641.285,564.091 216.145,318.636" fill="#c79a67" stroke="#183339" stroke-width="1.25"/>
+<polygon points="853.855,482.273 836.141,492.5 836.141,451.591 853.855,441.364" fill="#ae7f50" stroke="#183339" stroke-width="1.25"/>
+<polygon points="233.859,328.864 623.571,553.864 623.571,512.955 233.859,287.955" fill="#c79a67" stroke="#183339" stroke-width="1.25"/>
+<polygon points="251.574,277.727 641.285,502.727 623.571,512.955 233.859,287.955" fill="#e0bd8e" stroke="#183339" stroke-width="1.25"/>
+<polygon points="836.141,492.5 658.999,594.773 658.999,553.864 836.141,451.591" fill="#ae7f50" stroke="#183339" stroke-width="1.25"/>
+<polygon points="853.855,441.364 641.285,564.091 641.285,523.182 853.855,400.455" fill="#ae7f50" stroke="#183339" stroke-width="1.25"/>
+<polygon points="836.141,390.227 853.855,400.455 641.285,523.182 623.571,512.955" fill="#e0bd8e" stroke="#183339" stroke-width="1.25"/>
+<polygon points="658.999,594.773 641.285,605 641.285,564.091 658.999,553.864" fill="#ae7f50" stroke="#183339" stroke-width="1.25"/>
+<polygon points="623.571,553.864 641.285,564.091 641.285,523.182 623.571,512.955" fill="#c79a67" stroke="#183339" stroke-width="1.25"/>
+<line x1="887.8548077569978" y1="482.27272727272725" x2="887.8548077569978" y2="400.45454545454544" stroke="#52666a" stroke-width="1"/>
+<line x1="882.8548077569978" y1="482.27272727272725" x2="892.8548077569978" y2="482.27272727272725" stroke="#52666a" stroke-width="1"/>
+<line x1="882.8548077569978" y1="400.45454545454544" x2="892.8548077569978" y2="400.45454545454544" stroke="#52666a" stroke-width="1"/>
+<text x="875.8548077569978" y="441.3636363636364" font-family="Arial,Helvetica,sans-serif" font-size="15" font-weight="400" fill="#52666a" text-anchor="middle" transform="rotate(-90 875.8548077569978 441.3636363636364)">400 mm</text>
+<text x="30" y="652" font-family="Arial,Helvetica,sans-serif" font-size="17" font-weight="700" fill="#183339" text-anchor="start">Outside: 2400 x 1200 x 400 mm   |   Clear opening: 2200 x 1000 mm</text>
+<text x="30" y="680" font-family="Arial,Helvetica,sans-serif" font-size="15" font-weight="400" fill="#52666a" text-anchor="start">Geometric fill: 770 litres at 50 mm below the top. No settlement allowance.</text>
+</svg>
