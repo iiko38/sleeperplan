@@ -47,3 +47,18 @@ Date: 7 September 2026. Environment: Windows 11 + Vercel production deployment.
 - Verified client links surface assembled/process/manual/PDF artifacts from manifest paths.
 
 These checks validate web presentation and integration, not structural correctness. Release gating and pilot evidence requirements are unchanged.
+
+## v0.3.0 hardening checks
+
+Date: 8 September 2026. Environment: Windows 11, CPython 3.12.10. Full suite: `python -m unittest discover -v` — **99 tests passed**.
+
+New regression coverage, each tied to a review finding (REVIEW_37db13b):
+
+- **Publication gate (F01):** the tracked public tree (`published/`, `site/demo`) contains no `REVIEWED_WORKSHOP_PLAN`; every published manifest matches its plan's `input_sha256`; published bundles ship `operations.json`. Stale `build/` packs were removed and `build/` is git-ignored again.
+- **Price-independent hardware (F02):** with two competing same-length screws, repricing changes neither the selected screw nor the `physical_design_hash`; commercial rules (spares %, price-age) also do not move the physical hash.
+- **Fixture evidence (F04):** `pilot_evidence_kind` is required for confirmed pilot modes; fixture evidence blocks issuance even with a matching approval hash; `recorded_trial` evidence can release.
+- **Unified readiness (F05):** a missing approval hash is a blocker in draft/check (`release_ready: false`), not only at `--release`.
+- **Options PDF (per-height content):** deterministic per-height sections; workshop/options PDFs paginate parts boards with table-only continuation pages and paginate stock boards (8/page); `options-and-build.pdf` byte-reproducible.
+- **Viewer fixes (F11/F12/F14):** DPR-correct resize tracking, per-bed display groups, recursive geometry disposal, manifest↔plan hash refusal; verified by JS syntax check and deployed-bundle fetches (offer manifests + `operations.json` for all three heights return `sleeperplan.operations.v1` with matching plan hashes).
+
+Not yet executable in software: physical joint/head-seat confirmation (F03) and browser-level interaction tests; the assembly player's screw insertion is deterministic by construction but needs on-screen review with the trial hardware.

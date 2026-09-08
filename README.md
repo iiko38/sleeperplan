@@ -81,6 +81,7 @@ The supplier description says Wickes in the Clapham / West Sussex area, as reque
 | `shopping.csv` | Sleeper quantities, whole screw packs, spares and explicit extras/labour. All monetary columns are pence. |
 | `web-manifest.json` | Static-web manifest for viewer/links/camera defaults. |
 | `quality-report.json` | Deterministic export checks (sections, drawing inventory, callout coverage). |
+| `operations.json` | Compiled ordered workshop schedule (receive/label/cut/treat, place/clamp, mark-STOP or drill + drive per fixing, dependencies). Drives the web assembly player. |
 | `BUILD.md` | Job-specific dimensions, review gates, workflow and assembly instructions. |
 | `inventory-proposal.json` | Unused existing inventory and useful new offcuts; merge only after the physical job is completed. |
 | `drawings/` | Assembled views, each course, cutting diagrams and an individual fixing sheet for every part. |
@@ -110,6 +111,8 @@ The starting Wickes catalogue confirms the screw products, sizes and prices, **n
 * `pilot_mode: "pilot"`, with the confirmed `pilot_diameter_mm`, `pilot_depth_mm` and `pilot_evidence`; or
 * `pilot_mode: "none"`, with evidence supporting no pilot for that exact use.
 
+Both also require `pilot_evidence_kind`: `manufacturer_instruction` or `recorded_trial`. The value `fixture` marks test/demonstration data and **can never issue a workshop plan**, even with a matching approval hash.
+
 There is no automatic “screw diameter minus 2 mm” rule.
 
 Before releasing a pack, measure timber/kerf and review the site, supports and fixing design. Then bind the review to the exact physical design: run a draft plan, copy the printed `Physical design hash` into the job's review block as `approved_physical_design_hash`, and run:
@@ -118,9 +121,13 @@ Before releasing a pack, measure timber/kerf and review the site, supports and f
 py -m sleeperplan plan examples\your-job.json --out build\your-job-reviewed --release --pdf
 ```
 
-`--release` refuses missing checks, unconfirmed pilots, out-of-scope sites/heights, and any mismatch between the recorded approval and the current physical design (a changed dimension, screw or machining spec invalidates the old approval; a price-only update does not). A released status means the review was recorded, **not** that the software certified a structure. Any changed dimensions, hardware, stock or site require renewed review.
+`--release` refuses missing checks, unconfirmed pilots, fixture evidence, out-of-scope sites/heights, and any mismatch between the recorded approval and the current physical design (a changed dimension, screw or machining spec invalidates the old approval; a price-only update does not — hardware selection is price-independent). A missing approval hash blocks draft/check as well (`release_ready: false`), so a draft never looks clearer than its release would be. A released status means the review was recorded, **not** that the software certified a structure. Any changed dimensions, hardware, stock or site require renewed review.
 
 `examples/reviewed-example.json` and `catalogues/wickes-reviewed-2026-09-06.json` are **DEMONSTRATION fixtures** for the release gate. Their pilot "trials" and reviewer records are placeholders, not real workshop evidence.
+
+Generated `build/` output is never distributed from the repo. The only tracked result bundles live under `published/`, which publication tests keep free of issued plans and hash-verified against their manifests.
+
+Every export also compiles an ordered workshop schedule, `operations.json` — receive/label/cut/treat per board, place/clamp per course, then mark (STOP) or drill + drive per fixing with explicit dependencies. The customer site plays that schedule step by step with deterministic screw-insertion animation.
 
 V1 covers **rectangular, open-bottom flower beds on level ground**, with nominal heights up to 600 mm for reviewed output. That height is a software scope boundary, not a universally safe height. Retaining walls, slopes, roofs/decks, hard-surface drainage details, structural calculations, bespoke support/bracing layouts and mid-side splice designs are not implemented. The app will not supply missing engineering by inventing it. See `docs/ENGINEERING.md`.
 

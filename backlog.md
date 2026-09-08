@@ -17,6 +17,19 @@ A deterministic, offline workshop tool for repeatable timber sleeper flower beds
 - [x] Customer-facing static offer visualiser (`site/`) for 1/2/3 course options with interactive 3D and process walkthrough.
 - [x] Vercel static deployment pipeline verified for `site/`.
 
+## v0.2.0 / v0.3.0 Hardening (review-driven) — complete
+- [x] Physical-design approval binding (`approved_physical_design_hash`); price-only revisions keep approval; machining changes invalidate it (v0.2.0).
+- [x] Screw heads/seats declared unmodelled with explicit `head_seat_unmodeled` issue and docs (v0.2.0).
+- [x] DEMONSTRATION fixture marking on reviewed example/catalogue with regression test (v0.2.0).
+- [x] Combined `options-and-build.pdf` covering 1/2/3 course options + build guides (v0.2.0).
+- [x] Deterministic operations model (`operations.json`) + web assembly player with deterministic screw-insertion animation (v0.3.0).
+- [x] Price-independent screw selection; commercial rules excluded from physical hash; generator version included (v0.3.0).
+- [x] Evidence-kind gate (`fixture` can never issue) (v0.3.0).
+- [x] Unified draft/check/release readiness (`release_ready`) (v0.3.0).
+- [x] Publication quarantine: stale packs removed, `published/` allowlist with identity checks; legacy viewer defaults to published pack and escapes HTML (v0.3.0).
+- [x] Viewer hardening: DPR resize, per-bed display groups, recursive disposal, manifest/plan hash check, blockers panel (v0.3.0).
+- [x] Print sizing: paginated parts/stock pages with readable continuation tables (v0.3.0).
+
 ---
 
 ## Next Milestone: Physical Shop & Field Validation
@@ -63,6 +76,11 @@ A deterministic, offline workshop tool for repeatable timber sleeper flower beds
   - Cut stop / stop-block setup sheet for batch cutting.
 
 ### Client Experience (Static Site)
+- [ ] **Operations-driven PDF keyframes:**
+  - Render step keyframes from `operations.json` into the printable packs so PDF and player share one schedule.
+- [ ] **Joint Recipe & Machining Operations (blocked on physical trial):**
+  - Per-joint recipe records (head seat, bore preparation, depth datum, evidence) consumed by operations, drawings and CSVs.
+  - Per-recipe fastener cards instead of one card per SKU (F08).
 - [ ] **Sales Narrative Pass:**
   - Add clearer option positioning text (best-fit use cases) without overstating engineering claims.
   - Add optional branded hero imagery/background assets while keeping page load fast.
