@@ -29,7 +29,7 @@ class Operation:
 def _entry_face_text(entry_face: str, direction) -> str:
     if direction[2] != 0:
         return "vertically through the TOP face"
-    return f"horizontally into the {entry_face.upper()} outer face"
+    return f"horizontally into the {entry_face.upper()} face"
 
 
 def build_operations(plan: dict) -> list[Operation]:

@@ -1,6 +1,6 @@
 {
   "schema": "sleeperplan.quality_report.v1",
-  "plan_sha256": "cd34ef6ff26f45360ddb23d1036a788ea270ec27932153ecce737ce91024f026",
+  "plan_sha256": "bff3700ad86be6664a13d89ba8bc8b44b8221076ef325c540b815e97a439c8ef",
   "manual_sections": {
     "Read this first": true,
     "Prepare before assembly": true,

@@ -82,6 +82,7 @@ The supplier description says Wickes in the Clapham / West Sussex area, as reque
 | `web-manifest.json` | Static-web manifest for viewer/links/camera defaults. |
 | `quality-report.json` | Deterministic export checks (sections, drawing inventory, callout coverage). |
 | `operations.json` | Compiled ordered workshop schedule (receive/label/cut/treat, place/clamp, mark-STOP or drill + drive per fixing, dependencies). Drives the web assembly player. |
+| `assembly-manual.pdf` | Optional IKEA-style step-by-step guide compiled from the same operations: one action per numbered panel, 3D keyframes with active/installed/ghost parts, scaled joint sections, explicit repeat counts and mark-out sheet references. |
 | `BUILD.md` | Job-specific dimensions, review gates, workflow and assembly instructions. |
 | `inventory-proposal.json` | Unused existing inventory and useful new offcuts; merge only after the physical job is completed. |
 | `drawings/` | Assembled views, each course, cutting diagrams and an individual fixing sheet for every part. |

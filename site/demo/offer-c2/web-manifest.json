@@ -3,8 +3,8 @@
   "name": "Offer option - 2 courses",
   "status": "DRAFT_MARK_OUT_ONLY",
   "as_of": "2026-09-06",
-  "plan_sha256": "9d06d1738186d648d05cebbedc7ddc06131da4d0eb68c4b6c23ec391ee7a4404",
-  "generator_version": "0.3.0",
+  "plan_sha256": "5b2c1b8f4ac374b276c1bfd20cce128c2e285d19def61b9236e229690bb96823",
+  "generator_version": "0.4.0",
   "artifacts": {
     "plan": "plan.json",
     "operations": "operations.json",
@@ -18,7 +18,8 @@
     "shopping_csv": "shopping.csv",
     "inventory_proposal": "inventory-proposal.json",
     "quality_report": "quality-report.json",
-    "workshop_pdf": "workshop.pdf"
+    "workshop_pdf": "workshop.pdf",
+    "assembly_manual": "assembly-manual.pdf"
   },
   "drawings": [
     {

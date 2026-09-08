@@ -5,11 +5,11 @@
     100,
     200
   ],
-  "source_plan_sha256": "b2351b07012c52880391c6c7721d68bb684374354ec0b7511d6c402c5c20760a",
+  "source_plan_sha256": "fe0c049d92f327fcf251a889490e81ddd6ee0db1f3f343bc8b58b973c6dcc0ea",
   "consumed": {},
   "inventory": [
     {
-      "id": "off-b2351b07-B003",
+      "id": "off-fe0c049d-B003",
       "length_mm": 597,
       "price_pence": 0,
       "quantity": 1,
@@ -17,7 +17,7 @@
       "trim_end_mm": 0
     },
     {
-      "id": "off-b2351b07-B004",
+      "id": "off-fe0c049d-B004",
       "length_mm": 597,
       "price_pence": 0,
       "quantity": 1,

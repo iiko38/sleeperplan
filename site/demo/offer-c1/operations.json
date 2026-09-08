@@ -1,7 +1,7 @@
 {
   "schema": "sleeperplan.operations.v1",
-  "plan_sha256": "b2351b07012c52880391c6c7721d68bb684374354ec0b7511d6c402c5c20760a",
-  "physical_design_hash": "a4c52539ccbd73c8c5040ca4401712c8d55c2405facce68eb1913a0500632a80",
+  "plan_sha256": "fe0c049d92f327fcf251a889490e81ddd6ee0db1f3f343bc8b58b973c6dcc0ea",
+  "physical_design_hash": "8c2746063b90b4419470b5e209df7589551b1a14d9489f3dc862551574fd2fa5",
   "status": "DRAFT_MARK_OUT_ONLY",
   "note": "Compiled from the same geometry model as cuts.csv and fixings.csv. Pilot entries marked STOP are mark-out only. Screw head seats are not modelled and require hardware confirmation.",
   "operations": [
@@ -261,7 +261,7 @@
       "id": "op-017",
       "action": "mark",
       "title": "Mark out offer-bed-01-C1-N-F01 - STOP before drilling",
-      "detail": "Pilot spec UNCONFIRMED: mark the centre only. Do NOT drill or drive until a recorded trial or manufacturer instruction confirms diameter and depth. horizontally into the OUTER outer face at U 50 / V 100 / W 50 mm from piece datum A (50, 1400, 50 global).",
+      "detail": "Pilot spec UNCONFIRMED: mark the centre only. Do NOT drill or drive until a recorded trial or manufacturer instruction confirms diameter and depth. horizontally into the OUTER face at U 50 / V 100 / W 50 mm from piece datum A (50, 1400, 50 global).",
       "bed_id": "offer-bed-01",
       "course": 1,
       "piece_ids": [
@@ -293,7 +293,7 @@
       "id": "op-019",
       "action": "mark",
       "title": "Mark out offer-bed-01-C1-N-F02 - STOP before drilling",
-      "detail": "Pilot spec UNCONFIRMED: mark the centre only. Do NOT drill or drive until a recorded trial or manufacturer instruction confirms diameter and depth. horizontally into the OUTER outer face at U 50 / V 100 / W 150 mm from piece datum A (50, 1400, 150 global).",
+      "detail": "Pilot spec UNCONFIRMED: mark the centre only. Do NOT drill or drive until a recorded trial or manufacturer instruction confirms diameter and depth. horizontally into the OUTER face at U 50 / V 100 / W 150 mm from piece datum A (50, 1400, 150 global).",
       "bed_id": "offer-bed-01",
       "course": 1,
       "piece_ids": [
@@ -325,7 +325,7 @@
       "id": "op-021",
       "action": "mark",
       "title": "Mark out offer-bed-01-C1-N-F03 - STOP before drilling",
-      "detail": "Pilot spec UNCONFIRMED: mark the centre only. Do NOT drill or drive until a recorded trial or manufacturer instruction confirms diameter and depth. horizontally into the OUTER outer face at U 2350 / V 100 / W 50 mm from piece datum A (2350, 1400, 50 global).",
+      "detail": "Pilot spec UNCONFIRMED: mark the centre only. Do NOT drill or drive until a recorded trial or manufacturer instruction confirms diameter and depth. horizontally into the OUTER face at U 2350 / V 100 / W 50 mm from piece datum A (2350, 1400, 50 global).",
       "bed_id": "offer-bed-01",
       "course": 1,
       "piece_ids": [
@@ -357,7 +357,7 @@
       "id": "op-023",
       "action": "mark",
       "title": "Mark out offer-bed-01-C1-N-F04 - STOP before drilling",
-      "detail": "Pilot spec UNCONFIRMED: mark the centre only. Do NOT drill or drive until a recorded trial or manufacturer instruction confirms diameter and depth. horizontally into the OUTER outer face at U 2350 / V 100 / W 150 mm from piece datum A (2350, 1400, 150 global).",
+      "detail": "Pilot spec UNCONFIRMED: mark the centre only. Do NOT drill or drive until a recorded trial or manufacturer instruction confirms diameter and depth. horizontally into the OUTER face at U 2350 / V 100 / W 150 mm from piece datum A (2350, 1400, 150 global).",
       "bed_id": "offer-bed-01",
       "course": 1,
       "piece_ids": [
@@ -389,7 +389,7 @@
       "id": "op-025",
       "action": "mark",
       "title": "Mark out offer-bed-01-C1-S-F01 - STOP before drilling",
-      "detail": "Pilot spec UNCONFIRMED: mark the centre only. Do NOT drill or drive until a recorded trial or manufacturer instruction confirms diameter and depth. horizontally into the OUTER outer face at U 50 / V 0 / W 50 mm from piece datum A (50, 0, 50 global).",
+      "detail": "Pilot spec UNCONFIRMED: mark the centre only. Do NOT drill or drive until a recorded trial or manufacturer instruction confirms diameter and depth. horizontally into the OUTER face at U 50 / V 0 / W 50 mm from piece datum A (50, 0, 50 global).",
       "bed_id": "offer-bed-01",
       "course": 1,
       "piece_ids": [
@@ -421,7 +421,7 @@
       "id": "op-027",
       "action": "mark",
       "title": "Mark out offer-bed-01-C1-S-F02 - STOP before drilling",
-      "detail": "Pilot spec UNCONFIRMED: mark the centre only. Do NOT drill or drive until a recorded trial or manufacturer instruction confirms diameter and depth. horizontally into the OUTER outer face at U 50 / V 0 / W 150 mm from piece datum A (50, 0, 150 global).",
+      "detail": "Pilot spec UNCONFIRMED: mark the centre only. Do NOT drill or drive until a recorded trial or manufacturer instruction confirms diameter and depth. horizontally into the OUTER face at U 50 / V 0 / W 150 mm from piece datum A (50, 0, 150 global).",
       "bed_id": "offer-bed-01",
       "course": 1,
       "piece_ids": [
@@ -453,7 +453,7 @@
       "id": "op-029",
       "action": "mark",
       "title": "Mark out offer-bed-01-C1-S-F03 - STOP before drilling",
-      "detail": "Pilot spec UNCONFIRMED: mark the centre only. Do NOT drill or drive until a recorded trial or manufacturer instruction confirms diameter and depth. horizontally into the OUTER outer face at U 2350 / V 0 / W 50 mm from piece datum A (2350, 0, 50 global).",
+      "detail": "Pilot spec UNCONFIRMED: mark the centre only. Do NOT drill or drive until a recorded trial or manufacturer instruction confirms diameter and depth. horizontally into the OUTER face at U 2350 / V 0 / W 50 mm from piece datum A (2350, 0, 50 global).",
       "bed_id": "offer-bed-01",
       "course": 1,
       "piece_ids": [
@@ -485,7 +485,7 @@
       "id": "op-031",
       "action": "mark",
       "title": "Mark out offer-bed-01-C1-S-F04 - STOP before drilling",
-      "detail": "Pilot spec UNCONFIRMED: mark the centre only. Do NOT drill or drive until a recorded trial or manufacturer instruction confirms diameter and depth. horizontally into the OUTER outer face at U 2350 / V 0 / W 150 mm from piece datum A (2350, 0, 150 global).",
+      "detail": "Pilot spec UNCONFIRMED: mark the centre only. Do NOT drill or drive until a recorded trial or manufacturer instruction confirms diameter and depth. horizontally into the OUTER face at U 2350 / V 0 / W 150 mm from piece datum A (2350, 0, 150 global).",
       "bed_id": "offer-bed-01",
       "course": 1,
       "piece_ids": [

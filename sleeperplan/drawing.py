@@ -282,20 +282,32 @@ def piece_scene(plan: dict, raw: dict) -> Scene:
         s.text(x+8,y-5,f['id'].rsplit('-',1)[-1],12,ACCENT,bold=True)
         plotted.append((x,y,f))
     if plotted:
-        # IKEA-style zoom bubbles for the first critical fixing points.
-        priority={"corner":0,"stack":1}
-        focus=sorted(plotted,key=lambda item:(priority.get(item[2]['kind'],9), item[2]['entry_face'], item[0]))[:3]
+        # Zoom bubbles: one representative per distinct operation type (corner
+        # and stack), so a mixed piece always shows both preparation types.
+        kinds_order=["corner","stack"]
+        focus=[]
+        for kind in kinds_order:
+            group=[item for item in plotted if item[2]['kind']==kind]
+            if group:
+                focus.append(min(group,key=lambda item:(-item[2]['local_mm'][2], item[0])))
         bubbles=[(1000,110),(1000,196),(1000,282)]
-        for i,(px,py,f) in enumerate(focus):
+        for i,(px,py,f) in enumerate(focus[:3]):
             bx,by=bubbles[i]
             s.line(px,py,bx-32,by,ACCENT,1.6)
             s.circle(bx,by,32,"#f6fbfa",ACCENT,2)
             s.circle(bx,by,5,"white",ACCENT,2)
             s.text(bx,by-42,f"{f['kind']} x1",11,ACCENT,"middle",bold=True)
             s.text(bx,by+22,f"{f['entry_face']}",9,MUTED,"middle")
-            dx,dy,_=f['direction']
-            s.line(bx-dx*18,by+dy*18,bx+dx*18,by-dy*18,ACCENT,1.8)
-            s.circle(bx+dx*18,by-dy*18,2,ACCENT,ACCENT,1)
+            dx,dy,dz=f['direction']
+            if dz==0:
+                s.line(bx-dx*18,by+dy*18,bx+dx*18,by-dy*18,ACCENT,1.8)
+                s.circle(bx+dx*18,by-dy*18,2,ACCENT,ACCENT,1)
+            else:
+                # Vertical direction: axis points into/out of the page in this
+                # top view, so draw the unambiguous into-page symbol.
+                s.circle(bx,by,10,"none",ACCENT,1.6)
+                s.circle(bx,by,2.2,ACCENT,ACCENT,1)
+                s.text(bx,by+44,"vertical",9,MUTED,"middle")
     s.text(30,337,"Views intentionally stretch section depth for legibility. Use the coordinates below, not a ruler on this sheet.",13,MUTED)
     columns=[30,115,215,330,440,540,695]
     for x,label in zip(columns,["FIXING","FACE","U FROM A","V","W UP","SCREW","PILOT"]):
@@ -529,3 +541,91 @@ def scad_model(plan: dict) -> str:
         lines.append(f"if (show_fixing_paths) translate([{x+offsets[f['bed_id']]}, {y}, {z}+{f['course']-1}*explode_mm]) "
                      f"rotate({rotation}) color([0.8,0.1,0.1]) cylinder(d={f['diameter_mm']}, h={f['screw_length_mm']});")
     return "\n".join(lines)+"\n"
+
+
+def joint_closeup_scene(plan: dict, fixing: dict, mode: str) -> Scene:
+    """Scaled cross-section along the screw axis: entry face, mating plane,
+    receiver continuation and depth datum. mode: mark | drill | drive."""
+    s=Scene(560,470)
+    through=fixing['through_mm']
+    pen=fixing['penetration_mm']
+    length=fixing['screw_length_mm']
+    dia=fixing['diameter_mm']
+    receiver_total=max(20,length-through)
+    margin=110
+    scale=(560-2*margin)/max(1,length+30)
+    x0=margin
+    cy=210
+    head_w=max(18,dia*2.6)
+    head_h=max(5,dia*0.55)
+    s.rect(x0,cy-70,through*scale,140,'#e3c79f',INK,1.4)
+    s.rect(x0+through*scale,cy-70,receiver_total*scale,140,'#d7b58d',INK,1.4)
+    s.line(x0+through*scale,cy-74,x0+through*scale,cy+74,WARN,1.2)
+    s.text(x0+through*scale/2,cy+96,'through member',12,INK,'middle')
+    s.text(x0+(through+receiver_total/2)*scale,cy+96,'receiver',12,INK,'middle')
+    s.text(x0+through*scale,cy-92,'mating plane',11,WARN,'middle')
+    if mode=='drive':
+        s.line(x0,cy,x0+length*scale,cy,ACCENT,max(2.5,dia*0.4))
+        s.polygon([(x0+length*scale,cy-4),(x0+length*scale+12*scale,cy),(x0+length*scale,cy+4)],ACCENT,ACCENT,1)
+        s.rect(x0-head_w,cy-head_h*2,head_w,head_h,'#8fa3a6',INK,1)
+        s.rect(x0-head_w,cy-head_h,head_w,head_h,'#5d7478',INK,1)
+        s.text(x0-head_w/2,cy-2*head_h-10,'head',10,MUTED,'middle')
+        dimensions(s,x0+through*scale,cy-130,x0+(through+pen)*scale,cy-130,f'pen {pen} mm')
+        s.text(280,418,'Head bears on the entry face; confirm the seat detail with the actual hardware.',10,WARN,'middle')
+    elif mode=='drill':
+        depth=fixing['pilot_depth_mm'] or (through+pen)
+        s.polygon([(x0,cy-6),(x0,cy+6),(x0+depth*scale-16,cy)],'#7c8f93','#51666a',1)
+        s.line(x0+depth*scale-16,cy,x0+depth*scale,cy,'#51666a',3)
+        dimensions(s,x0,cy+118,x0+depth*scale,cy+118,f'{depth:g} mm deep (from entry face)')
+        if fixing['pilot_mode']=='pilot':
+            s.text(280,40,f"drill {fixing['pilot_diameter_mm']:g} mm bit",13,'#1f5e2f','middle',bold=True)
+        else:
+            s.text(280,40,'CONFIRM bit diameter + depth before drilling',13,WARN,'middle',bold=True)
+    else:
+        s.circle(x0,cy,7,'#f6fbfa',ACCENT,2)
+        s.circle(x0,cy,1.8,ACCENT,ACCENT,1)
+        s.text(280,40,'MARK ONLY - do not drill',13,WARN,'middle',bold=True)
+    dimensions(s,x0,cy-130,x0+through*scale,cy-130,f'{through} mm')
+    s.text(280,452,'Scaled section along the fixed screw axis; not a 1:1 template.',11,MUTED,'middle')
+    return s
+
+
+def keyframe_scene(plan: dict, installed: set, active: set, fixing: str | None = None,
+                   width: int = 520, height: int = 380, title: str = '') -> Scene:
+    """Mini assembled keyframe: installed members solid, active members
+    highlighted, pending members ghost outlines. Optional entry-point marker."""
+    s=Scene(width,height)
+    pieces=plan['pieces']
+    if not pieces:
+        return s
+    L=max(p['x_mm']+(p['length_mm'] if p['axis']=='X' else p['thickness_mm']) for p in pieces)
+    W=max(p['y_mm']+(p['thickness_mm'] if p['axis']=='X' else p['length_mm']) for p in pieces)
+    H=max(p['z_mm']+p['height_mm'] for p in pieces)
+    scale=min((width-60)/(cos(pi/6)*(L+W))*0.95,(height-70)/((L+W)/2+H))
+    mid=cos(pi/6)*(L-W)/2
+    def convert(v):
+        px,py=project(*v)
+        return 25+(px-mid)*scale,height-40-((L+W)/2-py)*scale
+    def state(raw):
+        if raw['id'] in active: return '#e0a95e',INK,1.8
+        if raw['id'] in installed: return '#c69b6b',INK,1.2
+        return None,'#c9d6d2',1
+    for raw in pieces:
+        p=Piece(**raw)
+        (bx0,bx1),(by0,by1),(bz0,bz1)=p.box
+        fill,stroke,wd=state(raw)
+        if fill is None:
+            pts=[convert(v) for v in ((bx0,by0,bz1),(bx1,by0,bz1),(bx1,by1,bz1),(bx0,by1,bz1))]
+            s.polygon(pts,'none','#c9d6d2',1)
+        else:
+            for _,verts,_fill in sorted(visible_faces([p]),key=lambda f:f[0]):
+                s.polygon([convert(v) for v in verts],fill,stroke,wd)
+    if fixing:
+        f=next((f for f in plan['fixings'] if f['id']==fixing),None)
+        if f:
+            x,y,z=f['entry_mm']
+            px,py=convert((x,y,z+f['screw_length_mm']/2))
+            s.circle(px,py,5,WARN,WARN,1.6)
+    if title:
+        s.text(14,height-14,title,12,MUTED)
+    return s

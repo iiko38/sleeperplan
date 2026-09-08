@@ -28,6 +28,7 @@ const statFillNode = document.getElementById("statFill");
 const linkAssembledNode = document.getElementById("linkAssembled");
 const linkProcessNode = document.getElementById("linkProcess");
 const linkManualNode = document.getElementById("linkManual");
+const linkAssemblyNode = document.getElementById("linkAssembly");
 const linkPdfNode = document.getElementById("linkPdf");
 const offerTabsNode = document.getElementById("offerTabs");
 const blockersWrapNode = document.getElementById("planBlockers");
@@ -68,14 +69,19 @@ scene.add(grid);
 
 const timberMat = new THREE.MeshStandardMaterial({ color: 0xc69b6b, roughness: 0.6, metalness: 0.05 });
 const timberHiddenMat = new THREE.MeshStandardMaterial({ color: 0xc69b6b, roughness: 0.6, metalness: 0.05, transparent: true, opacity: 0.12 });
+const timberGhostMat = new THREE.MeshStandardMaterial({ color: 0xc69b6b, roughness: 0.6, metalness: 0.05, transparent: true, opacity: 0.3 });
 const timberActiveMat = new THREE.MeshStandardMaterial({ color: 0xe0b06a, roughness: 0.5, metalness: 0.05, emissive: 0x553311, emissiveIntensity: 0.35 });
 const fixingMat = new THREE.MeshStandardMaterial({ color: 0x1a7f87, roughness: 0.4, metalness: 0.2 });
+const bitMat = new THREE.MeshStandardMaterial({ color: 0x555f63, roughness: 0.35, metalness: 0.55 });
+const holeMat = new THREE.MeshStandardMaterial({ color: 0x2b2f31, roughness: 0.9, metalness: 0.0 });
 const edgeMat = new THREE.LineBasicMaterial({ color: 0x111111 });
 
 const timberGroup = new THREE.Group();
 const fixingGroup = new THREE.Group();
+const toolGroup = new THREE.Group();
 scene.add(timberGroup);
 scene.add(fixingGroup);
+scene.add(toolGroup);
 
 let lastManifest = null;
 let lastPlan = null;
@@ -286,6 +292,7 @@ function populateClientPanel(offer, manifest, plan, baseUrl) {
   updateLink(linkAssembledNode, baseUrl, findDrawingPath(manifest, "assembled"), "Assembled drawing");
   updateLink(linkProcessNode, baseUrl, findDrawingPath(manifest, "process_overview"), "Process overview");
   updateLink(linkManualNode, baseUrl, manifest.artifacts?.workshop_manual, "Workshop manual");
+  updateLink(linkAssemblyNode, baseUrl, manifest.artifacts?.assembly_manual, "Assembly guide (step-by-step)");
   updateLink(linkPdfNode, baseUrl, manifest.artifacts?.workshop_pdf, "Printable PDF pack");
 
   const blockers = (plan.issues || []).filter((i) => i.blocking);
@@ -345,10 +352,17 @@ function applyPlayerState() {
   const installed = installedSets(player.ops, player.index);
   const op = player.ops[player.index];
   const activePieces = new Set(op.piece_ids || []);
+  const closeup = op.action === "mark" || op.action === "drill" || op.action === "drive";
 
   for (const [id, mesh] of pieceMeshes) {
-    if (installed.pieces.has(id)) mesh.material = activePieces.has(id) ? timberActiveMat : timberMat;
-    else mesh.material = timberHiddenMat;
+    if (closeup) {
+      if (activePieces.has(id)) mesh.material = timberActiveMat;
+      else if (installed.pieces.has(id)) mesh.material = timberGhostMat;
+      else mesh.material = timberHiddenMat;
+    } else {
+      if (installed.pieces.has(id)) mesh.material = activePieces.has(id) ? timberActiveMat : timberMat;
+      else mesh.material = timberHiddenMat;
+    }
   }
 
   for (const [id, mesh] of fixingMeshes) {
@@ -361,6 +375,79 @@ function applyPlayerState() {
       else setScrewProgress(mesh, id, 0);
     } else {
       mesh.visible = false;
+    }
+  }
+
+  updateTooling(op);
+}
+
+/* drill bit + persistent holes. Deterministic per operation index. */
+let holeMeshes = new Map();
+let bitMesh = null;
+
+function toolBedGroup(bedId) {
+  let g = toolGroup.children.find((child) => child.userData.bedId === bedId);
+  if (!g) {
+    g = new THREE.Group();
+    g.userData.bedId = bedId;
+    g.position.x = bedOffsets.get(bedId) ?? 0;
+    toolGroup.add(g);
+  }
+  return g;
+}
+
+function ensureHole(fixing) {
+  if (holeMeshes.has(fixing.id)) return holeMeshes.get(fixing.id);
+  const radius = Math.max(2, fixing.pilot_diameter_mm ? fixing.pilot_diameter_mm / 2 : fixing.diameter_mm / 3);
+  const depth = fixing.pilot_depth_mm || fixing.through_mm + fixing.penetration_mm;
+  const dir = new THREE.Vector3(...fixing.direction).normalize();
+  const entry = new THREE.Vector3(...fixing.entry_mm);
+  const geo = new THREE.CylinderGeometry(radius, radius, depth, 10);
+  const mesh = new THREE.Mesh(geo, holeMat);
+  mesh.position.copy(entry.clone().add(dir.clone().multiplyScalar(depth / 2)));
+  mesh.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), dir);
+  mesh.visible = false;
+  toolBedGroup(fixing.bed_id).add(mesh);
+  holeMeshes.set(fixing.id, mesh);
+  return mesh;
+}
+
+function ensureBit() {
+  if (!bitMesh) {
+    const geo = new THREE.CylinderGeometry(2, 1.2, 60, 10);
+    bitMesh = new THREE.Mesh(geo, bitMat);
+    bitMesh.visible = false;
+    scene.add(bitMesh);
+  }
+  return bitMesh;
+}
+
+function clearTooling() {
+  if (bitMesh) bitMesh.visible = false;
+  holeMeshes.forEach((mesh) => { mesh.visible = false; });
+}
+
+function updateTooling(op) {
+  clearTooling();
+  // persistent holes: drilled at any earlier step
+  for (let i = 0; i < player.index; i++) {
+    const past = player.ops[i];
+    if (past.action === "drill" && past.fixing_id) {
+      const f = fixingById(past.fixing_id);
+      if (f) ensureHole(f).visible = true;
+    }
+  }
+  if (op.action === "drill" && op.fixing_id) {
+    const f = fixingById(op.fixing_id);
+    if (f) {
+      const bit = ensureBit();
+      const dir = new THREE.Vector3(...f.direction).normalize();
+      const entry = new THREE.Vector3(...f.entry_mm);
+      entry.x += bedOffsets.get(f.bed_id) ?? 0;
+      const depth = f.pilot_depth_mm || f.through_mm + f.penetration_mm;
+      bit.position.copy(entry.clone().add(dir.clone().multiplyScalar(depth / 2)));
+      bit.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), dir);
+      bit.visible = true;
     }
   }
 }
@@ -461,6 +548,8 @@ async function loadOffer(offer) {
     lastPlan = plan;
     lastOperations = operations;
     meshes = buildSceneFromPlan(plan);
+    clearGroup(toolGroup);
+    holeMeshes = new Map();
     populateClientPanel(offer, manifest, plan, baseUrl);
     if (!applyManifestCamera(manifest)) resetView();
     setActiveOfferButton(offer.id);

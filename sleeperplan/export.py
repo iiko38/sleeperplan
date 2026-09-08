@@ -237,6 +237,7 @@ def _web_manifest(plan: dict, *, pdf: bool) -> dict:
     }
     if pdf:
         artifacts["workshop_pdf"] = "workshop.pdf"
+        artifacts["assembly_manual"] = "assembly-manual.pdf"
 
     return {
         "schema": "sleeperplan.web_manifest.v1",
@@ -366,8 +367,9 @@ def _populate(plan: dict, directory: Path, pdf: bool):
     for screw_id in sorted({f['screw_id'] for f in plan['fixings']}):
         (drawings/f"fastener-{screw_id}.svg").write_text(fastener_scene(plan,screw_id).svg(),encoding='utf-8')
     if pdf:
-        from .pdf import write_workshop_pdf
+        from .pdf import write_workshop_pdf, write_assembly_manual_pdf
         write_workshop_pdf(plan,directory/'workshop.pdf')
+        write_assembly_manual_pdf(plan,directory/'assembly-manual.pdf')
 
 
 def export_plan(plan: dict, destination: str | Path, *, pdf: bool = False):

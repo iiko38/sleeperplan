@@ -6,6 +6,7 @@ from .model import PlanError
 from .drawing import (Scene, iso_scene, layer_scene, piece_scene, cutting_scene,
                       process_scene, stock_scene, fastener_scene, parts_scene)
 from .costing import pounds
+from .manual import build_manual_panels
 
 
 def _imports():
@@ -279,3 +280,93 @@ def write_options_pdf(plans: list[dict], heights: list[int], destination: Path, 
         kwargs['invariant']=1
         return Canvas(*args,**kwargs)
     doc.build(story,onFirstPage=footer,onLaterPages=footer,canvasmaker=invariant_canvas)
+def write_assembly_manual_pdf(plan: dict, destination: Path):
+    """IKEA-style step-by-step manual: one dominant action per page, drawn from
+    the same compiled operations as the web player."""
+    (_imports())
+    from .drawing import parts_scene
+    from reportlab.lib.pagesizes import A4
+    from reportlab.pdfgen.canvas import Canvas
+    from reportlab.lib.colors import HexColor
+    page=A4
+    W,H=page
+    panels=build_manual_panels(plan)
+    c=Canvas(str(destination),pagesize=page,invariant=1)
+    c.setTitle(f"Sleeperplan assembly guide - {plan['name']}")
+    c.setAuthor('Sleeperplan')
+
+    # ---- title page ----
+    c.setFillColor(HexColor('#183339'))
+    c.setFont('Helvetica-Bold',26)
+    c.drawString(48,H-90,'Assembly guide')
+    c.setFont('Helvetica',13)
+    c.setFillColor(HexColor('#52666a'))
+    c.drawString(48,H-116,plan['name'][:80])
+    c.drawString(48,H-134,f"{plan['status']}  |  as of {plan['as_of']}  |  physical {plan['physical_design_hash'][:12]}")
+    y=H-190
+    c.setFillColor(HexColor('#183339'))
+    c.setFont('Helvetica-Bold',12)
+    c.drawString(48,y,'In this pack')
+    c.setFont('Helvetica',11)
+    rows=[f"{len(panels)} numbered steps - one dominant action per step",
+          "3D keyframes: highlighted = current part, solid = installed, ghost outline = later",
+          "Scaled joint sections for every preparation/driving operation",
+          f"{len(plan['pieces'])} labelled parts, {len(plan['fixings'])} fixings, {plan['cut_plan']['purchased_sleepers']} sleepers",
+          "Full coordinates in fixings.csv; saw bands in cuts.csv"]
+    for r in rows:
+        y-=20;c.drawString(56,y,r)
+    y-=34
+    c.setFillColor(HexColor('#9d4e19'))
+    c.setFont('Helvetica-Bold',11)
+    c.drawString(48,y,'STOP entries are mark-out only:')
+    y-=16
+    c.setFont('Helvetica',10)
+    c.drawString(56,y,'where a pilot diameter/depth or head-seat detail is unconfirmed, do not drill or drive')
+    y-=14
+    c.drawString(56,y,'until confirmed for the actual hardware. This guide is not structural certification.')
+    c.showPage()
+
+    # ---- step pages: one panel per page ----
+    for panel in panels:
+        c.setFillColor(HexColor('#1d7d77'))
+        c.circle(52,H-60,24,stroke=0,fill=1)
+        c.setFillColor(HexColor('#ffffff'))
+        c.setFont('Helvetica-Bold',15)
+        c.drawCentredString(52,H-66,str(panel.number))
+        c.setFillColor(HexColor('#183339'))
+        c.setFont('Helvetica-Bold',15)
+        c.drawString(88,H-52,panel.title[:70])
+        c.setFont('Helvetica',8.5)
+        c.setFillColor(HexColor('#52666a'))
+        c.drawString(88,H-66,f"step {panel.number} of {len(panels)}  |  {panel.action}")
+        # keyframe top-left
+        try:
+            k=panel.scene
+            ks=min(300/k.width,260/k.height)
+            draw_scene(c,k,40,H-320,ks)
+        except Exception:
+            pass
+        # closeup right (if any)
+        if panel.closeup is not None:
+            try:
+                cu=panel.closeup
+                cs=min(250/cu.width,220/cu.height)
+                draw_scene(c,cu,W-40-cu.width*cs,H-330,cs)
+            except Exception:
+                pass
+        # instruction lines
+        c.setFillColor(HexColor('#183339'))
+        c.setFont('Helvetica',10)
+        text_y=H-360
+        for line in panel.lines:
+            c.drawString(48,text_y,line[:110]);text_y-=14
+        if panel.closeup_caption:
+            c.setFont('Helvetica',8.5)
+            c.setFillColor(HexColor('#52666a'))
+            c.drawString(48,max(64,text_y-4),panel.closeup_caption[:120])
+        c.setFillColor(HexColor('#52666a'))
+        c.setFont('Helvetica',7.5)
+        c.drawString(40,24,f"Sleeperplan | {plan['input_sha256'][:12]} | {plan['status']}")
+        c.drawRightString(W-40,24,str(panel.number))
+        c.showPage()
+    c.save()

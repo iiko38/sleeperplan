@@ -1,7 +1,7 @@
 # Offer option - 2 courses
 
 
-**DRAFT_MARK_OUT_ONLY** | 2026-09-06 | plan `9d06d1738186d648d05cebbedc7ddc06131da4d0eb68c4b6c23ec391ee7a4404` | physical design `aad74869c2e94ebf102ded660acd3a3e76c340d216e91fa1686eeba698068079`
+**DRAFT_MARK_OUT_ONLY** | 2026-09-06 | plan `5b2c1b8f4ac374b276c1bfd20cce128c2e285d19def61b9236e229690bb96823` | physical design `03afe8322de6c29b992e58f01453c1f7e8f9408ccc81cf232b976b765bcb7165`
 
 
 ## Before work starts

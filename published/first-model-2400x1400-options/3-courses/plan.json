@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generator_version": "0.3.0",
-  "input_sha256": "605068954d9dce91f645f60af4004cba1442c8452899a65db8512358b1275a63",
-  "physical_design_hash": "2f562d51e13d79474c0f921c1aac9aeb719a71faa07e46fc0a335d999e1c9056",
+  "generator_version": "0.4.0",
+  "input_sha256": "9d70b40ac2ba31514db7c305172a930460e27fd36494eceb7fe12a5c3da2bedc",
+  "physical_design_hash": "2724d16028a05ac4217a8cb490570cc575964f290693c0b49e21d554a4ac0607",
   "release_ready": false,
   "as_of": "2026-09-06",
   "name": "First rectangular bed draft - 2400 x 1400",
@@ -186,7 +186,7 @@
       }
     },
     "as_of": "2026-09-06",
-    "generator_version": "0.3.0"
+    "generator_version": "0.4.0"
   },
   "profile": {
     "key": "wickes-green-100x200",
@@ -2731,11 +2731,11 @@
       100,
       200
     ],
-    "source_plan_sha256": "605068954d9dce91f645f60af4004cba1442c8452899a65db8512358b1275a63",
+    "source_plan_sha256": "9d70b40ac2ba31514db7c305172a930460e27fd36494eceb7fe12a5c3da2bedc",
     "consumed": {},
     "inventory": [
       {
-        "id": "off-60506895-B007",
+        "id": "off-9d70b40a-B007",
         "length_mm": 597,
         "price_pence": 0,
         "quantity": 1,
@@ -2743,7 +2743,7 @@
         "trim_end_mm": 0
       },
       {
-        "id": "off-60506895-B008",
+        "id": "off-9d70b40a-B008",
         "length_mm": 597,
         "price_pence": 0,
         "quantity": 1,
@@ -2751,7 +2751,7 @@
         "trim_end_mm": 0
       },
       {
-        "id": "off-60506895-B009",
+        "id": "off-9d70b40a-B009",
         "length_mm": 597,
         "price_pence": 0,
         "quantity": 1,
@@ -2759,7 +2759,7 @@
         "trim_end_mm": 0
       },
       {
-        "id": "off-60506895-B010",
+        "id": "off-9d70b40a-B010",
         "length_mm": 597,
         "price_pence": 0,
         "quantity": 1,
@@ -2767,7 +2767,7 @@
         "trim_end_mm": 0
       },
       {
-        "id": "off-60506895-B011",
+        "id": "off-9d70b40a-B011",
         "length_mm": 597,
         "price_pence": 0,
         "quantity": 1,
@@ -2775,7 +2775,7 @@
         "trim_end_mm": 0
       },
       {
-        "id": "off-60506895-B012",
+        "id": "off-9d70b40a-B012",
         "length_mm": 597,
         "price_pence": 0,
         "quantity": 1,

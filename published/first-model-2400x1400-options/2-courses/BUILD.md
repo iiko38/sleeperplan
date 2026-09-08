@@ -1,7 +1,7 @@
 # First rectangular bed draft - 2400 x 1400
 
 
-**DRAFT_MARK_OUT_ONLY** | 2026-09-06 | plan `85c769f46a6c91978d10845369a69c551fb98a729400db1d1a9b849a2b9fef8a` | physical design `4d2529394f754926201831dd252dca89ab7c3195330d654b185899efe19b8d6c`
+**DRAFT_MARK_OUT_ONLY** | 2026-09-06 | plan `533c04a534809d8ed40c918c5806f26e6540c8269873abd87098e54d2a0634e8` | physical design `f8ec8a71b83f37cac37a4a0d633affc1f7577abaf3949b62bc51c68da29bc76c`
 
 
 ## Before work starts

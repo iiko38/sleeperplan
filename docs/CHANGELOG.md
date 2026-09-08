@@ -1,5 +1,21 @@
 # Changelog
 
+## 2026-09-08 (v0.4.0) — IKEA-style assembly manual + animation upgrade
+
+### Added
+- **`assembly-manual.pdf`** (`sleeperplan/manual.py` + `pdf.py`): a numbered, one-action-per-page step guide compiled from the same operations as the web player:
+  - 3D keyframe per panel: active part highlighted, installed parts solid, pending parts ghost outlines, orange marker on the active fixing's entry point.
+  - Scaled joint cross-sections (`joint_closeup_scene`): entry face, mating plane, receiver continuation, penetration/depth datum; mark-ONLY, drill and seated-drive variants.
+  - Equivalent fixings grouped with explicit repeat counts and mark-out sheet references (3-course guide: 43 panels).
+  - Deterministic output (byte-identical regeneration, regression-tested).
+- **Animation upgrades** (`site/app.js`): ghosted timber on close-up operations, drill-bit model at the entry axis during drill steps, persistent drilled holes that remain visible once made, deterministic per-step tooling state.
+- **F10 fixes:** piece-sheet callouts now select one representative per operation type (corner + stack); vertical drilling directions draw the into-page symbol instead of a zero-length line.
+- Hardware-agnostic wording throughout the manual ("the actual hardware"); Wickes remains a dated price snapshot only.
+
+### Changed
+- "OUTER outer face" wording fix in operation details; manual merges prepare+drive per fixing group.
+- Version 0.4.0; 100 tests passing. Published/demo bundles regenerated (v04).
+
 ## 2026-09-08 (v0.3.0) — review-of-review hardening (REVIEW_37db13b)
 
 ### Added

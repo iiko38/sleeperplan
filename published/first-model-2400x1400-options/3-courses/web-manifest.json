@@ -3,8 +3,8 @@
   "name": "First rectangular bed draft - 2400 x 1400",
   "status": "DRAFT_MARK_OUT_ONLY",
   "as_of": "2026-09-06",
-  "plan_sha256": "605068954d9dce91f645f60af4004cba1442c8452899a65db8512358b1275a63",
-  "generator_version": "0.3.0",
+  "plan_sha256": "9d70b40ac2ba31514db7c305172a930460e27fd36494eceb7fe12a5c3da2bedc",
+  "generator_version": "0.4.0",
   "artifacts": {
     "plan": "plan.json",
     "operations": "operations.json",
@@ -18,7 +18,8 @@
     "shopping_csv": "shopping.csv",
     "inventory_proposal": "inventory-proposal.json",
     "quality_report": "quality-report.json",
-    "workshop_pdf": "workshop.pdf"
+    "workshop_pdf": "workshop.pdf",
+    "assembly_manual": "assembly-manual.pdf"
   },
   "drawings": [
     {

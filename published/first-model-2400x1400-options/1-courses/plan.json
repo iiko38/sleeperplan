@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generator_version": "0.3.0",
-  "input_sha256": "cd34ef6ff26f45360ddb23d1036a788ea270ec27932153ecce737ce91024f026",
-  "physical_design_hash": "a492c8436dbca050dc213ddc44fec3a1f118e2d940384ddd28ed30b7735d59a8",
+  "generator_version": "0.4.0",
+  "input_sha256": "bff3700ad86be6664a13d89ba8bc8b44b8221076ef325c540b815e97a439c8ef",
+  "physical_design_hash": "ce93662dad847561df0163267d0d4b52195f3c589f74a98bc8d54693df1e58f4",
   "release_ready": false,
   "as_of": "2026-09-06",
   "name": "First rectangular bed draft - 2400 x 1400",
@@ -171,7 +171,7 @@
       }
     },
     "as_of": "2026-09-06",
-    "generator_version": "0.3.0"
+    "generator_version": "0.4.0"
   },
   "profile": {
     "key": "wickes-green-100x200",
@@ -827,11 +827,11 @@
       100,
       200
     ],
-    "source_plan_sha256": "cd34ef6ff26f45360ddb23d1036a788ea270ec27932153ecce737ce91024f026",
+    "source_plan_sha256": "bff3700ad86be6664a13d89ba8bc8b44b8221076ef325c540b815e97a439c8ef",
     "consumed": {},
     "inventory": [
       {
-        "id": "off-cd34ef6f-B003",
+        "id": "off-bff3700a-B003",
         "length_mm": 597,
         "price_pence": 0,
         "quantity": 1,
@@ -839,7 +839,7 @@
         "trim_end_mm": 0
       },
       {
-        "id": "off-cd34ef6f-B004",
+        "id": "off-bff3700a-B004",
         "length_mm": 597,
         "price_pence": 0,
         "quantity": 1,

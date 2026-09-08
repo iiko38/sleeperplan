@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generator_version": "0.3.0",
-  "input_sha256": "9d06d1738186d648d05cebbedc7ddc06131da4d0eb68c4b6c23ec391ee7a4404",
-  "physical_design_hash": "aad74869c2e94ebf102ded660acd3a3e76c340d216e91fa1686eeba698068079",
+  "generator_version": "0.4.0",
+  "input_sha256": "5b2c1b8f4ac374b276c1bfd20cce128c2e285d19def61b9236e229690bb96823",
+  "physical_design_hash": "03afe8322de6c29b992e58f01453c1f7e8f9408ccc81cf232b976b765bcb7165",
   "release_ready": false,
   "as_of": "2026-09-06",
   "name": "Offer option - 2 courses",
@@ -193,7 +193,7 @@
       }
     },
     "as_of": "2026-09-06",
-    "generator_version": "0.3.0"
+    "generator_version": "0.4.0"
   },
   "profile": {
     "key": "wickes-green-100x200",
@@ -1800,11 +1800,11 @@
       100,
       200
     ],
-    "source_plan_sha256": "9d06d1738186d648d05cebbedc7ddc06131da4d0eb68c4b6c23ec391ee7a4404",
+    "source_plan_sha256": "5b2c1b8f4ac374b276c1bfd20cce128c2e285d19def61b9236e229690bb96823",
     "consumed": {},
     "inventory": [
       {
-        "id": "off-9d06d173-B005",
+        "id": "off-5b2c1b8f-B005",
         "length_mm": 597,
         "price_pence": 0,
         "quantity": 1,
@@ -1812,7 +1812,7 @@
         "trim_end_mm": 0
       },
       {
-        "id": "off-9d06d173-B006",
+        "id": "off-5b2c1b8f-B006",
         "length_mm": 597,
         "price_pence": 0,
         "quantity": 1,
@@ -1820,7 +1820,7 @@
         "trim_end_mm": 0
       },
       {
-        "id": "off-9d06d173-B007",
+        "id": "off-5b2c1b8f-B007",
         "length_mm": 597,
         "price_pence": 0,
         "quantity": 1,
@@ -1828,7 +1828,7 @@
         "trim_end_mm": 0
       },
       {
-        "id": "off-9d06d173-B008",
+        "id": "off-5b2c1b8f-B008",
         "length_mm": 597,
         "price_pence": 0,
         "quantity": 1,

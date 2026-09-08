@@ -110,6 +110,15 @@ class PublicationTests(unittest.TestCase):
             self.assertEqual(a.read_bytes(),b.read_bytes())
 
     @unittest.skipUnless(importlib.util.find_spec('reportlab'),'Optional PDF dependency absent')
+    def test_assembly_manual_pdf_generation(self):
+        from sleeperplan.pdf import write_assembly_manual_pdf
+        with tempfile.TemporaryDirectory() as tmp:
+            a,b=Path(tmp)/'a.pdf',Path(tmp)/'b.pdf'
+            write_assembly_manual_pdf(self.p,a);write_assembly_manual_pdf(self.p,b)
+            self.assertTrue(a.read_bytes().startswith(b'%PDF'))
+            self.assertEqual(a.read_bytes(),b.read_bytes())
+
+    @unittest.skipUnless(importlib.util.find_spec('reportlab'),'Optional PDF dependency absent')
     def test_options_pdf_covers_each_height(self):
         from dataclasses import replace
         from sleeperplan.pdf import write_options_pdf
@@ -128,7 +137,7 @@ class CLITests(unittest.TestCase):
         return subprocess.run([sys.executable,'-m','sleeperplan',*map(str,args)],cwd=ROOT,capture_output=True,text=True,timeout=30)
 
     def test_help(self):self.assertEqual(self.run_cli('--help').returncode,0)
-    def test_version(self):self.assertEqual(self.run_cli('--version').stdout.strip(),'0.3.0')
+    def test_version(self):self.assertEqual(self.run_cli('--version').stdout.strip(),'0.4.0')
     def test_check_draft_has_distinct_exit_code(self):self.assertEqual(self.run_cli('check','examples/neighbour.json','--as-of','2026-09-06').returncode,3)
 
     def test_bad_job_returns_clean_error(self):
