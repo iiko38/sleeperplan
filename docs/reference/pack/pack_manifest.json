@@ -1,0 +1,22 @@
+{
+  "source_commit": "37db13b378fc868f2d4e6b73f8ba19f6e5f4b526",
+  "source_model": "examples/first-model-2400x1400.json",
+  "source_build_artifacts": "build/first-model-2400x1400-long-through-manual-pdf-r08",
+  "model_hash": "94ab5b0d78e8be414a28ee019e70a8edafd86a35f47ce2b3b14fe2b066fcbe2d",
+  "status": "DRAFT_VISUAL_CONSTRUCTION_PACK",
+  "dimensions_mm": [
+    2400,
+    1400,
+    600
+  ],
+  "parts": 12,
+  "fixings": 56,
+  "corner_fixings": 24,
+  "stack_fixings": 32,
+  "unconfirmed": [
+    "pilot diameter/depth",
+    "head seat/recess",
+    "connection capacity",
+    "supports/drainage/site"
+  ]
+}

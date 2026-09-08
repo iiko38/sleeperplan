@@ -1,0 +1,32 @@
+[
+  {
+    "courses": 1,
+    "assertions": 81,
+    "parts": 4,
+    "fixings": 8,
+    "shaft_pairs": 28,
+    "minimum_centreline_distance_mm": 100.0,
+    "status": "PASS",
+    "scope": "Independent transcription checks; no upstream test run or physical validation."
+  },
+  {
+    "courses": 2,
+    "assertions": 688,
+    "parts": 8,
+    "fixings": 32,
+    "shaft_pairs": 496,
+    "minimum_centreline_distance_mm": 100.0,
+    "status": "PASS",
+    "scope": "Independent transcription checks; no upstream test run or physical validation."
+  },
+  {
+    "courses": 3,
+    "assertions": 1871,
+    "parts": 12,
+    "fixings": 56,
+    "shaft_pairs": 1540,
+    "minimum_centreline_distance_mm": 40.0,
+    "status": "PASS",
+    "scope": "Independent transcription checks; no upstream test run or physical validation."
+  }
+]
