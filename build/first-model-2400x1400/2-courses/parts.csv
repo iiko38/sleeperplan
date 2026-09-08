@@ -1,9 +1,0 @@
-﻿id,stock_board,bed_id,course,side,axis,length_mm,thickness_mm,height_mm,x_mm,y_mm,z_mm,through_at_corners
-first-bed-01-C1-S,B002,first-bed-01,1,S,X,2400,100,200,0,0,0,True
-first-bed-01-C1-N,B001,first-bed-01,1,N,X,2400,100,200,0,1300,0,True
-first-bed-01-C1-W,B008,first-bed-01,1,W,Y,1200,100,200,0,100,0,False
-first-bed-01-C1-E,B007,first-bed-01,1,E,Y,1200,100,200,2300,100,0,False
-first-bed-01-C2-S,B004,first-bed-01,2,S,X,2200,100,200,100,0,200,False
-first-bed-01-C2-N,B003,first-bed-01,2,N,X,2200,100,200,100,1300,200,False
-first-bed-01-C2-W,B006,first-bed-01,2,W,Y,1400,100,200,0,0,200,True
-first-bed-01-C2-E,B005,first-bed-01,2,E,Y,1400,100,200,2300,0,200,True

@@ -61,6 +61,29 @@
         <span>Pinch / scroll: zoom</span>
         <span>2 fingers / right-drag: pan</span>
       </div>
+
+      <div class="player" id="player">
+        <div class="playerHead">
+          <p class="panelLabel">Assembly sequence</p>
+          <p id="stepCounter" class="stepCounter">-</p>
+        </div>
+        <div class="playerControls">
+          <button id="stepFirst" type="button" class="ghostBtn" aria-label="First step">&#9198;</button>
+          <button id="stepPrev" type="button" class="ghostBtn" aria-label="Previous step">&#9664;</button>
+          <button id="stepPlay" type="button" class="ghostBtn" aria-label="Play">&#9654;</button>
+          <button id="stepNext" type="button" class="ghostBtn" aria-label="Next step">&#9654;</button>
+          <button id="stepLast" type="button" class="ghostBtn" aria-label="Last step">&#9197;</button>
+        </div>
+        <input id="stepSlider" type="range" min="0" max="0" value="0" aria-label="Assembly step">
+        <div class="stepDetail">
+          <p id="stepTitle" class="stepTitle">Load an option to compile its operation schedule.</p>
+          <p id="stepText" class="subtle"></p>
+        </div>
+        <div class="driveProgress" id="driveProgressWrap" hidden>
+          <label class="panelLabel" for="driveSlider">Screw insertion</label>
+          <input id="driveSlider" type="range" min="0" max="1000" value="1000" aria-label="Screw insertion progress">
+        </div>
+      </div>
     </section>
 
     <section class="insightPanel">
@@ -70,6 +93,12 @@
         <article class="statCard"><p class="k">Outside size</p><p id="statSize" class="v">-</p></article>
         <article class="statCard"><p class="k">Material + screws</p><p id="statPrice" class="v">-</p></article>
         <article class="statCard"><p class="k">Fill volume</p><p id="statFill" class="v">-</p></article>
+      </div>
+
+      <div id="planBlockers" class="blockers" hidden>
+        <h3>Status &amp; unresolved blockers</h3>
+        <p id="planStatusLine" class="stepTitle"></p>
+        <ul id="blockerList"></ul>
       </div>
 
       <h3>Build process</h3>

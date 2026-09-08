@@ -3,10 +3,11 @@
   "name": "Offer option - 1 course",
   "status": "DRAFT_MARK_OUT_ONLY",
   "as_of": "2026-09-06",
-  "plan_sha256": "4842af90b8b986787a32a3a72f997d0efd0581f4f85fefeb51aff6b5bfb374ed",
-  "generator_version": "0.2.0",
+  "plan_sha256": "b2351b07012c52880391c6c7721d68bb684374354ec0b7511d6c402c5c20760a",
+  "generator_version": "0.3.0",
   "artifacts": {
     "plan": "plan.json",
+    "operations": "operations.json",
     "build_notes": "BUILD.md",
     "workshop_manual": "WORKSHOP_MANUAL.md",
     "model_scad": "model.scad",

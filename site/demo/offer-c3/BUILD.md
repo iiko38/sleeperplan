@@ -1,7 +1,7 @@
 # First rectangular bed draft - 2400 x 1400
 
 
-**DRAFT_MARK_OUT_ONLY** | 2026-09-06 | plan `b9404c486ca87940ae20c1834e6a8bee4916dcd20d33476953d4a469d0a48219` | physical design `3aae3040c03436a7b5f180752d933221a9f39089b8f797ee1e53cd42e103ee34`
+**DRAFT_MARK_OUT_ONLY** | 2026-09-06 | plan `2cc9734e651e087733b268dd5b89008bf1362339328946a1b27b40bdce5ead81` | physical design `2f562d51e13d79474c0f921c1aac9aeb719a71faa07e46fc0a335d999e1c9056`
 
 
 ## Before work starts
@@ -13,6 +13,7 @@ This pack checks nominal geometry, stock allocation and straight screw paths. It
 - **BLOCKER / site_and_supports_reviewed**: Review foundations, drainage, soil loads, support/bracing and any buried services on site.
 - **BLOCKER / fixing_schedule_reviewed**: Review screw suitability, end-grain connections, penetration and spacing with a competent builder / supplier.
 - **BLOCKER / review_record**: Record reviewer, reviewed_on and review notes before releasing a workshop pack.
+- **BLOCKER / approval_hash_required**: Release readiness requires review.approved_physical_design_hash to equal the current physical design hash, so an edited job cannot inherit an old review. Run a draft plan, then copy the printed physical design hash into the job's review block after a genuine physical review.
 - **Note / head_seat_unmodeled**: Screw heads, bearing seats, recesses and driver access are NOT modelled. On stacked courses a protruding head can stop the next course sitting flat even though all shafts pass the collision check, and recessing a seat deepens the hole and moves the tip. Confirm the head-seat detail with the actual hardware before stacking any course.
 - **BLOCKER / pilot_unconfirmed**: wickes-287686: fixing centres are mark-out only. Confirm pilot diameter/depth or a manufacturer-supported no-pilot instruction; none is inferred.
 - **BLOCKER / pilot_unconfirmed**: wickes-287688: fixing centres are mark-out only. Confirm pilot diameter/depth or a manufacturer-supported no-pilot instruction; none is inferred.

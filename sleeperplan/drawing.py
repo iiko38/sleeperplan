@@ -345,22 +345,51 @@ def process_scene(plan: dict) -> Scene:
     return s
 
 
-def parts_scene(plan: dict, page: int = 0, rows_per_page: int | None = None) -> Scene:
+def parts_scene(plan: dict, page: int = 0, rows_per_page: int | None = None,
+                table_rows_per_page: int = 14) -> Scene:
     screw_ids=sorted({f['screw_id'] for f in plan['fixings']})
     top_rows=1 if len(screw_ids)<=3 else 2
     all_pieces=sorted(plan['pieces'],key=lambda p:(p['bed_id'],p['course'],p['side'],p['id']))
-    pages=1
-    if rows_per_page:
-        pages=max(1,(len(all_pieces)+rows_per_page-1)//rows_per_page)
-        pieces=all_pieces[page*rows_per_page:(page+1)*rows_per_page]
+    first_page_rows=rows_per_page or len(all_pieces)
+    # Page 0 carries the tools/fasteners overview; continuation pages are
+    # table-only so labels keep a readable printed size.
+    if page==0:
+        pieces=all_pieces[:first_page_rows]
+        height=max(760, 360 + top_rows*150 + len(pieces)*30 + 90)
     else:
-        pieces=all_pieces
-    height=max(760, 360 + top_rows*150 + len(pieces)*30 + 90)
+        start=first_page_rows+(page-1)*table_rows_per_page
+        pieces=all_pieces[start:start+table_rows_per_page]
+        height=200+len(pieces)*30
+    total_pages=1 if not rows_per_page else 1+max(0,(len(all_pieces)-first_page_rows+table_rows_per_page-1)//table_rows_per_page)
     s=Scene(1100,height)
+    title="Parts and fixings board / visual checklist"
     subtitle=f"{plan['status']}  |  Verify quantity and ID before each step"
     if rows_per_page:
-        subtitle+=f"  |  Part list page {page+1} of {pages}"
-    header(s,"Parts and fixings board / visual checklist",subtitle)
+        title+=f" (page {page+1} of {total_pages})"
+    header(s,title,subtitle)
+    if page>0:
+        top_h=60
+        s.text(44,top_h+24,"TIMBER PARTS (continued)",14,bold=True)
+        s.rect(38,top_h+36,1024,36,PALE,"#d3e0dc",1)
+        columns=[56,170,292,426,566,698,838,972]
+        for x,label in zip(columns,["PIECE ID","BED","COURSE","SIDE","LENGTH","SECTION","BOARD","A DATUM"]):
+            s.text(x,top_h+59,label,13,MUTED,bold=True)
+        y=top_h+96
+        for i,p in enumerate(pieces):
+            if i and i%2==0:
+                s.rect(40,y-16,1020,30,"#fbfdfc","none",1)
+            s.text(columns[0],y,p['id'],13)
+            s.text(columns[1],y,p['bed_id'],13)
+            s.text(columns[2],y,str(p['course']),13)
+            s.text(columns[3],y,p['side'],13)
+            s.text(columns[4],y,str(p['length_mm']),13)
+            s.text(columns[5],y,f"{p['thickness_mm']}x{p['height_mm']}",13)
+            board=next((b['id'] for b in plan['cut_plan']['boards'] for part in b['parts'] if part['piece_id']==p['id']),"?")
+            s.text(columns[6],y,board,13)
+            s.text(columns[7],y,"Lower X/Y end",13,MUTED)
+            y+=30
+        s.text(42,s.height-18,"Use this board as the pre-flight checklist. Exact cut order and coordinates remain in cuts.csv and fixings.csv.",13,MUTED)
+        return s
     s.text(44,108,"TOOLS / HANDLING",14,bold=True)
     s.rect(38,120,1024,68,"#f7fbfa","#d3e0dc",1)
     tags=["[2x] two people for long/heavy members","[CHECK] confirm A/TOP/OUTER labels","[STOP] resolve blockers before drilling","Hammer + driver/bit set + square/level"]
@@ -402,24 +431,33 @@ def parts_scene(plan: dict, page: int = 0, rows_per_page: int | None = None) -> 
     for i,p in enumerate(pieces):
         if i and i%2==0:
             s.rect(40,y-16,1020,30,"#fbfdfc","none",1)
-        s.text(columns[0],y,p['id'],12)
-        s.text(columns[1],y,p['bed_id'],12)
-        s.text(columns[2],y,str(p['course']),12)
-        s.text(columns[3],y,p['side'],12)
-        s.text(columns[4],y,str(p['length_mm']),12)
-        s.text(columns[5],y,f"{p['thickness_mm']}x{p['height_mm']}",12)
+        s.text(columns[0],y,p['id'],13)
+        s.text(columns[1],y,p['bed_id'],13)
+        s.text(columns[2],y,str(p['course']),13)
+        s.text(columns[3],y,p['side'],13)
+        s.text(columns[4],y,str(p['length_mm']),13)
+        s.text(columns[5],y,f"{p['thickness_mm']}x{p['height_mm']}",13)
         board=next((b['id'] for b in plan['cut_plan']['boards'] for part in b['parts'] if part['piece_id']==p['id']),"?")
-        s.text(columns[6],y,board,12)
-        s.text(columns[7],y,"Lower X/Y end",12,MUTED)
+        s.text(columns[6],y,board,13)
+        s.text(columns[7],y,"Lower X/Y end",13,MUTED)
         y+=30
     s.text(42,s.height-18,"Use this board as the pre-flight checklist. Exact cut order and coordinates remain in cuts.csv and fixings.csv.",13,MUTED)
     return s
 
 
-def stock_scene(plan: dict) -> Scene:
+def stock_scene(plan: dict, page: int = 0, rows_per_page: int | None = None) -> Scene:
     boards=plan['cut_plan']['boards']
-    s=Scene(1100,170+74*len(boards))
-    header(s,"Stock arrival, board IDs and datum A","Label before cutting; keep original A datum for every stock item")
+    pages=1
+    if rows_per_page:
+        pages=max(1,(len(boards)+rows_per_page-1)//rows_per_page)
+        boards=boards[page*rows_per_page:(page+1)*rows_per_page]
+    height=170+74*len(boards)
+    s=Scene(1100,height)
+    title="Stock arrival, board IDs and datum A"
+    subtitle="Label before cutting; keep original A datum for every stock item"
+    if rows_per_page:
+        title+=f" (page {page+1} of {pages})"
+    header(s,title,subtitle)
     max_len=max((b['gross_length_mm'] for b in boards),default=1)
     scale=840/max_len
     for i,b in enumerate(boards):

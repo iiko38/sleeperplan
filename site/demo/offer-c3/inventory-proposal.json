@@ -5,11 +5,11 @@
     100,
     200
   ],
-  "source_plan_sha256": "b9404c486ca87940ae20c1834e6a8bee4916dcd20d33476953d4a469d0a48219",
+  "source_plan_sha256": "2cc9734e651e087733b268dd5b89008bf1362339328946a1b27b40bdce5ead81",
   "consumed": {},
   "inventory": [
     {
-      "id": "off-b9404c48-B007",
+      "id": "off-2cc9734e-B007",
       "length_mm": 597,
       "price_pence": 0,
       "quantity": 1,
@@ -17,7 +17,7 @@
       "trim_end_mm": 0
     },
     {
-      "id": "off-b9404c48-B008",
+      "id": "off-2cc9734e-B008",
       "length_mm": 597,
       "price_pence": 0,
       "quantity": 1,
@@ -25,7 +25,7 @@
       "trim_end_mm": 0
     },
     {
-      "id": "off-b9404c48-B009",
+      "id": "off-2cc9734e-B009",
       "length_mm": 597,
       "price_pence": 0,
       "quantity": 1,
@@ -33,7 +33,7 @@
       "trim_end_mm": 0
     },
     {
-      "id": "off-b9404c48-B010",
+      "id": "off-2cc9734e-B010",
       "length_mm": 597,
       "price_pence": 0,
       "quantity": 1,
@@ -41,7 +41,7 @@
       "trim_end_mm": 0
     },
     {
-      "id": "off-b9404c48-B011",
+      "id": "off-2cc9734e-B011",
       "length_mm": 597,
       "price_pence": 0,
       "quantity": 1,
@@ -49,7 +49,7 @@
       "trim_end_mm": 0
     },
     {
-      "id": "off-b9404c48-B012",
+      "id": "off-2cc9734e-B012",
       "length_mm": 597,
       "price_pence": 0,
       "quantity": 1,

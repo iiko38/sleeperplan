@@ -1,0 +1,545 @@
+{
+  "schema": "sleeperplan.operations.v1",
+  "plan_sha256": "b2351b07012c52880391c6c7721d68bb684374354ec0b7511d6c402c5c20760a",
+  "physical_design_hash": "a4c52539ccbd73c8c5040ca4401712c8d55c2405facce68eb1913a0500632a80",
+  "status": "DRAFT_MARK_OUT_ONLY",
+  "note": "Compiled from the same geometry model as cuts.csv and fixings.csv. Pilot entries marked STOP are mark-out only. Screw head seats are not modelled and require hardware confirmation.",
+  "operations": [
+    {
+      "id": "op-001",
+      "action": "receive",
+      "title": "Receive and inspect B001",
+      "detail": "wickes-276785 | gross 2400 mm | reject twisted, split or unsound stock. Trims: start 0 mm, end 0 mm.",
+      "bed_id": null,
+      "course": null,
+      "piece_ids": [
+        "offer-bed-01-C1-N"
+      ],
+      "fixing_id": null,
+      "dependencies": [],
+      "camera_hint": "overview"
+    },
+    {
+      "id": "op-002",
+      "action": "label",
+      "title": "Label B001 and mark datum A",
+      "detail": "Write board ID B001 on the timber and mark datum A. All cut coordinates run from this original A datum, even after squaring.",
+      "bed_id": null,
+      "course": null,
+      "piece_ids": [
+        "offer-bed-01-C1-N"
+      ],
+      "fixing_id": null,
+      "dependencies": [
+        "op-001"
+      ],
+      "camera_hint": "overview"
+    },
+    {
+      "id": "op-003",
+      "action": "treat",
+      "title": "Treat cut ends of B001",
+      "detail": "Apply the compatible cut-end preservative per the timber supplier's method before assembly.",
+      "bed_id": null,
+      "course": null,
+      "piece_ids": [
+        "offer-bed-01-C1-N"
+      ],
+      "fixing_id": null,
+      "dependencies": [
+        "op-002"
+      ],
+      "camera_hint": "overview"
+    },
+    {
+      "id": "op-004",
+      "action": "receive",
+      "title": "Receive and inspect B002",
+      "detail": "wickes-276785 | gross 2400 mm | reject twisted, split or unsound stock. Trims: start 0 mm, end 0 mm.",
+      "bed_id": null,
+      "course": null,
+      "piece_ids": [
+        "offer-bed-01-C1-S"
+      ],
+      "fixing_id": null,
+      "dependencies": [],
+      "camera_hint": "overview"
+    },
+    {
+      "id": "op-005",
+      "action": "label",
+      "title": "Label B002 and mark datum A",
+      "detail": "Write board ID B002 on the timber and mark datum A. All cut coordinates run from this original A datum, even after squaring.",
+      "bed_id": null,
+      "course": null,
+      "piece_ids": [
+        "offer-bed-01-C1-S"
+      ],
+      "fixing_id": null,
+      "dependencies": [
+        "op-004"
+      ],
+      "camera_hint": "overview"
+    },
+    {
+      "id": "op-006",
+      "action": "treat",
+      "title": "Treat cut ends of B002",
+      "detail": "Apply the compatible cut-end preservative per the timber supplier's method before assembly.",
+      "bed_id": null,
+      "course": null,
+      "piece_ids": [
+        "offer-bed-01-C1-S"
+      ],
+      "fixing_id": null,
+      "dependencies": [
+        "op-005"
+      ],
+      "camera_hint": "overview"
+    },
+    {
+      "id": "op-007",
+      "action": "receive",
+      "title": "Receive and inspect B003",
+      "detail": "wickes-256948 | gross 1800 mm | reject twisted, split or unsound stock. Trims: start 0 mm, end 0 mm.",
+      "bed_id": null,
+      "course": null,
+      "piece_ids": [
+        "offer-bed-01-C1-E"
+      ],
+      "fixing_id": null,
+      "dependencies": [],
+      "camera_hint": "overview"
+    },
+    {
+      "id": "op-008",
+      "action": "label",
+      "title": "Label B003 and mark datum A",
+      "detail": "Write board ID B003 on the timber and mark datum A. All cut coordinates run from this original A datum, even after squaring.",
+      "bed_id": null,
+      "course": null,
+      "piece_ids": [
+        "offer-bed-01-C1-E"
+      ],
+      "fixing_id": null,
+      "dependencies": [
+        "op-007"
+      ],
+      "camera_hint": "overview"
+    },
+    {
+      "id": "op-009",
+      "action": "cut",
+      "title": "Crosscut; keep piece on datum side B003 @ 1201.5 mm",
+      "detail": "crosscut; keep piece on datum side at blade centre 1201.5 mm from A. Kerf band 1200..1203 mm is WASTE - do not centre the blade on a finished-length boundary. One complete crosscut through the section.",
+      "bed_id": null,
+      "course": null,
+      "piece_ids": [
+        "offer-bed-01-C1-E"
+      ],
+      "fixing_id": null,
+      "dependencies": [
+        "op-008"
+      ],
+      "camera_hint": "overview"
+    },
+    {
+      "id": "op-010",
+      "action": "treat",
+      "title": "Treat cut ends of B003",
+      "detail": "Apply the compatible cut-end preservative per the timber supplier's method before assembly.",
+      "bed_id": null,
+      "course": null,
+      "piece_ids": [
+        "offer-bed-01-C1-E"
+      ],
+      "fixing_id": null,
+      "dependencies": [
+        "op-009"
+      ],
+      "camera_hint": "overview"
+    },
+    {
+      "id": "op-011",
+      "action": "receive",
+      "title": "Receive and inspect B004",
+      "detail": "wickes-256948 | gross 1800 mm | reject twisted, split or unsound stock. Trims: start 0 mm, end 0 mm.",
+      "bed_id": null,
+      "course": null,
+      "piece_ids": [
+        "offer-bed-01-C1-W"
+      ],
+      "fixing_id": null,
+      "dependencies": [],
+      "camera_hint": "overview"
+    },
+    {
+      "id": "op-012",
+      "action": "label",
+      "title": "Label B004 and mark datum A",
+      "detail": "Write board ID B004 on the timber and mark datum A. All cut coordinates run from this original A datum, even after squaring.",
+      "bed_id": null,
+      "course": null,
+      "piece_ids": [
+        "offer-bed-01-C1-W"
+      ],
+      "fixing_id": null,
+      "dependencies": [
+        "op-011"
+      ],
+      "camera_hint": "overview"
+    },
+    {
+      "id": "op-013",
+      "action": "cut",
+      "title": "Crosscut; keep piece on datum side B004 @ 1201.5 mm",
+      "detail": "crosscut; keep piece on datum side at blade centre 1201.5 mm from A. Kerf band 1200..1203 mm is WASTE - do not centre the blade on a finished-length boundary. One complete crosscut through the section.",
+      "bed_id": null,
+      "course": null,
+      "piece_ids": [
+        "offer-bed-01-C1-W"
+      ],
+      "fixing_id": null,
+      "dependencies": [
+        "op-012"
+      ],
+      "camera_hint": "overview"
+    },
+    {
+      "id": "op-014",
+      "action": "treat",
+      "title": "Treat cut ends of B004",
+      "detail": "Apply the compatible cut-end preservative per the timber supplier's method before assembly.",
+      "bed_id": null,
+      "course": null,
+      "piece_ids": [
+        "offer-bed-01-C1-W"
+      ],
+      "fixing_id": null,
+      "dependencies": [
+        "op-013"
+      ],
+      "camera_hint": "overview"
+    },
+    {
+      "id": "op-015",
+      "action": "place",
+      "title": "Place offer-bed-01 course 1",
+      "detail": "Lay the course-1 members for offer-bed-01 in the drawn positions (outside 2400 x 1400 mm).",
+      "bed_id": "offer-bed-01",
+      "course": 1,
+      "piece_ids": [
+        "offer-bed-01-C1-E",
+        "offer-bed-01-C1-N",
+        "offer-bed-01-C1-S",
+        "offer-bed-01-C1-W"
+      ],
+      "fixing_id": null,
+      "dependencies": [],
+      "camera_hint": "overview"
+    },
+    {
+      "id": "op-016",
+      "action": "clamp",
+      "title": "Clamp and check offer-bed-01 course 1",
+      "detail": "Clamp the course, check square (equal outside diagonals) and level. Do not release the clamps until this course's fixings are driven.",
+      "bed_id": "offer-bed-01",
+      "course": 1,
+      "piece_ids": [
+        "offer-bed-01-C1-E",
+        "offer-bed-01-C1-N",
+        "offer-bed-01-C1-S",
+        "offer-bed-01-C1-W"
+      ],
+      "fixing_id": null,
+      "dependencies": [
+        "op-015"
+      ],
+      "camera_hint": "active-piece"
+    },
+    {
+      "id": "op-017",
+      "action": "mark",
+      "title": "Mark out offer-bed-01-C1-N-F01 - STOP before drilling",
+      "detail": "Pilot spec UNCONFIRMED: mark the centre only. Do NOT drill or drive until a recorded trial or manufacturer instruction confirms diameter and depth. horizontally into the OUTER outer face at U 50 / V 100 / W 50 mm from piece datum A (50, 1400, 50 global).",
+      "bed_id": "offer-bed-01",
+      "course": 1,
+      "piece_ids": [
+        "offer-bed-01-C1-N"
+      ],
+      "fixing_id": "offer-bed-01-C1-N-F01",
+      "dependencies": [
+        "op-016"
+      ],
+      "camera_hint": "joint-closeup"
+    },
+    {
+      "id": "op-018",
+      "action": "drive",
+      "title": "Drive offer-bed-01-C1-N-F01 (7 x 150 mm)",
+      "detail": "Drive wickes-287686 square to the entry face into receiver offer-bed-01-C1-W. Nominal penetration 50 mm (includes the point; not rated embedment). Head seat: confirm against the actual hardware - heads and recesses are NOT modelled.",
+      "bed_id": "offer-bed-01",
+      "course": 1,
+      "piece_ids": [
+        "offer-bed-01-C1-N"
+      ],
+      "fixing_id": "offer-bed-01-C1-N-F01",
+      "dependencies": [
+        "op-017"
+      ],
+      "camera_hint": "joint-closeup"
+    },
+    {
+      "id": "op-019",
+      "action": "mark",
+      "title": "Mark out offer-bed-01-C1-N-F02 - STOP before drilling",
+      "detail": "Pilot spec UNCONFIRMED: mark the centre only. Do NOT drill or drive until a recorded trial or manufacturer instruction confirms diameter and depth. horizontally into the OUTER outer face at U 50 / V 100 / W 150 mm from piece datum A (50, 1400, 150 global).",
+      "bed_id": "offer-bed-01",
+      "course": 1,
+      "piece_ids": [
+        "offer-bed-01-C1-N"
+      ],
+      "fixing_id": "offer-bed-01-C1-N-F02",
+      "dependencies": [
+        "op-016"
+      ],
+      "camera_hint": "joint-closeup"
+    },
+    {
+      "id": "op-020",
+      "action": "drive",
+      "title": "Drive offer-bed-01-C1-N-F02 (7 x 150 mm)",
+      "detail": "Drive wickes-287686 square to the entry face into receiver offer-bed-01-C1-W. Nominal penetration 50 mm (includes the point; not rated embedment). Head seat: confirm against the actual hardware - heads and recesses are NOT modelled.",
+      "bed_id": "offer-bed-01",
+      "course": 1,
+      "piece_ids": [
+        "offer-bed-01-C1-N"
+      ],
+      "fixing_id": "offer-bed-01-C1-N-F02",
+      "dependencies": [
+        "op-019"
+      ],
+      "camera_hint": "joint-closeup"
+    },
+    {
+      "id": "op-021",
+      "action": "mark",
+      "title": "Mark out offer-bed-01-C1-N-F03 - STOP before drilling",
+      "detail": "Pilot spec UNCONFIRMED: mark the centre only. Do NOT drill or drive until a recorded trial or manufacturer instruction confirms diameter and depth. horizontally into the OUTER outer face at U 2350 / V 100 / W 50 mm from piece datum A (2350, 1400, 50 global).",
+      "bed_id": "offer-bed-01",
+      "course": 1,
+      "piece_ids": [
+        "offer-bed-01-C1-N"
+      ],
+      "fixing_id": "offer-bed-01-C1-N-F03",
+      "dependencies": [
+        "op-016"
+      ],
+      "camera_hint": "joint-closeup"
+    },
+    {
+      "id": "op-022",
+      "action": "drive",
+      "title": "Drive offer-bed-01-C1-N-F03 (7 x 150 mm)",
+      "detail": "Drive wickes-287686 square to the entry face into receiver offer-bed-01-C1-E. Nominal penetration 50 mm (includes the point; not rated embedment). Head seat: confirm against the actual hardware - heads and recesses are NOT modelled.",
+      "bed_id": "offer-bed-01",
+      "course": 1,
+      "piece_ids": [
+        "offer-bed-01-C1-N"
+      ],
+      "fixing_id": "offer-bed-01-C1-N-F03",
+      "dependencies": [
+        "op-021"
+      ],
+      "camera_hint": "joint-closeup"
+    },
+    {
+      "id": "op-023",
+      "action": "mark",
+      "title": "Mark out offer-bed-01-C1-N-F04 - STOP before drilling",
+      "detail": "Pilot spec UNCONFIRMED: mark the centre only. Do NOT drill or drive until a recorded trial or manufacturer instruction confirms diameter and depth. horizontally into the OUTER outer face at U 2350 / V 100 / W 150 mm from piece datum A (2350, 1400, 150 global).",
+      "bed_id": "offer-bed-01",
+      "course": 1,
+      "piece_ids": [
+        "offer-bed-01-C1-N"
+      ],
+      "fixing_id": "offer-bed-01-C1-N-F04",
+      "dependencies": [
+        "op-016"
+      ],
+      "camera_hint": "joint-closeup"
+    },
+    {
+      "id": "op-024",
+      "action": "drive",
+      "title": "Drive offer-bed-01-C1-N-F04 (7 x 150 mm)",
+      "detail": "Drive wickes-287686 square to the entry face into receiver offer-bed-01-C1-E. Nominal penetration 50 mm (includes the point; not rated embedment). Head seat: confirm against the actual hardware - heads and recesses are NOT modelled.",
+      "bed_id": "offer-bed-01",
+      "course": 1,
+      "piece_ids": [
+        "offer-bed-01-C1-N"
+      ],
+      "fixing_id": "offer-bed-01-C1-N-F04",
+      "dependencies": [
+        "op-023"
+      ],
+      "camera_hint": "joint-closeup"
+    },
+    {
+      "id": "op-025",
+      "action": "mark",
+      "title": "Mark out offer-bed-01-C1-S-F01 - STOP before drilling",
+      "detail": "Pilot spec UNCONFIRMED: mark the centre only. Do NOT drill or drive until a recorded trial or manufacturer instruction confirms diameter and depth. horizontally into the OUTER outer face at U 50 / V 0 / W 50 mm from piece datum A (50, 0, 50 global).",
+      "bed_id": "offer-bed-01",
+      "course": 1,
+      "piece_ids": [
+        "offer-bed-01-C1-S"
+      ],
+      "fixing_id": "offer-bed-01-C1-S-F01",
+      "dependencies": [
+        "op-016"
+      ],
+      "camera_hint": "joint-closeup"
+    },
+    {
+      "id": "op-026",
+      "action": "drive",
+      "title": "Drive offer-bed-01-C1-S-F01 (7 x 150 mm)",
+      "detail": "Drive wickes-287686 square to the entry face into receiver offer-bed-01-C1-W. Nominal penetration 50 mm (includes the point; not rated embedment). Head seat: confirm against the actual hardware - heads and recesses are NOT modelled.",
+      "bed_id": "offer-bed-01",
+      "course": 1,
+      "piece_ids": [
+        "offer-bed-01-C1-S"
+      ],
+      "fixing_id": "offer-bed-01-C1-S-F01",
+      "dependencies": [
+        "op-025"
+      ],
+      "camera_hint": "joint-closeup"
+    },
+    {
+      "id": "op-027",
+      "action": "mark",
+      "title": "Mark out offer-bed-01-C1-S-F02 - STOP before drilling",
+      "detail": "Pilot spec UNCONFIRMED: mark the centre only. Do NOT drill or drive until a recorded trial or manufacturer instruction confirms diameter and depth. horizontally into the OUTER outer face at U 50 / V 0 / W 150 mm from piece datum A (50, 0, 150 global).",
+      "bed_id": "offer-bed-01",
+      "course": 1,
+      "piece_ids": [
+        "offer-bed-01-C1-S"
+      ],
+      "fixing_id": "offer-bed-01-C1-S-F02",
+      "dependencies": [
+        "op-016"
+      ],
+      "camera_hint": "joint-closeup"
+    },
+    {
+      "id": "op-028",
+      "action": "drive",
+      "title": "Drive offer-bed-01-C1-S-F02 (7 x 150 mm)",
+      "detail": "Drive wickes-287686 square to the entry face into receiver offer-bed-01-C1-W. Nominal penetration 50 mm (includes the point; not rated embedment). Head seat: confirm against the actual hardware - heads and recesses are NOT modelled.",
+      "bed_id": "offer-bed-01",
+      "course": 1,
+      "piece_ids": [
+        "offer-bed-01-C1-S"
+      ],
+      "fixing_id": "offer-bed-01-C1-S-F02",
+      "dependencies": [
+        "op-027"
+      ],
+      "camera_hint": "joint-closeup"
+    },
+    {
+      "id": "op-029",
+      "action": "mark",
+      "title": "Mark out offer-bed-01-C1-S-F03 - STOP before drilling",
+      "detail": "Pilot spec UNCONFIRMED: mark the centre only. Do NOT drill or drive until a recorded trial or manufacturer instruction confirms diameter and depth. horizontally into the OUTER outer face at U 2350 / V 0 / W 50 mm from piece datum A (2350, 0, 50 global).",
+      "bed_id": "offer-bed-01",
+      "course": 1,
+      "piece_ids": [
+        "offer-bed-01-C1-S"
+      ],
+      "fixing_id": "offer-bed-01-C1-S-F03",
+      "dependencies": [
+        "op-016"
+      ],
+      "camera_hint": "joint-closeup"
+    },
+    {
+      "id": "op-030",
+      "action": "drive",
+      "title": "Drive offer-bed-01-C1-S-F03 (7 x 150 mm)",
+      "detail": "Drive wickes-287686 square to the entry face into receiver offer-bed-01-C1-E. Nominal penetration 50 mm (includes the point; not rated embedment). Head seat: confirm against the actual hardware - heads and recesses are NOT modelled.",
+      "bed_id": "offer-bed-01",
+      "course": 1,
+      "piece_ids": [
+        "offer-bed-01-C1-S"
+      ],
+      "fixing_id": "offer-bed-01-C1-S-F03",
+      "dependencies": [
+        "op-029"
+      ],
+      "camera_hint": "joint-closeup"
+    },
+    {
+      "id": "op-031",
+      "action": "mark",
+      "title": "Mark out offer-bed-01-C1-S-F04 - STOP before drilling",
+      "detail": "Pilot spec UNCONFIRMED: mark the centre only. Do NOT drill or drive until a recorded trial or manufacturer instruction confirms diameter and depth. horizontally into the OUTER outer face at U 2350 / V 0 / W 150 mm from piece datum A (2350, 0, 150 global).",
+      "bed_id": "offer-bed-01",
+      "course": 1,
+      "piece_ids": [
+        "offer-bed-01-C1-S"
+      ],
+      "fixing_id": "offer-bed-01-C1-S-F04",
+      "dependencies": [
+        "op-016"
+      ],
+      "camera_hint": "joint-closeup"
+    },
+    {
+      "id": "op-032",
+      "action": "drive",
+      "title": "Drive offer-bed-01-C1-S-F04 (7 x 150 mm)",
+      "detail": "Drive wickes-287686 square to the entry face into receiver offer-bed-01-C1-E. Nominal penetration 50 mm (includes the point; not rated embedment). Head seat: confirm against the actual hardware - heads and recesses are NOT modelled.",
+      "bed_id": "offer-bed-01",
+      "course": 1,
+      "piece_ids": [
+        "offer-bed-01-C1-S"
+      ],
+      "fixing_id": "offer-bed-01-C1-S-F04",
+      "dependencies": [
+        "op-031"
+      ],
+      "camera_hint": "joint-closeup"
+    },
+    {
+      "id": "op-033",
+      "action": "supports",
+      "title": "Install reviewed supports, liner and drainage",
+      "detail": "Fit the separately reviewed restraint/bracing and protection details. Keep the base open-bottomed and drained; never turn the bed into an undrained tank.",
+      "bed_id": null,
+      "course": null,
+      "piece_ids": [],
+      "fixing_id": null,
+      "dependencies": [
+        "op-032"
+      ],
+      "camera_hint": "overview"
+    },
+    {
+      "id": "op-034",
+      "action": "final",
+      "title": "Final check and fill to freeboard",
+      "detail": "Re-check level, square and all fixing seats. Fill to the specified freeboard. Record actual purchases, labour, corrections and useful offcuts; merge the inventory proposal only after the job is completed.",
+      "bed_id": null,
+      "course": null,
+      "piece_ids": [],
+      "fixing_id": null,
+      "dependencies": [
+        "op-033"
+      ],
+      "camera_hint": "overview"
+    }
+  ]
+}

@@ -9,6 +9,7 @@ from .costing import pounds
 from .drawing import (iso_scene, layer_scene, piece_scene, cutting_scene, scad_model,
                       process_scene, stock_scene, fastener_scene, parts_scene)
 from .model import PlanError
+from .operations import operations_document
 
 
 def write_json(path: Path, value: object):
@@ -222,6 +223,7 @@ def _web_manifest(plan: dict, *, pdf: bool) -> dict:
 
     artifacts = {
         "plan": "plan.json",
+        "operations": "operations.json",
         "build_notes": "BUILD.md",
         "workshop_manual": "WORKSHOP_MANUAL.md",
         "model_scad": "model.scad",
@@ -325,6 +327,7 @@ def _populate(plan: dict, directory: Path, pdf: bool):
     manifest = _web_manifest(plan, pdf=pdf)
     write_json(directory/'plan.json',plan)
     write_json(directory/'inventory-proposal.json',plan['inventory_proposal'])
+    write_json(directory/'operations.json',operations_document(plan))
     write_json(directory/'web-manifest.json',manifest)
     write_json(directory/'quality-report.json',_quality_report(plan,manual_text,manifest))
     (directory/'BUILD.md').write_text(build_text,encoding='utf-8')

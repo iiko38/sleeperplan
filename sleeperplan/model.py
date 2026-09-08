@@ -48,6 +48,9 @@ class Screw:
     pilot_diameter_mm: float | None = None
     pilot_depth_mm: int | None = None
     pilot_evidence: str = ""
+    # Provenance class of the evidence. 'fixture' is test/demonstration data and
+    # can never issue a workshop plan, whatever the evidence text says.
+    pilot_evidence_kind: str = "fixture"
 
 
 @dataclass(frozen=True)

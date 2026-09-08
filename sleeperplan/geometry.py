@@ -76,7 +76,11 @@ def select_screw(job: Job, through: int, receiver_depth: int) -> Screw:
         raise PlanError(f"No screw fits a {through} mm through-member and {receiver_depth} mm receiver: "
                         f"need at least {job.rules.minimum_penetration_mm} mm nominal penetration and "
                         f"{job.rules.far_face_clearance_mm} mm far-face clearance. Add suitable hardware.")
-    return min(candidates, key=lambda s: (s.length_mm, s.pack_price_pence/s.pack_size, s.id))
+    # Hardware selection must be price-independent: repricing may never swap the
+    # installed screw under an unchanged physical-design approval. Deterministic
+    # spec order (length, then diameter, then ID) keeps the choice a function of
+    # the approved physical catalogue only.
+    return min(candidates, key=lambda s: (s.length_mm, s.diameter_mm, s.id))
 
 
 def make_fixing(job: Job, p: Piece, pieces: list[Piece], point: tuple[float, float, float],

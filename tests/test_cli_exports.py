@@ -13,7 +13,47 @@ from sleeperplan.model import PlanError
 from sleeperplan.planner import plan
 from .helpers import job,TODAY,ROOT
 
-class ExportTests(unittest.TestCase):
+class PublicationTests(unittest.TestCase):
+    """F01: the public tree must never distribute demonstration evidence as an
+    issued plan, and every published bundle must carry a consistent identity."""
+
+    PUBLIC_ROOTS=[ROOT/'published',ROOT/'site'/'demo']
+
+    def plans(self):
+        for root in self.PUBLIC_ROOTS:
+            for p in sorted(root.rglob('plan.json')):
+                yield p
+
+    def test_public_tree_contains_no_issued_plans(self):
+        for p in self.plans():
+            with self.subTest(path=str(p)):
+                d=json.loads(p.read_text(encoding='utf-8'))
+                self.assertNotEqual(d.get('status'),'REVIEWED_WORKSHOP_PLAN',
+                                    'demonstration/fixture-based outputs must stay drafts in the public tree')
+
+    def test_published_manifest_matches_plan_identity(self):
+        root=ROOT/'published'
+        manifests=list(root.rglob('web-manifest.json'))
+        self.assertTrue(manifests,'published/ must contain at least one tracked bundle')
+        for m in manifests:
+            with self.subTest(manifest=str(m)):
+                d=json.loads(m.read_text(encoding='utf-8'))
+                plan=json.loads((m.parent/d['artifacts']['plan']).read_text(encoding='utf-8'))
+                self.assertEqual(d['plan_sha256'],plan['input_sha256'])
+
+    def test_published_pack_has_operations_schedule(self):
+        root=ROOT/'published'
+        ops=list(root.rglob('operations.json'))
+        self.assertTrue(ops,'published bundles must ship the compiled operation schedule')
+        for o in ops:
+            with self.subTest(ops=str(o)):
+                d=json.loads(o.read_text(encoding='utf-8'))
+                plan=json.loads((o.parent/'plan.json').read_text(encoding='utf-8'))
+                self.assertEqual(d['schema'],'sleeperplan.operations.v1')
+                self.assertEqual(d['plan_sha256'],plan['input_sha256'])
+                self.assertGreaterEqual(len(d['operations']),1)
+
+
     @classmethod
     def setUpClass(cls):cls.p=plan(job(),TODAY)
 
@@ -88,7 +128,7 @@ class CLITests(unittest.TestCase):
         return subprocess.run([sys.executable,'-m','sleeperplan',*map(str,args)],cwd=ROOT,capture_output=True,text=True,timeout=30)
 
     def test_help(self):self.assertEqual(self.run_cli('--help').returncode,0)
-    def test_version(self):self.assertEqual(self.run_cli('--version').stdout.strip(),'0.2.0')
+    def test_version(self):self.assertEqual(self.run_cli('--version').stdout.strip(),'0.3.0')
     def test_check_draft_has_distinct_exit_code(self):self.assertEqual(self.run_cli('check','examples/neighbour.json','--as-of','2026-09-06').returncode,3)
 
     def test_bad_job_returns_clean_error(self):

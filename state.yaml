@@ -1,7 +1,7 @@
 version: 1
 project: sleeperplan
-active_focus: v0.2.0 engineering-review fixes applied (approval binding, head-seat warning, demo-fixture marking, PDF layout); next: physical corner/interface trial
-current_status: v0.2.0_review_fixes_applied
+active_focus: v0.3.0 review-of-review hardening complete (operations model, assembly player, fixture-evidence gate, publication quarantine); next: physical corner/interface trial for joint recipe
+current_status: v0.3.0_operations_model_live
 blockers: []
 next_actions:
   - Run a client-copy refinement pass on `site/` (offer positioning language and visuals) without changing engineering claims.

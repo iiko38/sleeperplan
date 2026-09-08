@@ -18,9 +18,14 @@ def canonical(value: object) -> bytes:
 
 def physical_design(job: Job) -> dict:
     """Everything that changes the physical artefact. Deliberately excludes prices,
-    pack sizes, availability, provenance text, review records and the as-of date,
-    so a price-only revision cannot invalidate a physical approval."""
+    pack sizes, availability, provenance text, review records, the as-of date and
+    commercial rules (spares allowance, price-age limits) that cannot change the
+    built object, so a price-only or quote-only revision cannot invalidate a
+    physical approval. Includes the generator version: a change to physical
+    algorithms is a change of physical provenance."""
+    commercial_rules = {"screw_spares_percent", "price_max_age_days"}
     return {
+        "generator_version": __version__,
         "profile": asdict(job.profile),
         "beds": [asdict(b) for b in job.beds],
         "orientation": job.provenance.get("orientation", "edge"),
@@ -28,9 +33,10 @@ def physical_design(job: Job) -> dict:
                     if k not in {"price_pence", "quantity", "source_url", "checked_on", "weight_grams"}}
                    for s in job.stocks],
         "screws": [{k: v for k, v in asdict(s).items()
-                    if k not in {"pack_size", "pack_price_pence", "source_url", "checked_on", "pilot_evidence"}}
+                    if k not in {"pack_size", "pack_price_pence", "source_url", "checked_on", "pilot_evidence",
+                                 "pilot_evidence_kind"}}
                    for s in job.screws],
-        "rules": asdict(job.rules),
+        "rules": {k: v for k, v in asdict(job.rules).items() if k not in commercial_rules},
     }
 
 
@@ -65,14 +71,19 @@ def plan(job: Job, as_of: date | None = None, *, release: bool = False) -> dict:
         issue("stale_approval", f"review.approved_physical_design_hash {approval[:12]} does not match this physical design "
               f"({physical_hash[:12]}). A recorded review cannot authorise changed dimensions, hardware or machining. "
               "Re-review the changed design and update the job file.", True)
-    elif approval is None and release:
-        issue("approval_hash_required", "Release requires review.approved_physical_design_hash to equal the current physical design hash, "
-              "so an edited job cannot inherit an old review. Run a draft plan, then copy the printed physical design hash into the job's review block.", True)
+    elif approval is None:
+        issue("approval_hash_required", "Release readiness requires review.approved_physical_design_hash to equal the current physical design "
+              "hash, so an edited job cannot inherit an old review. Run a draft plan, then copy the printed physical design hash into the job's "
+              "review block after a genuine physical review.", True)
+    used_screws = {f.screw_id for f in fixings}
+    for s in job.screws:
+        if s.id in used_screws and s.pilot_mode != "unconfirmed" and s.pilot_evidence_kind == "fixture":
+            issue("fixture_evidence", f"{s.id}: pilot evidence is a DEMONSTRATION FIXTURE, not a recorded trial or manufacturer instruction. "
+                  "Fixture data can never issue a workshop plan, even with a matching approval hash.", True)
     if any(b["courses"] > 1 for b in beds):
         issue("head_seat_unmodeled", "Screw heads, bearing seats, recesses and driver access are NOT modelled. On stacked courses a protruding "
               "head can stop the next course sitting flat even though all shafts pass the collision check, and recessing a seat deepens the hole "
               "and moves the tip. Confirm the head-seat detail with the actual hardware before stacking any course.", False)
-    used_screws = {f.screw_id for f in fixings}
     for s in job.screws:
         if s.id in used_screws and s.pilot_mode == "unconfirmed":
             issue("pilot_unconfirmed", f"{s.id}: fixing centres are mark-out only. Confirm pilot diameter/depth "
@@ -127,7 +138,7 @@ def plan(job: Job, as_of: date | None = None, *, release: bool = False) -> dict:
                        for s in job.stocks if not s.inventory)
     weight_complete = all(s.weight_grams is not None for s in job.stocks if s.id in used_stock and not s.inventory)
     return {"schema_version": 1, "generator_version": __version__, "input_sha256": fingerprint,
-            "physical_design_hash": physical_hash,
+            "physical_design_hash": physical_hash, "release_ready": not blockers,
             "as_of": as_of.isoformat(), "name": job.name,
             "status": "REVIEWED_WORKSHOP_PLAN" if release else "DRAFT_MARK_OUT_ONLY",
             "review_gate_clear": not blockers, "issues": issues, "input": input_record,

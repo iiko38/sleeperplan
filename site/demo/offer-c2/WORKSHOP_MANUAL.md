@@ -1,6 +1,6 @@
 # Workshop manual - Offer option - 2 courses
 
-Plan: `4470e837809e9781fb6151995899ab6276423f648f2192abcb9fedfcb25a59de`  |  Status: DRAFT_MARK_OUT_ONLY  |  As of: 2026-09-06
+Plan: `9d06d1738186d648d05cebbedc7ddc06131da4d0eb68c4b6c23ec391ee7a4404`  |  Status: DRAFT_MARK_OUT_ONLY  |  As of: 2026-09-06
 
 ## Read this first
 

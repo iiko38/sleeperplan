@@ -1,7 +1,7 @@
 # Offer option - 1 course
 
 
-**DRAFT_MARK_OUT_ONLY** | 2026-09-06 | plan `4842af90b8b986787a32a3a72f997d0efd0581f4f85fefeb51aff6b5bfb374ed` | physical design `4c8e7b3639d5fae60416af5fb87e18095362ab4f9289cb7a771ea5b33551ff33`
+**DRAFT_MARK_OUT_ONLY** | 2026-09-06 | plan `b2351b07012c52880391c6c7721d68bb684374354ec0b7511d6c402c5c20760a` | physical design `a4c52539ccbd73c8c5040ca4401712c8d55c2405facce68eb1913a0500632a80`
 
 
 ## Before work starts
@@ -13,6 +13,7 @@ This pack checks nominal geometry, stock allocation and straight screw paths. It
 - **BLOCKER / site_and_supports_reviewed**: Review foundations, drainage, soil loads, support/bracing and any buried services on site.
 - **BLOCKER / fixing_schedule_reviewed**: Review screw suitability, end-grain connections, penetration and spacing with a competent builder / supplier.
 - **BLOCKER / review_record**: Record reviewer, reviewed_on and review notes before releasing a workshop pack.
+- **BLOCKER / approval_hash_required**: Release readiness requires review.approved_physical_design_hash to equal the current physical design hash, so an edited job cannot inherit an old review. Run a draft plan, then copy the printed physical design hash into the job's review block after a genuine physical review.
 - **BLOCKER / pilot_unconfirmed**: wickes-287686: fixing centres are mark-out only. Confirm pilot diameter/depth or a manufacturer-supported no-pilot instruction; none is inferred.
 - **Note / reach**: offer-bed-01: centre reach is approximately 700 mm from 2 accessible side(s); confirm with the user. 650 mm is a planning prompt, not an accessibility standard.
 - **Note / factory_ends**: Zero end trim assumes square, sound, usable factory/cut ends. Nominal 2400 mm is not a measurement.

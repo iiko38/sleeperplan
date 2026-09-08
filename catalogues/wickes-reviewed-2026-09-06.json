@@ -44,7 +44,8 @@
       "pilot_mode": "pilot",
       "pilot_diameter_mm": 5,
       "pilot_depth_mm": 100,
-      "pilot_evidence": "DEMONSTRATION PLACEHOLDER - NOT REAL EVIDENCE. Replace with a recorded physical trial or manufacturer instruction for the exact screw/timber pair."
+      "pilot_evidence": "DEMONSTRATION PLACEHOLDER - NOT REAL EVIDENCE. Replace with a recorded physical trial or manufacturer instruction for the exact screw/timber pair.",
+      "pilot_evidence_kind": "fixture"
     },
     {
       "id": "wickes-287688",
@@ -57,7 +58,8 @@
       "pilot_mode": "pilot",
       "pilot_diameter_mm": 5,
       "pilot_depth_mm": 180,
-      "pilot_evidence": "DEMONSTRATION PLACEHOLDER - NOT REAL EVIDENCE. Replace with a recorded physical trial or manufacturer instruction for the exact screw/timber pair."
+      "pilot_evidence": "DEMONSTRATION PLACEHOLDER - NOT REAL EVIDENCE. Replace with a recorded physical trial or manufacturer instruction for the exact screw/timber pair.",
+      "pilot_evidence_kind": "fixture"
     }
   ]
 }

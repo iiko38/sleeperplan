@@ -86,7 +86,8 @@ class CostAndGateTests(unittest.TestCase):
 
     def reviewed(self):
         j=job()
-        screws=tuple(replace(s,pilot_mode='none',pilot_evidence='Synthetic test record, not manufacturer advice') for s in j.screws)
+        screws=tuple(replace(s,pilot_mode='none',pilot_evidence='Synthetic test record, not manufacturer advice',
+                             pilot_evidence_kind='recorded_trial') for s in j.screws)
         j=replace(j,screws=screws)
         review={'timber_and_kerf_measured':True,'site_and_supports_reviewed':True,'fixing_schedule_reviewed':True,
                 'reviewer':'TEST ONLY','reviewed_on':'2026-09-06','notes':'Synthetic test record, not build evidence.',
@@ -115,6 +116,31 @@ class CostAndGateTests(unittest.TestCase):
         j=replace(j,review={k:v for k,v in j.review.items() if k!='approved_physical_design_hash'})
         with self.assertRaisesRegex(PlanError,'approved_physical_design_hash'):plan(j,TODAY,release=True)
 
+    def test_missing_approval_blocks_draft_and_check_not_just_release(self):
+        j=self.reviewed()
+        j=replace(j,review={k:v for k,v in j.review.items() if k!='approved_physical_design_hash'})
+        p=plan(j,TODAY)
+        self.assertFalse(p['release_ready'])
+        self.assertFalse(p['review_gate_clear'])
+        self.assertIn('approval_hash_required',{i['code'] for i in p['issues']})
+
+    def test_fixture_evidence_cannot_issue_even_with_matching_hash(self):
+        j=self.reviewed()
+        screws=tuple(replace(s,pilot_mode='pilot',pilot_diameter_mm=5,pilot_depth_mm=100,
+                             pilot_evidence='DEMONSTRATION PLACEHOLDER - NOT REAL EVIDENCE',
+                             pilot_evidence_kind='fixture') for s in j.screws)
+        j=replace(j,screws=screws,review=dict(j.review,approved_physical_design_hash=physical_design_hash(replace(j,screws=screws))))
+        with self.assertRaisesRegex(PlanError,'DEMONSTRATION FIXTURE'):plan(j,TODAY,release=True)
+
+    def test_recorded_trial_evidence_can_release(self):
+        j=self.reviewed()
+        screws=tuple(replace(s,pilot_mode='pilot',pilot_diameter_mm=5,pilot_depth_mm=100,
+                             pilot_evidence='Recorded physical trial on scrap, 2026-09-06',
+                             pilot_evidence_kind='recorded_trial') for s in j.screws)
+        j=replace(j,screws=screws,review=dict(j.review,approved_physical_design_hash=physical_design_hash(replace(j,screws=screws))))
+        p=plan(j,TODAY,release=True)
+        self.assertEqual(p['status'],'REVIEWED_WORKSHOP_PLAN')
+
     def test_stale_approval_cannot_authorise_changed_design(self):
         j=self.reviewed()
         j=replace(j,beds=(replace(j.beds[0],length_mm=2200),))
@@ -132,6 +158,23 @@ class CostAndGateTests(unittest.TestCase):
         j=self.reviewed()
         j=replace(j,screws=tuple(replace(s,length_mm=s.length_mm+50) for s in j.screws))
         with self.assertRaisesRegex(PlanError,'does not match this physical design'):plan(j,TODAY,release=True)
+
+    def test_repricing_cannot_swap_hardware_between_competing_screws(self):
+        j=self.reviewed()
+        base=next(s for s in j.screws if s.length_mm==150)
+        rival=replace(base,id=base.id+'-rival',diameter_mm=9,pack_price_pence=base.pack_price_pence+1)
+        j=replace(j,screws=tuple(sorted((*j.screws,rival),key=lambda s:s.id)))
+        chosen_first=plan(j,TODAY)['fixings'][0]['screw_id']
+        repriced=replace(j,screws=tuple(replace(s,pack_price_pence=s.pack_price_pence*4) if s.id==base.id else s for s in j.screws))
+        chosen_after=plan(repriced,TODAY)['fixings'][0]['screw_id']
+        self.assertEqual(chosen_first,chosen_after)
+        self.assertEqual(plan(j,TODAY)['physical_design_hash'],plan(repriced,TODAY)['physical_design_hash'])
+
+    def test_commercial_rules_do_not_change_physical_hash(self):
+        j=self.reviewed()
+        j2=replace(j,rules=replace(j.rules,screw_spares_percent=50,price_max_age_days=7))
+        self.assertEqual(physical_design_hash(j),physical_design_hash(j2))
+        self.assertNotEqual(plan(j,TODAY)['input_sha256'],plan(j2,TODAY)['input_sha256'])
 
     def test_head_seat_warning_present_when_stacked_absent_single_course(self):
         stacked=plan(job(),TODAY)

@@ -118,8 +118,13 @@ def parse_screw(raw: dict) -> Screw:
     mode = d.get("pilot_mode", "unconfirmed")
     if mode not in ("unconfirmed", "pilot", "none"):
         raise PlanError("pilot_mode must be unconfirmed, pilot or none")
+    evidence_kinds = ("fixture", "manufacturer_instruction", "recorded_trial")
     if mode in ("pilot", "none"):
         text(d.get("pilot_evidence"), "pilot_evidence: manufacturer instruction / recorded trial")
+        kind = d.get("pilot_evidence_kind")
+        if kind not in evidence_kinds:
+            raise PlanError("pilot_evidence_kind must be one of: " + ", ".join(evidence_kinds)
+                            + " (a fixture can never issue a workshop plan)")
     if mode == "pilot":
         diameter = d.get("pilot_diameter_mm")
         if isinstance(diameter, bool) or not isinstance(diameter, (int, float)) or not 0 < diameter < d["diameter_mm"]:

@@ -62,6 +62,14 @@ def generate_viewer_html(build_dir: Path):
             plan_title = pj.get("name", plan_title)
             status = pj.get("status", status)
 
+    # Incoming plan values are untrusted data in a public workflow: escape them
+    # for HTML contexts and make embedded JSON safe for <script> bodies.
+    from html import escape as _escape
+    plan_title_html = _escape(str(plan_title))
+    status_html = _escape(str(status))
+    plan_title_json = json.dumps(str(plan_title)).replace("</", "<\\/")
+    status_json = json.dumps(str(status)).replace("</", "<\\/)")
+
     # Get list of drawings
     svg_files = []
     if drawings_dir.exists():
@@ -83,7 +91,7 @@ def generate_viewer_html(build_dir: Path):
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{plan_title} - Visual Model & Technical Drawings</title>
+<title>{plan_title_html} - Visual Model & Technical Drawings</title>
 <style>
   :root {{
     --bg: #0f172a;
@@ -124,11 +132,11 @@ def generate_viewer_html(build_dir: Path):
 
 <header>
   <div>
-    <h1>{plan_title}</h1>
+    <h1>{plan_title_html}</h1>
     <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 4px;">Interactive 3D Visual Solids & 2D Technical Vector Drawings</div>
   </div>
   <div style="display: flex; gap: 12px; align-items: center;">
-    <span class="badge">{status}</span>
+    <span class="badge">{status_html}</span>
     <a href="workshop.pdf" target="_blank" class="btn">📄 Open Workshop PDF</a>
     <a href="model.scad" download class="btn btn-outline">🧊 Download 3D .SCAD</a>
   </div>
@@ -391,7 +399,7 @@ setTimeout(resize, 50);
 
 if __name__ == "__main__":
     import sys
-    target = sys.argv[1] if len(sys.argv) > 1 else "build/reviewed"
+    target = sys.argv[1] if len(sys.argv) > 1 else "published/first-model-2400x1400-options/3-courses"
     path = Path(target)
     if not path.is_absolute():
         path = Path.cwd() / path

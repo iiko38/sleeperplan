@@ -1,9 +1,0 @@
-﻿id,bed_id,course,piece_id,receiver_id,kind,entry_face,u_from_A_mm,v_mm,w_up_mm,entry_x_mm,entry_y_mm,entry_z_mm,direction_x,direction_y,direction_z,screw_id,screw_length_mm,diameter_mm,through_mm,penetration_mm,pilot_mode,pilot_diameter_mm,pilot_depth_mm
-first-bed-01-C1-N-F01,first-bed-01,1,first-bed-01-C1-N,first-bed-01-C1-W,corner,outer,50.0,100,50.0,50.0,1400,50.0,0,-1,0,wickes-287686,150,7,100,50,unconfirmed,,
-first-bed-01-C1-N-F02,first-bed-01,1,first-bed-01-C1-N,first-bed-01-C1-W,corner,outer,50.0,100,150.0,50.0,1400,150.0,0,-1,0,wickes-287686,150,7,100,50,unconfirmed,,
-first-bed-01-C1-N-F03,first-bed-01,1,first-bed-01-C1-N,first-bed-01-C1-E,corner,outer,2350.0,100,50.0,2350.0,1400,50.0,0,-1,0,wickes-287686,150,7,100,50,unconfirmed,,
-first-bed-01-C1-N-F04,first-bed-01,1,first-bed-01-C1-N,first-bed-01-C1-E,corner,outer,2350.0,100,150.0,2350.0,1400,150.0,0,-1,0,wickes-287686,150,7,100,50,unconfirmed,,
-first-bed-01-C1-S-F01,first-bed-01,1,first-bed-01-C1-S,first-bed-01-C1-W,corner,outer,50.0,0,50.0,50.0,0,50.0,0,1,0,wickes-287686,150,7,100,50,unconfirmed,,
-first-bed-01-C1-S-F02,first-bed-01,1,first-bed-01-C1-S,first-bed-01-C1-W,corner,outer,50.0,0,150.0,50.0,0,150.0,0,1,0,wickes-287686,150,7,100,50,unconfirmed,,
-first-bed-01-C1-S-F03,first-bed-01,1,first-bed-01-C1-S,first-bed-01-C1-E,corner,outer,2350.0,0,50.0,2350.0,0,50.0,0,1,0,wickes-287686,150,7,100,50,unconfirmed,,
-first-bed-01-C1-S-F04,first-bed-01,1,first-bed-01-C1-S,first-bed-01-C1-E,corner,outer,2350.0,0,150.0,2350.0,0,150.0,0,1,0,wickes-287686,150,7,100,50,unconfirmed,,

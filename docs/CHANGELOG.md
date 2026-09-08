@@ -1,5 +1,26 @@
 # Changelog
 
+## 2026-09-08 (v0.3.0) — review-of-review hardening (REVIEW_37db13b)
+
+### Added
+- **Operations model** (`sleeperplan/operations.py`): every export now compiles a deterministic, ordered workshop operation schedule (`operations.json`, schema `sleeperplan.operations.v1`) — receive/label/cut/treat per board, place/clamp per course, then mark (STOP) or drill + drive per fixing, then supports/final checks. Dependencies are explicit; unknown pilot specs surface as STOP operations, never invented instructions.
+- **Assembly player** on the customer site: play/pause/step/scrub through the compiled operations; pieces appear when placed, screws animate insertion with `head(u) = E - d*(L+g)*(1-u)` so the final frame equals the approved model exactly; per-step camera hints; active pieces highlighted.
+- **Status & blockers panel** on the site showing the loaded plan's real status, hashes and unresolved blockers (F14).
+- Evidence-kind field (`pilot_evidence_kind`: `fixture` | `manufacturer_instruction` | `recorded_trial`, required for pilot/none modes). **Fixture evidence can never issue a workshop plan**, even with a matching approval hash (F04).
+- Publication gate tests: the public tree (`published/`, `site/demo`) must contain no `REVIEWED_WORKSHOP_PLAN`, every published manifest must match its plan hash, and published bundles must ship the operations schedule (F01).
+
+### Changed
+- **Screw selection is now price-independent** (`length, diameter, id`): repricing can no longer swap installed hardware under an unchanged approval (F02). Regression test with competing same-length screws.
+- **Physical-design hash tightened:** excludes commercial rules (spares %, price-age days), includes generator version (F02b).
+- **Single readiness calculation:** a missing approval hash now blocks draft/check (`release_ready=false`) the same as release — no more "draft looks clear, release fails" divergence (F05).
+- **Public tree quarantine:** stale `build/*` packs removed from the repo and `build/` re-ignored; only the current v0.3.0 options pack is tracked under `published/` with identity checks. `tools/viewer.py` defaults to the published pack and now HTML-escapes plan values (F01/F14).
+- **Viewer fixes:** DPR-correct resize tracking (no more per-frame resize at high DPI, F11); per-bed display groups so batch jobs render side by side without altering manufacturing coordinates (F12); recursive geometry disposal on offer switch (F14).
+- **Print sizing:** parts board paginates with table-only continuation pages (readable ~11pt rows); stock-arrival board paginated at 8 boards/page (~9.6pt); options PDF now includes stock pages.
+
+### Notes
+- F03 (modelled head seats/joint recipes) and the full keyed drilling-recipe work remain gated on the physical trial; the operations model already carries the STOP semantics until then.
+- Version 0.3.0: physical-design hashes changed (generator version now included); demo fixture approval hash re-embedded. 99 tests passing.
+
 ## 2026-09-08 (v0.2.0) — engineering review fixes
 
 ### Added

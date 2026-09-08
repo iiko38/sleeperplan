@@ -1,9 +1,0 @@
-﻿id,stock_id,inventory,gross_length_mm,trim_start_mm,trim_end_mm,price_pence,offcut_start_mm,offcut_mm,keep_offcut,kerf_and_trim_loss_mm,source_url
-B001,wickes-276785,False,2400,0,0,2800,2400,0,False,0,https://www.wickes.co.uk/Wickes-UC4-Incised-Light-Green-Garden-Sleeper---100-x-200-x-2400mm/p/276785
-B002,wickes-276785,False,2400,0,0,2800,2400,0,False,0,https://www.wickes.co.uk/Wickes-UC4-Incised-Light-Green-Garden-Sleeper---100-x-200-x-2400mm/p/276785
-B003,wickes-276785,False,2400,0,0,2800,2400,0,False,0,https://www.wickes.co.uk/Wickes-UC4-Incised-Light-Green-Garden-Sleeper---100-x-200-x-2400mm/p/276785
-B004,wickes-276785,False,2400,0,0,2800,2400,0,False,0,https://www.wickes.co.uk/Wickes-UC4-Incised-Light-Green-Garden-Sleeper---100-x-200-x-2400mm/p/276785
-B005,wickes-256948,False,1800,0,0,2400,1203,597,True,3,https://www.wickes.co.uk/Wickes-UC4-Incised-Light-Green-Garden-Sleeper---100-x-200-x-1800mm/p/256948
-B006,wickes-256948,False,1800,0,0,2400,1203,597,True,3,https://www.wickes.co.uk/Wickes-UC4-Incised-Light-Green-Garden-Sleeper---100-x-200-x-1800mm/p/256948
-B007,wickes-256948,False,1800,0,0,2400,1203,597,True,3,https://www.wickes.co.uk/Wickes-UC4-Incised-Light-Green-Garden-Sleeper---100-x-200-x-1800mm/p/256948
-B008,wickes-256948,False,1800,0,0,2400,1203,597,True,3,https://www.wickes.co.uk/Wickes-UC4-Incised-Light-Green-Garden-Sleeper---100-x-200-x-1800mm/p/256948

@@ -85,7 +85,7 @@
     "reviewer": "DEMO FIXTURE",
     "reviewed_on": "2026-09-06",
     "notes": "DEMONSTRATION ONLY: this record exists to exercise the release gate in tests. No real timber was cut or drilled and no site was surveyed. It is NOT workshop evidence.",
-    "approved_physical_design_hash": "a56671a4acda606b112429553894f8804249800d5cc7e82142e72bcaf88fb725"
+    "approved_physical_design_hash": "efa97b1b0147f50630d5629e497b9ed82f61ced5338b6316ecdfa4dfb8a2df3b"
   },
   "notes": "DEMONSTRATION ONLY: release-gate fixture with fully priced costs. Not a reviewed build and not workshop evidence."
 }

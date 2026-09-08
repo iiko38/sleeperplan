@@ -1,6 +1,6 @@
 # Workshop manual - First rectangular bed draft - 2400 x 1400
 
-Plan: `b9404c486ca87940ae20c1834e6a8bee4916dcd20d33476953d4a469d0a48219`  |  Status: DRAFT_MARK_OUT_ONLY  |  As of: 2026-09-06
+Plan: `2cc9734e651e087733b268dd5b89008bf1362339328946a1b27b40bdce5ead81`  |  Status: DRAFT_MARK_OUT_ONLY  |  As of: 2026-09-06
 
 ## Read this first
 

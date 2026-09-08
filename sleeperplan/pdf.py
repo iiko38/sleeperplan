@@ -61,6 +61,16 @@ def draw_scene(canvas, scene: Scene, x: float, y: float, scale: float):
     canvas.restoreState()
 
 
+def _parts_page_count(total_pieces: int, first_page_rows: int = 10, table_rows_per_page: int = 14) -> int:
+    if total_pieces <= first_page_rows:
+        return 1
+    return 1 + (total_pieces - first_page_rows + table_rows_per_page - 1) // table_rows_per_page
+
+
+def _stock_page_count(total_boards: int, rows_per_page: int = 8) -> int:
+    return max(1, (total_boards + rows_per_page - 1) // rows_per_page)
+
+
 def write_workshop_pdf(plan: dict, destination: Path):
     (colors,A4,landscape,getSampleStyleSheet,ParagraphStyle,SimpleDocTemplate,Paragraph,Spacer,
      Table,TableStyle,PageBreak,Flowable,Canvas)=_imports()
@@ -117,14 +127,13 @@ def write_workshop_pdf(plan: dict, destination: Path):
         rows.append([f"{r['id']} - {r['description']}",quantity,pounds(r['line_pence'])])
     story.append(table(rows,[470,185,115]))
     story += [Spacer(1,8),para(f"Known subtotal: {pounds(cost['known_subtotal_pence'])}",'Label')]
-    piece_rows=18
-    if len(plan['pieces'])>piece_rows:
-        for pg in range((len(plan['pieces'])+piece_rows-1)//piece_rows):
-            figure(parts_scene(plan,page=pg,rows_per_page=piece_rows))
-    else:
-        figure(parts_scene(plan))
+    part_pages=_parts_page_count(len(plan['pieces']))
+    for pg in range(part_pages):
+        figure(parts_scene(plan) if part_pages==1 else parts_scene(plan,page=pg,rows_per_page=10))
     figure(process_scene(plan))
-    figure(stock_scene(plan))
+    stock_pages=_stock_page_count(len(plan['cut_plan']['boards']))
+    for pg in range(stock_pages):
+        figure(stock_scene(plan) if stock_pages==1 else stock_scene(plan,page=pg,rows_per_page=8))
     for screw_id in sorted({f['screw_id'] for f in plan['fixings']}):
         figure(fastener_scene(plan,screw_id))
     for b in plan['beds']:
@@ -257,10 +266,11 @@ def write_options_pdf(plans: list[dict], heights: list[int], destination: Path, 
         for i in range(0,len(boards),5):
             figure(cutting_scene(p,boards[i:i+5]))
         figure(process_scene(p))
-        piece_rows=18
-        total_pages=max(1,(len(p['pieces'])+piece_rows-1)//piece_rows)
-        for pg in range(total_pages):
-            figure(parts_scene(p,page=pg,rows_per_page=piece_rows))
+        part_pages=_parts_page_count(len(p['pieces']))
+        for pg in range(part_pages):
+            figure(parts_scene(p) if part_pages==1 else parts_scene(p,page=pg,rows_per_page=10))
+        for pg in range(_stock_page_count(len(boards))):
+            figure(stock_scene(p) if _stock_page_count(len(boards))==1 else stock_scene(p,page=pg,rows_per_page=8))
     def footer(canvas,doc):
         canvas.saveState();canvas.setFont('Helvetica',8);canvas.setFillColor(colors.HexColor('#52666a'))
         canvas.drawString(30,16,f"Sleeperplan | {plans[0]['input_sha256'][:12]} | {plans[0]['status']} | height options")
