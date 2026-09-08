@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "name": "Reviewed workshop build - 2 courses, 2400x1200 mm",
+  "name": "DEMONSTRATION fixture - reviewed-gate example, 2 courses 2400x1200",
   "catalogue": "../catalogues/wickes-reviewed-2026-09-06.json",
   "orientation": "edge",
   "beds": [
@@ -82,9 +82,10 @@
     "timber_and_kerf_measured": true,
     "site_and_supports_reviewed": true,
     "fixing_schedule_reviewed": true,
-    "reviewer": "Jake",
+    "reviewer": "DEMO FIXTURE",
     "reviewed_on": "2026-09-06",
-    "notes": "Verified dimensions, site levelness, and pilot holes on shop test timber."
+    "notes": "DEMONSTRATION ONLY: this record exists to exercise the release gate in tests. No real timber was cut or drilled and no site was surveyed. It is NOT workshop evidence.",
+    "approved_physical_design_hash": "a56671a4acda606b112429553894f8804249800d5cc7e82142e72bcaf88fb725"
   },
-  "notes": "Fully reviewed and costed 2-course bed ready for release."
+  "notes": "DEMONSTRATION ONLY: release-gate fixture with fully priced costs. Not a reviewed build and not workshop evidence."
 }

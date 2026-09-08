@@ -6,7 +6,7 @@ from pathlib import Path
 from sleeperplan.config import parse_job,load_job
 from sleeperplan.costing import REQUIRED_EXTRAS,cost_job
 from sleeperplan.model import PlanError
-from sleeperplan.planner import plan
+from sleeperplan.planner import physical_design_hash,plan
 from .helpers import inputs,job,TODAY,ROOT
 
 class ConfigTests(unittest.TestCase):
@@ -34,6 +34,9 @@ class ConfigTests(unittest.TestCase):
     def test_bad_date(self):self.reject(lambda r,c:c['stocks'][0].update(checked_on='yesterday'))
     def test_unknown_site_type(self):self.reject(lambda r,c:r['beds'][0].update(site_type='pond'))
     def test_quantity_limit(self):self.reject(lambda r,c:r['beds'][0].update(quantity=30))
+
+    def test_bad_approval_hash_format_rejected(self):
+        self.reject(lambda r,c:r['review'].update(approved_physical_design_hash='tooshort'))
 
     def test_all_examples_parse_and_plan(self):
         for p in sorted((ROOT/'examples').glob('*.json')):
@@ -83,10 +86,12 @@ class CostAndGateTests(unittest.TestCase):
 
     def reviewed(self):
         j=job()
-        review={'timber_and_kerf_measured':True,'site_and_supports_reviewed':True,'fixing_schedule_reviewed':True,
-                'reviewer':'TEST ONLY','reviewed_on':'2026-09-06','notes':'Synthetic test record, not build evidence.'}
         screws=tuple(replace(s,pilot_mode='none',pilot_evidence='Synthetic test record, not manufacturer advice') for s in j.screws)
-        return replace(j,review=review,screws=screws)
+        j=replace(j,screws=screws)
+        review={'timber_and_kerf_measured':True,'site_and_supports_reviewed':True,'fixing_schedule_reviewed':True,
+                'reviewer':'TEST ONLY','reviewed_on':'2026-09-06','notes':'Synthetic test record, not build evidence.',
+                'approved_physical_design_hash':physical_design_hash(j)}
+        return replace(j,review=review)
 
     def test_release_requires_pilot_confirmation_even_if_other_flags_true(self):
         j=replace(self.reviewed(),screws=job().screws)
@@ -104,6 +109,46 @@ class CostAndGateTests(unittest.TestCase):
     def test_height_limit_not_mislabeled_as_strength(self):
         j=self.reviewed();j=replace(j,beds=(replace(j.beds[0],courses=4),))
         with self.assertRaisesRegex(PlanError,'600 mm'):plan(j,TODAY,release=True)
+
+    def test_release_requires_design_approval_hash(self):
+        j=self.reviewed()
+        j=replace(j,review={k:v for k,v in j.review.items() if k!='approved_physical_design_hash'})
+        with self.assertRaisesRegex(PlanError,'approved_physical_design_hash'):plan(j,TODAY,release=True)
+
+    def test_stale_approval_cannot_authorise_changed_design(self):
+        j=self.reviewed()
+        j=replace(j,beds=(replace(j.beds[0],length_mm=2200),))
+        p=plan(j,TODAY)
+        self.assertIn('stale_approval',{i['code'] for i in p['issues']})
+        with self.assertRaisesRegex(PlanError,'does not match this physical design'):plan(j,TODAY,release=True)
+
+    def test_price_only_change_keeps_physical_approval(self):
+        j=self.reviewed()
+        j=replace(j,stocks=tuple(replace(s,price_pence=s.price_pence+7) if not s.inventory else s for s in j.stocks))
+        p=plan(j,TODAY,release=True)
+        self.assertEqual(p['status'],'REVIEWED_WORKSHOP_PLAN')
+
+    def test_machining_change_invalidates_approval(self):
+        j=self.reviewed()
+        j=replace(j,screws=tuple(replace(s,length_mm=s.length_mm+50) for s in j.screws))
+        with self.assertRaisesRegex(PlanError,'does not match this physical design'):plan(j,TODAY,release=True)
+
+    def test_head_seat_warning_present_when_stacked_absent_single_course(self):
+        stacked=plan(job(),TODAY)
+        self.assertIn('head_seat_unmodeled',{i['code'] for i in stacked['issues']})
+        j=job();single=replace(j,beds=(replace(j.beds[0],courses=1),))
+        self.assertNotIn('head_seat_unmodeled',{i['code'] for i in plan(single,TODAY)['issues']})
+
+    def test_demo_fixtures_are_marked_as_demonstrations(self):
+        import json
+        catalogue=json.loads((ROOT/'catalogues/wickes-reviewed-2026-09-06.json').read_text(encoding='utf-8'))
+        self.assertIn('DEMONSTRATION',catalogue['supplier_note'])
+        for s in catalogue['screws']:
+            if s.get('pilot_mode')=='pilot':
+                self.assertIn('NOT REAL EVIDENCE',s['pilot_evidence'])
+        example=json.loads((ROOT/'examples/reviewed-example.json').read_text(encoding='utf-8'))
+        self.assertIn('DEMONSTRATION ONLY',example['review']['notes'])
+        self.assertNotEqual(example['review']['reviewer'],'Jake')
 
     def test_hash_deterministic(self):
         self.assertEqual(plan(job(),TODAY),plan(job(),TODAY))

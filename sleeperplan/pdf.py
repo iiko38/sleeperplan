@@ -117,7 +117,12 @@ def write_workshop_pdf(plan: dict, destination: Path):
         rows.append([f"{r['id']} - {r['description']}",quantity,pounds(r['line_pence'])])
     story.append(table(rows,[470,185,115]))
     story += [Spacer(1,8),para(f"Known subtotal: {pounds(cost['known_subtotal_pence'])}",'Label')]
-    figure(parts_scene(plan))
+    piece_rows=18
+    if len(plan['pieces'])>piece_rows:
+        for pg in range((len(plan['pieces'])+piece_rows-1)//piece_rows):
+            figure(parts_scene(plan,page=pg,rows_per_page=piece_rows))
+    else:
+        figure(parts_scene(plan))
     figure(process_scene(plan))
     figure(stock_scene(plan))
     for screw_id in sorted({f['screw_id'] for f in plan['fixings']}):
@@ -252,7 +257,10 @@ def write_options_pdf(plans: list[dict], heights: list[int], destination: Path, 
         for i in range(0,len(boards),5):
             figure(cutting_scene(p,boards[i:i+5]))
         figure(process_scene(p))
-        figure(parts_scene(p))
+        piece_rows=18
+        total_pages=max(1,(len(p['pieces'])+piece_rows-1)//piece_rows)
+        for pg in range(total_pages):
+            figure(parts_scene(p,page=pg,rows_per_page=piece_rows))
     def footer(canvas,doc):
         canvas.saveState();canvas.setFont('Helvetica',8);canvas.setFillColor(colors.HexColor('#52666a'))
         canvas.drawString(30,16,f"Sleeperplan | {plans[0]['input_sha256'][:12]} | {plans[0]['status']} | height options")

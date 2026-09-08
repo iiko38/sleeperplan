@@ -1,7 +1,7 @@
 # Offer option - 1 course
 
 
-**DRAFT_MARK_OUT_ONLY** | 2026-09-06 | plan `6b3c5e9c190be4c063f490aed14b7b831f84da63d70d9052848217ac6c036233`
+**DRAFT_MARK_OUT_ONLY** | 2026-09-06 | plan `4842af90b8b986787a32a3a72f997d0efd0581f4f85fefeb51aff6b5bfb374ed` | physical design `4c8e7b3639d5fae60416af5fb87e18095362ab4f9289cb7a771ea5b33551ff33`
 
 
 ## Before work starts
@@ -42,7 +42,7 @@ Piece A is the lower-global-X end for S/N members, or lower-global-Y end for W/E
 
 6. Assemble course 1 on the prepared base. Clamp and verify square and level before fixing. Corner screws enter the OUTER side face of the full-through member and pass into the end of its adjoining member. They do not enter through the cut end of that full-through member.
 
-7. Follow the per-course drawing; the corner pattern stays the same on every course. Position and clamp the next course, then use its own fixing sheet. Stack screws enter vertically through the TOP and into the previous course. The schedule offsets them to avoid modelled existing screws. Re-check that real timber, hardware heads and installation tolerances match the model before drilling or driving.
+7. Follow the per-course drawing; the corner pattern stays the same on every course. Position and clamp the next course, then use its own fixing sheet. Stack screws enter vertically through the TOP and into the previous course. The schedule offsets them to avoid modelled existing screws. Re-check that real timber, hardware heads and installation tolerances match the model before drilling or driving. Screw HEADS and bearing seats are NOT modelled: before stacking any course, confirm the head-seat detail for the actual hardware (a protruding head can stop the next sleeper sitting flat, and recessing a seat deepens the hole and moves the tip).
 
 8. For every fixing use the confirmed pilot instruction for the actual screw and timber. UNCONFIRMED is a STOP, not permission to choose a bit. Hole coordinates are entry centres; pilot depth is measured from that entry face along the stated direction. Nominal screw penetration includes its point, so it is not the same as effective threaded embedment.
 

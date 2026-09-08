@@ -1,7 +1,7 @@
 version: 1
 project: sleeperplan
-active_focus: Client visualiser live for 1/2/3 course offers; proceed with physical shop measurement and fastener field trial for reviewed release
-current_status: web_visualiser_live_draft_plans
+active_focus: v0.2.0 engineering-review fixes applied (approval binding, head-seat warning, demo-fixture marking, PDF layout); next: physical corner/interface trial
+current_status: v0.2.0_review_fixes_applied
 blockers: []
 next_actions:
   - Run a client-copy refinement pass on `site/` (offer positioning language and visuals) without changing engineering claims.
@@ -25,4 +25,4 @@ key_paths:
   live_site: https://site-rho-six-fdck1jw7c6.vercel.app
   default_example: examples/neighbour.json
   catalogue: catalogues/wickes-2026-09-06.json
-last_updated: 2026-09-07
+last_updated: 2026-09-08

@@ -41,7 +41,8 @@ def summary(result: dict) -> str:
             f"Buy {cp['purchased_sleepers']} sleepers; {cp['saw_cuts']} saw cuts; cutting={cp['algorithm']}\n"
             f"Timber + screws: {pounds(cost['timber_and_screw_purchase_pence'])}\n"
             f"Known subtotal: {pounds(cost['known_subtotal_pence'])}; complete cost: {pounds(cost['complete_cost_pence'])}\n"
-            f"{sum(i['blocking'] for i in result['issues'])} review blocker(s); plan {result['input_sha256'][:16]}")
+            f"{sum(i['blocking'] for i in result['issues'])} review blocker(s); plan {result['input_sha256'][:16]}\n"
+            f"Physical design hash: {result['physical_design_hash']}")
 
 
 def compare(args,job):

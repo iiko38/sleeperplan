@@ -16,6 +16,28 @@ def canonical(value: object) -> bytes:
     return json.dumps(value, sort_keys=True, ensure_ascii=False, separators=(",", ":"), allow_nan=False).encode("utf-8")
 
 
+def physical_design(job: Job) -> dict:
+    """Everything that changes the physical artefact. Deliberately excludes prices,
+    pack sizes, availability, provenance text, review records and the as-of date,
+    so a price-only revision cannot invalidate a physical approval."""
+    return {
+        "profile": asdict(job.profile),
+        "beds": [asdict(b) for b in job.beds],
+        "orientation": job.provenance.get("orientation", "edge"),
+        "stocks": [{k: v for k, v in asdict(s).items()
+                    if k not in {"price_pence", "quantity", "source_url", "checked_on", "weight_grams"}}
+                   for s in job.stocks],
+        "screws": [{k: v for k, v in asdict(s).items()
+                    if k not in {"pack_size", "pack_price_pence", "source_url", "checked_on", "pilot_evidence"}}
+                   for s in job.screws],
+        "rules": asdict(job.rules),
+    }
+
+
+def physical_design_hash(job: Job) -> str:
+    return hashlib.sha256(canonical(physical_design(job))).hexdigest()
+
+
 def plan(job: Job, as_of: date | None = None, *, release: bool = False) -> dict:
     as_of = as_of or date.today()
     beds, pieces, fixings = compile_geometry(job)
@@ -37,6 +59,19 @@ def plan(job: Job, as_of: date | None = None, *, release: bool = False) -> dict:
         issue("review_record", "Record reviewer, reviewed_on and review notes before releasing a workshop pack.", True)
     elif date.fromisoformat(job.review["reviewed_on"]) > as_of:
         issue("future_review", "Review date is after the plan's as-of date.", True)
+    physical_hash = physical_design_hash(job)
+    approval = job.review.get("approved_physical_design_hash")
+    if approval is not None and approval != physical_hash:
+        issue("stale_approval", f"review.approved_physical_design_hash {approval[:12]} does not match this physical design "
+              f"({physical_hash[:12]}). A recorded review cannot authorise changed dimensions, hardware or machining. "
+              "Re-review the changed design and update the job file.", True)
+    elif approval is None and release:
+        issue("approval_hash_required", "Release requires review.approved_physical_design_hash to equal the current physical design hash, "
+              "so an edited job cannot inherit an old review. Run a draft plan, then copy the printed physical design hash into the job's review block.", True)
+    if any(b["courses"] > 1 for b in beds):
+        issue("head_seat_unmodeled", "Screw heads, bearing seats, recesses and driver access are NOT modelled. On stacked courses a protruding "
+              "head can stop the next course sitting flat even though all shafts pass the collision check, and recessing a seat deepens the hole "
+              "and moves the tip. Confirm the head-seat detail with the actual hardware before stacking any course.", False)
     used_screws = {f.screw_id for f in fixings}
     for s in job.screws:
         if s.id in used_screws and s.pilot_mode == "unconfirmed":
@@ -92,6 +127,7 @@ def plan(job: Job, as_of: date | None = None, *, release: bool = False) -> dict:
                        for s in job.stocks if not s.inventory)
     weight_complete = all(s.weight_grams is not None for s in job.stocks if s.id in used_stock and not s.inventory)
     return {"schema_version": 1, "generator_version": __version__, "input_sha256": fingerprint,
+            "physical_design_hash": physical_hash,
             "as_of": as_of.isoformat(), "name": job.name,
             "status": "REVIEWED_WORKSHOP_PLAN" if release else "DRAFT_MARK_OUT_ONLY",
             "review_gate_clear": not blockers, "issues": issues, "input": input_record,

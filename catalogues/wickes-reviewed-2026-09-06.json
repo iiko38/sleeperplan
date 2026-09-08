@@ -8,7 +8,7 @@
     ],
     "description": "Wickes UC4 incised light green treated softwood; nominal 100 x 200 mm"
   },
-  "supplier_note": "Wickes Worthing snapshot with confirmed workshop pilot-hole trial specifications.",
+  "supplier_note": "Wickes Worthing dated snapshot. Pilot-hole specifications in this file are DEMONSTRATION PLACEHOLDERS for release-gate tests - NOT real workshop evidence. Replace with a recorded physical trial or manufacturer instruction before any real build.",
   "stocks": [
     {
       "id": "wickes-276785",
@@ -44,7 +44,7 @@
       "pilot_mode": "pilot",
       "pilot_diameter_mm": 5,
       "pilot_depth_mm": 100,
-      "pilot_evidence": "Workshop softwood trial on UC4 sleeper scrap: 5 mm pilot prevented end-grain splitting."
+      "pilot_evidence": "DEMONSTRATION PLACEHOLDER - NOT REAL EVIDENCE. Replace with a recorded physical trial or manufacturer instruction for the exact screw/timber pair."
     },
     {
       "id": "wickes-287688",
@@ -57,7 +57,7 @@
       "pilot_mode": "pilot",
       "pilot_diameter_mm": 5,
       "pilot_depth_mm": 180,
-      "pilot_evidence": "Workshop softwood trial on UC4 sleeper scrap: 5 mm pilot ensured straight drive through 200 mm sleeper."
+      "pilot_evidence": "DEMONSTRATION PLACEHOLDER - NOT REAL EVIDENCE. Replace with a recorded physical trial or manufacturer instruction for the exact screw/timber pair."
     }
   ]
 }

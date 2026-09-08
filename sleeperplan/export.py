@@ -37,7 +37,7 @@ def build_notes(plan: dict) -> str:
         corner_instruction = "Follow the per-course drawing; the corner pattern stays the same on every course."
     else:
         corner_instruction = "Follow the per-course drawing; corner pattern can differ by bed design in this batch."
-    lines=[f"# {plan['name']}",f"\n**{plan['status']}** | {plan['as_of']} | plan `{plan['input_sha256']}`",
+    lines=[f"# {plan['name']}",f"\n**{plan['status']}** | {plan['as_of']} | plan `{plan['input_sha256']}` | physical design `{plan['physical_design_hash']}`",
            "\n## Before work starts", "This pack checks nominal geometry, stock allocation and straight screw paths. "
            "It does not calculate structural capacity, soil pressure, foundation adequacy or long-term timber movement. "
            "Do not build from an unreviewed draft. Site-specific supports/bracing are not part of the generated timber model.",
@@ -64,9 +64,11 @@ def build_notes(plan: dict) -> str:
            "Treat exposed cut ends with the compatible product and method specified for the timber.",
            "6. Assemble course 1 on the prepared base. Clamp and verify square and level before fixing. Corner screws enter the OUTER side face of the full-through member "
            "and pass into the end of its adjoining member. They do not enter through the cut end of that full-through member.",
-           f"7. {corner_instruction} Position and clamp the next course, then use its own fixing sheet. "
-           "Stack screws enter vertically through the TOP and into the previous course. The schedule offsets them to avoid modelled existing screws. "
-           "Re-check that real timber, hardware heads and installation tolerances match the model before drilling or driving.",
+            f"7. {corner_instruction} Position and clamp the next course, then use its own fixing sheet. "
+            "Stack screws enter vertically through the TOP and into the previous course. The schedule offsets them to avoid modelled existing screws. "
+            "Re-check that real timber, hardware heads and installation tolerances match the model before drilling or driving. "
+            "Screw HEADS and bearing seats are NOT modelled: before stacking any course, confirm the head-seat detail for the actual hardware "
+            "(a protruding head can stop the next sleeper sitting flat, and recessing a seat deepens the hole and moves the tip).",
             "8. For every fixing use the confirmed pilot instruction for the actual screw and timber. UNCONFIRMED is a STOP, not permission to choose a bit. "
             "Hole coordinates are entry centres; pilot depth is measured from that entry face along the stated direction. Nominal screw penetration includes its point, "
             "so it is not the same as effective threaded embedment.",

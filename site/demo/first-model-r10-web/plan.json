@@ -1,7 +1,8 @@
 {
   "schema_version": 1,
-  "generator_version": "0.1.0",
-  "input_sha256": "50c064c82d0d06387b49013ee177332ee455f2679ac6b4c581b456ecfcb4cf3e",
+  "generator_version": "0.2.0",
+  "input_sha256": "b9404c486ca87940ae20c1834e6a8bee4916dcd20d33476953d4a469d0a48219",
+  "physical_design_hash": "3aae3040c03436a7b5f180752d933221a9f39089b8f797ee1e53cd42e103ee34",
   "as_of": "2026-09-06",
   "name": "First rectangular bed draft - 2400 x 1400",
   "status": "DRAFT_MARK_OUT_ONLY",
@@ -26,6 +27,11 @@
       "code": "review_record",
       "blocking": true,
       "message": "Record reviewer, reviewed_on and review notes before releasing a workshop pack."
+    },
+    {
+      "code": "head_seat_unmodeled",
+      "blocking": false,
+      "message": "Screw heads, bearing seats, recesses and driver access are NOT modelled. On stacked courses a protruding head can stop the next course sitting flat even though all shafts pass the collision check, and recessing a seat deepens the hole and moves the tip. Confirm the head-seat detail with the actual hardware before stacking any course."
     },
     {
       "code": "pilot_unconfirmed",
@@ -179,7 +185,7 @@
       }
     },
     "as_of": "2026-09-06",
-    "generator_version": "0.1.0"
+    "generator_version": "0.2.0"
   },
   "profile": {
     "key": "wickes-green-100x200",
@@ -2724,11 +2730,11 @@
       100,
       200
     ],
-    "source_plan_sha256": "50c064c82d0d06387b49013ee177332ee455f2679ac6b4c581b456ecfcb4cf3e",
+    "source_plan_sha256": "b9404c486ca87940ae20c1834e6a8bee4916dcd20d33476953d4a469d0a48219",
     "consumed": {},
     "inventory": [
       {
-        "id": "off-50c064c8-B007",
+        "id": "off-b9404c48-B007",
         "length_mm": 597,
         "price_pence": 0,
         "quantity": 1,
@@ -2736,7 +2742,7 @@
         "trim_end_mm": 0
       },
       {
-        "id": "off-50c064c8-B008",
+        "id": "off-b9404c48-B008",
         "length_mm": 597,
         "price_pence": 0,
         "quantity": 1,
@@ -2744,7 +2750,7 @@
         "trim_end_mm": 0
       },
       {
-        "id": "off-50c064c8-B009",
+        "id": "off-b9404c48-B009",
         "length_mm": 597,
         "price_pence": 0,
         "quantity": 1,
@@ -2752,7 +2758,7 @@
         "trim_end_mm": 0
       },
       {
-        "id": "off-50c064c8-B010",
+        "id": "off-b9404c48-B010",
         "length_mm": 597,
         "price_pence": 0,
         "quantity": 1,
@@ -2760,7 +2766,7 @@
         "trim_end_mm": 0
       },
       {
-        "id": "off-50c064c8-B011",
+        "id": "off-b9404c48-B011",
         "length_mm": 597,
         "price_pence": 0,
         "quantity": 1,
@@ -2768,7 +2774,7 @@
         "trim_end_mm": 0
       },
       {
-        "id": "off-50c064c8-B012",
+        "id": "off-b9404c48-B012",
         "length_mm": 597,
         "price_pence": 0,
         "quantity": 1,

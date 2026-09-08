@@ -1,7 +1,8 @@
 {
   "schema_version": 1,
-  "generator_version": "0.1.0",
-  "input_sha256": "1282bc342ae6177ba8414a2ba04794b21c7dfea133e875fed907f645f8d133e7",
+  "generator_version": "0.2.0",
+  "input_sha256": "4470e837809e9781fb6151995899ab6276423f648f2192abcb9fedfcb25a59de",
+  "physical_design_hash": "582882b9d66be943f8ded5b19eb60461e2fe4e478c6167194ca02401b859999b",
   "as_of": "2026-09-06",
   "name": "Offer option - 2 courses",
   "status": "DRAFT_MARK_OUT_ONLY",
@@ -26,6 +27,11 @@
       "code": "review_record",
       "blocking": true,
       "message": "Record reviewer, reviewed_on and review notes before releasing a workshop pack."
+    },
+    {
+      "code": "head_seat_unmodeled",
+      "blocking": false,
+      "message": "Screw heads, bearing seats, recesses and driver access are NOT modelled. On stacked courses a protruding head can stop the next course sitting flat even though all shafts pass the collision check, and recessing a seat deepens the hole and moves the tip. Confirm the head-seat detail with the actual hardware before stacking any course."
     },
     {
       "code": "pilot_unconfirmed",
@@ -179,7 +185,7 @@
       }
     },
     "as_of": "2026-09-06",
-    "generator_version": "0.1.0"
+    "generator_version": "0.2.0"
   },
   "profile": {
     "key": "wickes-green-100x200",
@@ -1786,11 +1792,11 @@
       100,
       200
     ],
-    "source_plan_sha256": "1282bc342ae6177ba8414a2ba04794b21c7dfea133e875fed907f645f8d133e7",
+    "source_plan_sha256": "4470e837809e9781fb6151995899ab6276423f648f2192abcb9fedfcb25a59de",
     "consumed": {},
     "inventory": [
       {
-        "id": "off-1282bc34-B005",
+        "id": "off-4470e837-B005",
         "length_mm": 597,
         "price_pence": 0,
         "quantity": 1,
@@ -1798,7 +1804,7 @@
         "trim_end_mm": 0
       },
       {
-        "id": "off-1282bc34-B006",
+        "id": "off-4470e837-B006",
         "length_mm": 597,
         "price_pence": 0,
         "quantity": 1,
@@ -1806,7 +1812,7 @@
         "trim_end_mm": 0
       },
       {
-        "id": "off-1282bc34-B007",
+        "id": "off-4470e837-B007",
         "length_mm": 597,
         "price_pence": 0,
         "quantity": 1,
@@ -1814,7 +1820,7 @@
         "trim_end_mm": 0
       },
       {
-        "id": "off-1282bc34-B008",
+        "id": "off-4470e837-B008",
         "length_mm": 597,
         "price_pence": 0,
         "quantity": 1,

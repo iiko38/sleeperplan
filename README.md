@@ -112,13 +112,15 @@ The starting Wickes catalogue confirms the screw products, sizes and prices, **n
 
 There is no automatic “screw diameter minus 2 mm” rule.
 
-Before releasing a pack, measure timber/kerf and review the site, supports and fixing design. Populate the three review checks, reviewer, date and notes in the job file. Then run:
+Before releasing a pack, measure timber/kerf and review the site, supports and fixing design. Then bind the review to the exact physical design: run a draft plan, copy the printed `Physical design hash` into the job's review block as `approved_physical_design_hash`, and run:
 
 ```powershell
 py -m sleeperplan plan examples\your-job.json --out build\your-job-reviewed --release --pdf
 ```
 
-`--release` refuses missing checks, unconfirmed pilots and out-of-scope sites/heights. A released status means the review was recorded, **not** that the software certified a structure. Any changed dimensions, hardware, stock or site require renewed review.
+`--release` refuses missing checks, unconfirmed pilots, out-of-scope sites/heights, and any mismatch between the recorded approval and the current physical design (a changed dimension, screw or machining spec invalidates the old approval; a price-only update does not). A released status means the review was recorded, **not** that the software certified a structure. Any changed dimensions, hardware, stock or site require renewed review.
+
+`examples/reviewed-example.json` and `catalogues/wickes-reviewed-2026-09-06.json` are **DEMONSTRATION fixtures** for the release gate. Their pilot "trials" and reviewer records are placeholders, not real workshop evidence.
 
 V1 covers **rectangular, open-bottom flower beds on level ground**, with nominal heights up to 600 mm for reviewed output. That height is a software scope boundary, not a universally safe height. Retaining walls, slopes, roofs/decks, hard-surface drainage details, structural calculations, bespoke support/bracing layouts and mid-side splice designs are not implemented. The app will not supply missing engineering by inventing it. See `docs/ENGINEERING.md`.
 

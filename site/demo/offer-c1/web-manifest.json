@@ -3,8 +3,8 @@
   "name": "Offer option - 1 course",
   "status": "DRAFT_MARK_OUT_ONLY",
   "as_of": "2026-09-06",
-  "plan_sha256": "6b3c5e9c190be4c063f490aed14b7b831f84da63d70d9052848217ac6c036233",
-  "generator_version": "0.1.0",
+  "plan_sha256": "4842af90b8b986787a32a3a72f997d0efd0581f4f85fefeb51aff6b5bfb374ed",
+  "generator_version": "0.2.0",
   "artifacts": {
     "plan": "plan.json",
     "build_notes": "BUILD.md",

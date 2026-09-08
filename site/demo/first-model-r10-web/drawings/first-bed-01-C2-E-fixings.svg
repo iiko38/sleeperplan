@@ -1,42 +1,42 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1100" height="467" viewBox="0 0 1100 467">
 <rect width="100%" height="100%" fill="white"/>
 <rect x="0" y="0" width="1100" height="6" fill="#147c80" stroke="#147c80" stroke-width="1"/>
-<text x="30" y="43" font-family="Arial,Helvetica,sans-serif" font-size="25" font-weight="700" fill="#183339" text-anchor="start">first-bed-01-C3-E / 1200 x 100 x 200 mm</text>
+<text x="30" y="43" font-family="Arial,Helvetica,sans-serif" font-size="25" font-weight="700" fill="#183339" text-anchor="start">first-bed-01-C2-E / 1200 x 100 x 200 mm</text>
 <text x="30" y="69" font-family="Arial,Helvetica,sans-serif" font-size="14" font-weight="400" fill="#52666a" text-anchor="start">DRAFT_MARK_OUT_ONLY  |  Datum A = lower global Y end  |  Coordinates in mm, rounded to 0.1 for display</text>
 <text x="30" y="100" font-family="Arial,Helvetica,sans-serif" font-size="14" font-weight="700" fill="#183339" text-anchor="start">TOP FACE / U along length; V across width from its lower-coordinate edge</text>
-<rect x="80" y="112" width="950" height="55" fill="#edf3f1" stroke="#183339" stroke-width="1"/>
-<text x="48" y="144.5" font-family="Arial,Helvetica,sans-serif" font-size="16" font-weight="700" fill="#147c80" text-anchor="middle">A</text>
-<text x="80" y="186" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="400" fill="#52666a" text-anchor="start">V=0 edge</text>
+<rect x="70" y="112" width="800" height="55" fill="#edf3f1" stroke="#183339" stroke-width="1"/>
+<text x="38" y="144.5" font-family="Arial,Helvetica,sans-serif" font-size="16" font-weight="700" fill="#147c80" text-anchor="middle">A</text>
+<text x="70" y="186" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="400" fill="#52666a" text-anchor="start">V=0 edge</text>
 <text x="30" y="211" font-family="Arial,Helvetica,sans-serif" font-size="14" font-weight="700" fill="#183339" text-anchor="start">OUTER FACE / U from A; W measured UP from bottom / side E</text>
-<rect x="80" y="224" width="950" height="80" fill="#c69b6b" stroke="#183339" stroke-width="1"/>
-<text x="48" y="269.0" font-family="Arial,Helvetica,sans-serif" font-size="16" font-weight="700" fill="#147c80" text-anchor="middle">A</text>
-<circle cx="270.0" cy="139.5" r="4" fill="white" stroke="#147c80" stroke-width="2"/>
-<text x="278.0" y="134.5" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="#147c80" text-anchor="start">F01</text>
-<circle cx="586.6666666666666" cy="139.5" r="4" fill="white" stroke="#147c80" stroke-width="2"/>
-<text x="594.6666666666666" y="134.5" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="#147c80" text-anchor="start">F02</text>
-<circle cx="903.3333333333333" cy="139.5" r="4" fill="white" stroke="#147c80" stroke-width="2"/>
-<text x="911.3333333333333" y="134.5" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="#147c80" text-anchor="start">F03</text>
-<line x1="270.0" y1="139.5" x2="968" y2="110" stroke="#147c80" stroke-width="1.6"/>
+<rect x="70" y="224" width="800" height="80" fill="#c69b6b" stroke="#183339" stroke-width="1"/>
+<text x="38" y="269.0" font-family="Arial,Helvetica,sans-serif" font-size="16" font-weight="700" fill="#147c80" text-anchor="middle">A</text>
+<circle cx="203.33333333333331" cy="139.5" r="4" fill="white" stroke="#147c80" stroke-width="2"/>
+<text x="211.33333333333331" y="134.5" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="#147c80" text-anchor="start">F01</text>
+<circle cx="470.0" cy="139.5" r="4" fill="white" stroke="#147c80" stroke-width="2"/>
+<text x="478.0" y="134.5" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="#147c80" text-anchor="start">F02</text>
+<circle cx="736.6666666666666" cy="139.5" r="4" fill="white" stroke="#147c80" stroke-width="2"/>
+<text x="744.6666666666666" y="134.5" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="#147c80" text-anchor="start">F03</text>
+<line x1="203.33333333333331" y1="139.5" x2="968" y2="110" stroke="#147c80" stroke-width="1.6"/>
 <circle cx="1000" cy="110" r="32" fill="#f6fbfa" stroke="#147c80" stroke-width="2"/>
 <circle cx="1000" cy="110" r="5" fill="white" stroke="#147c80" stroke-width="2"/>
 <text x="1000" y="68" font-family="Arial,Helvetica,sans-serif" font-size="11" font-weight="700" fill="#147c80" text-anchor="middle">stack x1</text>
-<text x="1000" y="156" font-family="Arial,Helvetica,sans-serif" font-size="10" font-weight="400" fill="#52666a" text-anchor="middle">top</text>
+<text x="1000" y="132" font-family="Arial,Helvetica,sans-serif" font-size="9" font-weight="400" fill="#52666a" text-anchor="middle">top</text>
 <line x1="1000" y1="110" x2="1000" y2="110" stroke="#147c80" stroke-width="1.8"/>
 <circle cx="1000" cy="110" r="2" fill="#147c80" stroke="#147c80" stroke-width="1"/>
-<line x1="586.6666666666666" y1="139.5" x2="968" y2="180" stroke="#147c80" stroke-width="1.6"/>
-<circle cx="1000" cy="180" r="32" fill="#f6fbfa" stroke="#147c80" stroke-width="2"/>
-<circle cx="1000" cy="180" r="5" fill="white" stroke="#147c80" stroke-width="2"/>
-<text x="1000" y="138" font-family="Arial,Helvetica,sans-serif" font-size="11" font-weight="700" fill="#147c80" text-anchor="middle">stack x1</text>
-<text x="1000" y="226" font-family="Arial,Helvetica,sans-serif" font-size="10" font-weight="400" fill="#52666a" text-anchor="middle">top</text>
-<line x1="1000" y1="180" x2="1000" y2="180" stroke="#147c80" stroke-width="1.8"/>
-<circle cx="1000" cy="180" r="2" fill="#147c80" stroke="#147c80" stroke-width="1"/>
-<line x1="903.3333333333333" y1="139.5" x2="968" y2="250" stroke="#147c80" stroke-width="1.6"/>
-<circle cx="1000" cy="250" r="32" fill="#f6fbfa" stroke="#147c80" stroke-width="2"/>
-<circle cx="1000" cy="250" r="5" fill="white" stroke="#147c80" stroke-width="2"/>
-<text x="1000" y="208" font-family="Arial,Helvetica,sans-serif" font-size="11" font-weight="700" fill="#147c80" text-anchor="middle">stack x1</text>
-<text x="1000" y="296" font-family="Arial,Helvetica,sans-serif" font-size="10" font-weight="400" fill="#52666a" text-anchor="middle">top</text>
-<line x1="1000" y1="250" x2="1000" y2="250" stroke="#147c80" stroke-width="1.8"/>
-<circle cx="1000" cy="250" r="2" fill="#147c80" stroke="#147c80" stroke-width="1"/>
+<line x1="470.0" y1="139.5" x2="968" y2="196" stroke="#147c80" stroke-width="1.6"/>
+<circle cx="1000" cy="196" r="32" fill="#f6fbfa" stroke="#147c80" stroke-width="2"/>
+<circle cx="1000" cy="196" r="5" fill="white" stroke="#147c80" stroke-width="2"/>
+<text x="1000" y="154" font-family="Arial,Helvetica,sans-serif" font-size="11" font-weight="700" fill="#147c80" text-anchor="middle">stack x1</text>
+<text x="1000" y="218" font-family="Arial,Helvetica,sans-serif" font-size="9" font-weight="400" fill="#52666a" text-anchor="middle">top</text>
+<line x1="1000" y1="196" x2="1000" y2="196" stroke="#147c80" stroke-width="1.8"/>
+<circle cx="1000" cy="196" r="2" fill="#147c80" stroke="#147c80" stroke-width="1"/>
+<line x1="736.6666666666666" y1="139.5" x2="968" y2="282" stroke="#147c80" stroke-width="1.6"/>
+<circle cx="1000" cy="282" r="32" fill="#f6fbfa" stroke="#147c80" stroke-width="2"/>
+<circle cx="1000" cy="282" r="5" fill="white" stroke="#147c80" stroke-width="2"/>
+<text x="1000" y="240" font-family="Arial,Helvetica,sans-serif" font-size="11" font-weight="700" fill="#147c80" text-anchor="middle">stack x1</text>
+<text x="1000" y="304" font-family="Arial,Helvetica,sans-serif" font-size="9" font-weight="400" fill="#52666a" text-anchor="middle">top</text>
+<line x1="1000" y1="282" x2="1000" y2="282" stroke="#147c80" stroke-width="1.8"/>
+<circle cx="1000" cy="282" r="2" fill="#147c80" stroke="#147c80" stroke-width="1"/>
 <text x="30" y="337" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="400" fill="#52666a" text-anchor="start">Views intentionally stretch section depth for legibility. Use the coordinates below, not a ruler on this sheet.</text>
 <text x="30" y="366" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="#52666a" text-anchor="start">FIXING</text>
 <text x="115" y="366" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="#52666a" text-anchor="start">FACE</text>
@@ -48,21 +48,21 @@
 <line x1="30" y1="374" x2="1070" y2="374" stroke="#bdceca" stroke-width="1"/>
 <text x="30" y="394" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="400" fill="#183339" text-anchor="start">F01</text>
 <text x="115" y="394" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="400" fill="#183339" text-anchor="start">top</text>
-<text x="215" y="394" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="400" fill="#183339" text-anchor="start">240</text>
+<text x="215" y="394" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="400" fill="#183339" text-anchor="start">200</text>
 <text x="330" y="394" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="400" fill="#183339" text-anchor="start">50</text>
 <text x="440" y="394" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="400" fill="#183339" text-anchor="start">200</text>
 <text x="540" y="394" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="400" fill="#183339" text-anchor="start">7 x 250</text>
 <text x="695" y="394" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="400" fill="#9d4e19" text-anchor="start">UNCONFIRMED - mark out only</text>
 <text x="30" y="418" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="400" fill="#183339" text-anchor="start">F02</text>
 <text x="115" y="418" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="400" fill="#183339" text-anchor="start">top</text>
-<text x="215" y="418" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="400" fill="#183339" text-anchor="start">640</text>
+<text x="215" y="418" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="400" fill="#183339" text-anchor="start">600</text>
 <text x="330" y="418" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="400" fill="#183339" text-anchor="start">50</text>
 <text x="440" y="418" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="400" fill="#183339" text-anchor="start">200</text>
 <text x="540" y="418" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="400" fill="#183339" text-anchor="start">7 x 250</text>
 <text x="695" y="418" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="400" fill="#9d4e19" text-anchor="start">UNCONFIRMED - mark out only</text>
 <text x="30" y="442" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="400" fill="#183339" text-anchor="start">F03</text>
 <text x="115" y="442" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="400" fill="#183339" text-anchor="start">top</text>
-<text x="215" y="442" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="400" fill="#183339" text-anchor="start">1040</text>
+<text x="215" y="442" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="400" fill="#183339" text-anchor="start">1000</text>
 <text x="330" y="442" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="400" fill="#183339" text-anchor="start">50</text>
 <text x="440" y="442" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="400" fill="#183339" text-anchor="start">200</text>
 <text x="540" y="442" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="400" fill="#183339" text-anchor="start">7 x 250</text>

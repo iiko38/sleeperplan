@@ -223,10 +223,16 @@ def parse_job(raw: dict, cat: dict) -> Job:
             integer(extra["unit_price_pence"], "extra.unit_price_pence")
     review = obj(raw.get("review", {}), "review")
     flags = {"timber_and_kerf_measured", "site_and_supports_reviewed", "fixing_schedule_reviewed"}
-    keys(review, flags | {"reviewer", "reviewed_on", "notes"}, set(), "review")
+    keys(review, flags | {"reviewer", "reviewed_on", "notes", "approved_physical_design_hash"}, set(), "review")
     for k in flags:
         if k in review and type(review[k]) is not bool:
             raise PlanError(f"review.{k} must be true or false")
+    if "approved_physical_design_hash" in review:
+        approved = review["approved_physical_design_hash"]
+        if not (isinstance(approved, str) and len(approved) == 64
+                and all(c in "0123456789abcdef" for c in approved)):
+            raise PlanError("review.approved_physical_design_hash must be the 64-character lowercase hex SHA-256 "
+                            "of the physical design, copied from a draft plan output")
     if review.get("reviewed_on"):
         iso_date(review["reviewed_on"], "reviewed_on")
     for k in ("reviewer", "notes"):

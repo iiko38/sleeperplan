@@ -88,7 +88,7 @@ class CLITests(unittest.TestCase):
         return subprocess.run([sys.executable,'-m','sleeperplan',*map(str,args)],cwd=ROOT,capture_output=True,text=True,timeout=30)
 
     def test_help(self):self.assertEqual(self.run_cli('--help').returncode,0)
-    def test_version(self):self.assertEqual(self.run_cli('--version').stdout.strip(),'0.1.0')
+    def test_version(self):self.assertEqual(self.run_cli('--version').stdout.strip(),'0.2.0')
     def test_check_draft_has_distinct_exit_code(self):self.assertEqual(self.run_cli('check','examples/neighbour.json','--as-of','2026-09-06').returncode,3)
 
     def test_bad_job_returns_clean_error(self):

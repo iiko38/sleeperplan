@@ -1,7 +1,7 @@
 # Offer option - 2 courses
 
 
-**DRAFT_MARK_OUT_ONLY** | 2026-09-06 | plan `1282bc342ae6177ba8414a2ba04794b21c7dfea133e875fed907f645f8d133e7`
+**DRAFT_MARK_OUT_ONLY** | 2026-09-06 | plan `4470e837809e9781fb6151995899ab6276423f648f2192abcb9fedfcb25a59de` | physical design `582882b9d66be943f8ded5b19eb60461e2fe4e478c6167194ca02401b859999b`
 
 
 ## Before work starts
@@ -13,6 +13,7 @@ This pack checks nominal geometry, stock allocation and straight screw paths. It
 - **BLOCKER / site_and_supports_reviewed**: Review foundations, drainage, soil loads, support/bracing and any buried services on site.
 - **BLOCKER / fixing_schedule_reviewed**: Review screw suitability, end-grain connections, penetration and spacing with a competent builder / supplier.
 - **BLOCKER / review_record**: Record reviewer, reviewed_on and review notes before releasing a workshop pack.
+- **Note / head_seat_unmodeled**: Screw heads, bearing seats, recesses and driver access are NOT modelled. On stacked courses a protruding head can stop the next course sitting flat even though all shafts pass the collision check, and recessing a seat deepens the hole and moves the tip. Confirm the head-seat detail with the actual hardware before stacking any course.
 - **BLOCKER / pilot_unconfirmed**: wickes-287686: fixing centres are mark-out only. Confirm pilot diameter/depth or a manufacturer-supported no-pilot instruction; none is inferred.
 - **BLOCKER / pilot_unconfirmed**: wickes-287688: fixing centres are mark-out only. Confirm pilot diameter/depth or a manufacturer-supported no-pilot instruction; none is inferred.
 - **Note / aligned_corners**: offer-bed-01: same corner arrangement on every course. Deliberately not interlocked; review the connection.
@@ -44,7 +45,7 @@ Piece A is the lower-global-X end for S/N members, or lower-global-Y end for W/E
 
 6. Assemble course 1 on the prepared base. Clamp and verify square and level before fixing. Corner screws enter the OUTER side face of the full-through member and pass into the end of its adjoining member. They do not enter through the cut end of that full-through member.
 
-7. Follow the per-course drawing; the corner pattern stays the same on every course. Position and clamp the next course, then use its own fixing sheet. Stack screws enter vertically through the TOP and into the previous course. The schedule offsets them to avoid modelled existing screws. Re-check that real timber, hardware heads and installation tolerances match the model before drilling or driving.
+7. Follow the per-course drawing; the corner pattern stays the same on every course. Position and clamp the next course, then use its own fixing sheet. Stack screws enter vertically through the TOP and into the previous course. The schedule offsets them to avoid modelled existing screws. Re-check that real timber, hardware heads and installation tolerances match the model before drilling or driving. Screw HEADS and bearing seats are NOT modelled: before stacking any course, confirm the head-seat detail for the actual hardware (a protruding head can stop the next sleeper sitting flat, and recessing a seat deepens the hole and moves the tip).
 
 8. For every fixing use the confirmed pilot instruction for the actual screw and timber. UNCONFIRMED is a STOP, not permission to choose a bit. Hole coordinates are entry centres; pilot depth is measured from that entry face along the stated direction. Nominal screw penetration includes its point, so it is not the same as effective threaded embedment.
 

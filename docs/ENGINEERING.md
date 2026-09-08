@@ -64,6 +64,8 @@ For two perpendicular or parallel axis-aligned screw segments, minimum segment s
 
 The actual fastener selection must be suitable for treated timber, exterior exposure, end-grain withdrawal, loading and the full site. Manufacturer guidance and competent review take precedence over these geometric defaults. Brackets/posts/through-bolts or other supports may be required; this version does not design or draw them. Their materials and labour must be priced explicitly and their installation detail recorded separately.
 
+**Screw heads, bearing seats, recesses and driver access are not modelled.** Only idealised shafts are collision-checked. On stacked courses a protruding head can stop the next sleeper sitting flat even though every shaft passes the clearance check; recessing a bearing seat deepens the effective hole and moves the tip, so tip clearance must be re-checked after any recess. The plan raises a `head_seat_unmodeled` issue whenever a bed has more than one course. Confirm the head-seat detail with the actual hardware before stacking; an approved joint recipe (hardware, head seat, bore preparation, depth datum, evidence) is a prerequisite for sellable kits.
+
 **Pilot diameter and depth are not inferred.** The selected Wickes product pages did not establish those values. Confirm them against the actual product/timber and record the evidence. A recorded no-pilot instruction is distinct from an unknown pilot instruction. The release gate enforces that distinction, but cannot verify the truth of a human's evidence.
 
 ## Site and material limits
@@ -79,6 +81,8 @@ The “centre reach over 650 mm” warning is a user-fit prompt only; it is not 
 ## Release and physical validation
 
 All included examples are drafts. The three review flags plus reviewer/date/notes record that measurements, site/supports and fixings have been checked. `--release` requires them and confirmed pilot specifications, and refuses unsupported sites/heights. This is a workflow gate, not professional certification. Editing a reviewed job does not make its old review applicable to the new design; renew the review after every meaningful change. Height comparison resets reviews automatically.
+
+**Approval binding.** The plan carries a `physical_design_hash` — a SHA-256 over the physical artefact only (profile, beds, orientation, stock lengths/trims, screw lengths/diameters/pilot spec, geometric rules). Prices, pack sizes, availability, provenance text, the review block and the as-of date are excluded, so a price-only revision does not invalidate a physical approval, while any change to dimensions, hardware or machining does. `--release` requires `review.approved_physical_design_hash` to equal the current hash: a mismatch blocks release (`stale_approval`), and a missing hash blocks release (`approval_hash_required`). Workflow: run a draft plan, copy the printed physical design hash into the job's review block once the physical review is genuinely done, then release. `examples/reviewed-example.json` and `catalogues/wickes-reviewed-2026-09-06.json` are DEMONSTRATION fixtures for this gate — their reviewer/pilot text is not real evidence.
 
 For the first real bed, use a controlled trial: measure stock/kerf; verify a full-size course; check the saw sequence against one physical board; confirm the exact pilot/driver setup and connection with a competent builder or supplier; then compare the installed course to the drawing. Verify supports and drainage before filling. Record changes and make regression tests before standardising a sellable kit.
 

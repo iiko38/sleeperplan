@@ -259,17 +259,17 @@ def piece_scene(plan: dict, raw: dict) -> Scene:
     s=Scene(1100,395+24*max(1,len(fix)))
     header(s,f"{p.id} / {p.length_mm} x {p.thickness_mm} x {p.height_mm} mm",
            f"{plan['status']}  |  Datum A = lower global {'X' if p.axis=='X' else 'Y'} end  |  Coordinates in mm, rounded to 0.1 for display")
-    scale=950/p.length_mm
-    x0=80
+    scale=800/p.length_mm
+    x0=70
     top_y,top_h=112,55
     outer_y,outer_h=224,80
     s.text(30,100,"TOP FACE / U along length; V across width from its lower-coordinate edge",14,bold=True)
-    s.rect(x0,top_y,950,top_h,PALE,INK)
-    s.text(48,top_y+top_h/2+5,"A",16,ACCENT,"middle",True)
+    s.rect(x0,top_y,800,top_h,PALE,INK)
+    s.text(38,top_y+top_h/2+5,"A",16,ACCENT,"middle",True)
     s.text(x0,top_y+top_h+19,"V=0 edge",12,MUTED)
     s.text(30,211,f"OUTER FACE / U from A; W measured UP from bottom / side {p.side}",14,bold=True)
-    s.rect(x0,outer_y,950,outer_h,TIMBER,INK)
-    s.text(48,outer_y+outer_h/2+5,"A",16,ACCENT,"middle",True)
+    s.rect(x0,outer_y,800,outer_h,TIMBER,INK)
+    s.text(38,outer_y+outer_h/2+5,"A",16,ACCENT,"middle",True)
     plotted=[]
     for f in fix:
         u,v,w=f['local_mm']
@@ -285,14 +285,14 @@ def piece_scene(plan: dict, raw: dict) -> Scene:
         # IKEA-style zoom bubbles for the first critical fixing points.
         priority={"corner":0,"stack":1}
         focus=sorted(plotted,key=lambda item:(priority.get(item[2]['kind'],9), item[2]['entry_face'], item[0]))[:3]
-        bubbles=[(1000,110),(1000,180),(1000,250)]
+        bubbles=[(1000,110),(1000,196),(1000,282)]
         for i,(px,py,f) in enumerate(focus):
             bx,by=bubbles[i]
             s.line(px,py,bx-32,by,ACCENT,1.6)
             s.circle(bx,by,32,"#f6fbfa",ACCENT,2)
             s.circle(bx,by,5,"white",ACCENT,2)
             s.text(bx,by-42,f"{f['kind']} x1",11,ACCENT,"middle",bold=True)
-            s.text(bx,by+46,f"{f['entry_face']}",10,MUTED,"middle")
+            s.text(bx,by+22,f"{f['entry_face']}",9,MUTED,"middle")
             dx,dy,_=f['direction']
             s.line(bx-dx*18,by+dy*18,bx+dx*18,by-dy*18,ACCENT,1.8)
             s.circle(bx+dx*18,by-dy*18,2,ACCENT,ACCENT,1)
@@ -345,14 +345,22 @@ def process_scene(plan: dict) -> Scene:
     return s
 
 
-def parts_scene(plan: dict) -> Scene:
+def parts_scene(plan: dict, page: int = 0, rows_per_page: int | None = None) -> Scene:
     screw_ids=sorted({f['screw_id'] for f in plan['fixings']})
     top_rows=1 if len(screw_ids)<=3 else 2
-    pieces=sorted(plan['pieces'],key=lambda p:(p['bed_id'],p['course'],p['side'],p['id']))
+    all_pieces=sorted(plan['pieces'],key=lambda p:(p['bed_id'],p['course'],p['side'],p['id']))
+    pages=1
+    if rows_per_page:
+        pages=max(1,(len(all_pieces)+rows_per_page-1)//rows_per_page)
+        pieces=all_pieces[page*rows_per_page:(page+1)*rows_per_page]
+    else:
+        pieces=all_pieces
     height=max(760, 360 + top_rows*150 + len(pieces)*30 + 90)
     s=Scene(1100,height)
-    header(s,"Parts and fixings board / visual checklist",
-           f"{plan['status']}  |  Verify quantity and ID before each step")
+    subtitle=f"{plan['status']}  |  Verify quantity and ID before each step"
+    if rows_per_page:
+        subtitle+=f"  |  Part list page {page+1} of {pages}"
+    header(s,"Parts and fixings board / visual checklist",subtitle)
     s.text(44,108,"TOOLS / HANDLING",14,bold=True)
     s.rect(38,120,1024,68,"#f7fbfa","#d3e0dc",1)
     tags=["[2x] two people for long/heavy members","[CHECK] confirm A/TOP/OUTER labels","[STOP] resolve blockers before drilling","Hammer + driver/bit set + square/level"]
