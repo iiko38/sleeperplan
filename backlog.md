@@ -34,6 +34,14 @@ A deterministic, offline workshop tool for repeatable timber sleeper flower beds
 
 ## Next Milestone: Physical Shop & Field Validation
 
+- [ ] **HIGH PRIORITY — 3-tier 9-sleeper optimisation:**
+  - Replace the current 12-sleeper 2400 x 1400 example with a near-identical-width design that uses **9 x 2400 mm sleepers total**.
+  - Six 2400 mm sleepers remain full length for the long sides; the remaining three 2400 mm sleepers each produce two short sides.
+  - Do **not** preserve an exact 1400 mm outside width if that forces three extra sleepers. Accept a few millimetres of width change to fit real kerf efficiently.
+  - Current integer-mm planner target: **1197 mm short sides / 1397 mm outside width**, which fits two identical shorts in a 2400 mm board under the existing conservative 3 mm kerf model (`1197 + 3 + 1197 + 3 = 2400`).
+  - Re-run BOM, cuts, costs, operations, animation and PDF packs after the geometry change; regression-test that the 3-course option purchases exactly 9 sleepers.
+  - Reconfirm against the measured real sleeper lengths and actual saw kerf before finalising the physical prototype.
+
 - [x] **Session Harness Refresh (2026-09-07):**
   - Verified repo core harness files against `P:\homelab\patterns\repo-harness` (`AGENTS.md`, `state.yaml`, `backlog.md`, `implementationstatus.md`).
   - Added a dated active checklist under `checklists/` for the current field-validation wave.
